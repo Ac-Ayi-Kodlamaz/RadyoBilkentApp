@@ -1,6 +1,6 @@
 package Contents;
 
-public class Blog
+public class Blog extends Content
 {
     public boolean isMarked;
     public String content;
@@ -12,6 +12,7 @@ public class Blog
     public boolean openInBrowser()
     {
         //TODO (Android Studio)
+
         return false;
     }
 }

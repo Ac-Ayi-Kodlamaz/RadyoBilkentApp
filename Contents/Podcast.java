@@ -1,6 +1,6 @@
 package Contents;
 
-public class Podcast
+public class Podcast extends Content
 {
     public String description;
 

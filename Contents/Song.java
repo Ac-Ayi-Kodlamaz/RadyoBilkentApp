@@ -2,7 +2,7 @@ package Contents;
 
 import java.util.ArrayList;
 
-public class Song {
+public class Song extends Content {
 
     public int MAX_SIZE = 10^6;
     public String album;
