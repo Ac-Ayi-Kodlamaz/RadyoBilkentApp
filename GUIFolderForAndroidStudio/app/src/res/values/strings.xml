@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">application8</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+<string name="lbl_logout">Logout</string>
+<string name="lbl_programme_a">Programme A</string>
+<string name="lbl_duration_date">Duration
+Date</string>
+<string name="lbl_live">Live</string>
+<string name="msg_1_rick_astley">#1 Rick Astley Never Gonna Give You Up</string>
+<string name="msg_4_dua_lipa_le">#4 Dua Lipa-
+Levitating</string>
+<string name="lbl_heading">Heading</string>
+<string name="lbl_app_navigation">App Navigation</string>
+<string name="lbl_movies">Movies</string>
+<string name="msg_about_us_bilken2">About Us
+Bilkent Radio App
+
+</string>
+<string name="msg_current_program">Current program name</string>
+<string name="lbl_podcasts">Podcasts</string>
+<string name="lbl_20_s">-20 s</string>
+<string name="msg_1_rick_astley2">#1 Rick Astley-
+Never Gonna Give You Up</string>
+<string name="lbl_share_music">Share Music</string>
+<string name="lbl_dj_k3sm3n">DJ_K3sm3N</string>
+<string name="msg_3_the_weeknd_b">#3 The Weeknd Blinding Lights</string>
+<string name="msg_voting_session">Voting Session #54
+Auction Top 4 Bidders</string>
+<string name="lbl_auction">Auction</string>
+<string name="lbl_feedback2">feedback</string>
+<string name="msg_voting_selectio">Voting Selection</string>
+<string name="msg_3_the_weeknd">#3 The Weeknd-
+Blinding Lights</string>
+<string name="lbl_point_store">Point Store</string>
+<string name="lbl_1200_points">1200 Points</string>
+<string name="msg_01_54_left_for">01:54
+Left for Auction
+
+Current Highest Bid 1000 points</string>
+<string name="lbl_artist">Artist</string>
+<string name="lbl_profile_screen">Profile Screen</string>
+<string name="msg_input_your_feed">Input your feedback:
+</string>
+<string name="lbl_writings">Writings</string>
+<string name="msg_recommended_oth">Recommended other
+ Podcasts</string>
+<string name="lbl_type_of_writing">Type of writing</string>
+<string name="lbl_song_screen">Song Screen</string>
+<string name="msg_4_never_gonna">#4 Never Gonna Give You Up - Rick Astley</string>
+<string name="msg_5_never_gonna">#5 Never Gonna Give You Up - Rick Astley</string>
+<string name="lbl_2500_points">2500 points</string>
+<string name="msg_current_program2">Current Programme:</string>
+<string name="msg_3_never_gonna">#3 Never Gonna Give You Up - Rick Astley</string>
+<string name="msg_2_tarkan_ge">#2 Tarkan-
+Geççek</string>
+<string name="msg_1_never_gonna">#1 Never Gonna Give You Up - Rick Astley</string>
+<string name="lbl_35">%35</string>
+<string name="msg_check_your_app">"Check your app's UI from the below demo screens of your app."</string>
+<string name="msg_voting_screen_a">Voting Screen After Voted</string>
+<string name="msg_2_never_gonna">#2 Never Gonna Give You Up - Rick Astley</string>
+<string name="lbl_sport">Sport</string>
+<string name="msg_email_passw">Email:
+
+
+
+Password:</string>
+<string name="lbl_sleep_timer">Sleep Timer</string>
+<string name="msg_2_tarkan_ge_e">#2 Tarkan Geççek</string>
+<string name="msg_after_auction_s">After Auction Screen</string>
+<string name="lbl_album">Album</string>
+<string name="lbl_chosen_writing">Chosen Writing</string>
+<string name="msg_photo_title2">
+Photo
+
+
+
+Title
+
+Duration</string>
+<string name="msg_amount_of_point3">Amount of Points That Will Be
+Used for Voting:
+
+1500</string>
+<string name="lbl_edit_photo">Edit Photo</string>
+<string name="msg_photo_title">Photo
+
+
+
+Title
+
+
+
+Author</string>
+<string name="msg_amount_of_point2">Amount of Points
+Used for Bidding:
+1200</string>
+<string name="lbl_23">%23</string>
+<string name="msg_1dj_k3sm3n_120">#1DJ_K3sm3N-1200 points</string>
+<string name="msg_purchase_hat_3">Purchase Hat #3
+for 1400 points</string>
+<string name="lbl_27">%27</string>
+<string name="msg_about_us_bilken">About Us
+Bilkent Radio App
+
+brought to you by:
+Ac Ayi Kodlamaz
+
+
+
+
+
+
+
+
+
+Yusuf Kesmen
+Tuna Saygın
+Yiğit İlk
+Ali Cevat Erçal
+Ulaş Dilek</string>
+<string name="msg_purchase_hat_2">Purchase Hat #2
+for 1300 points</string>
+<string name="lbl_contents">Contents</string>
+<string name="msg_purchase_hat_1">Purchase Hat #1
+for 1200 points</string>
+<string name="lbl_confirm">Confirm</string>
+<string name="lbl_song_choices">Song choices</string>
+<string name="msg_text_input_by_u">Text input by user</string>
+<string name="msg_2_y_t_1000_po">#2 Y\u20ac\u20act 1000 points</string>
+<string name="msg_weekly_statisti">Weekly Statistics</string>
+<string name="lbl_feedback">Feedback</string>
+<string name="msg_amount_of_point">Amount of Points
+Used for Voting:
+1500</string>
+<string name="msg_k3sm3n_is_da_be">K3sm3n is Da Best
+Y\u20ac\u20act is Da Seconde
+Otherz Follow Us</string>
+<string name="lbl_log_in">Log in</string>
+<string name="msg_playing_the_s">Playing:  The song That is Live</string>
+<string name="lbl_program_choice">Program Choice</string>
+<string name="msg_never_gonna_giv">Never Gonna Give You Up - Rick Astley</string>
+<string name="lbl_send">Send</string>
+<string name="lbl_blogs">Blogs</string>
+<string name="lbl_15">%15</string>
+<string name="lbl_profile">Profile</string>
+<string name="msg_pick_your_choic">Pick your choice:</string>
+<string name="lbl_edit_username">Edit Username:</string>
+<string name="msg_voting_session2">Voting Session #52
+Time Remaining For Voting Session:
+2:30</string>
+<string name="msg_podcast_editor">Podcast editor
+
+Date</string>
+<string name="msg_4_dua_lipa_lev">#4 Dua Lipa Levitating</string>
+<string name="msg_4_ula_50_poin">#4 Ulaß 50 points</string>
+<string name="lbl_edit_age">Edit Age:</string>
+<string name="lbl_copy_music_name">Copy Music Name</string>
+<string name="lbl_main_menu">Main Menu</string>
+<string name="lbl_text_itself">Text itself</string>
+<string name="lbl_image">Image</string>
+<string name="lbl_log_in_screen">Log in screen</string>
+<string name="lbl_music">Music   </string>
+<string name="msg_change_passwor">Change  Password</string>
+<string name="msg_log_in">Log in                    Sign in</string>
+<string name="lbl_forgot_password">Forgot
+Password</string>
+<string name="lbl_xx_xx_xx_xx">XX:XX - XX:XX</string>
+<string name="lbl_chosen_podcast">Chosen Podcast</string>
+<string name="msg_voting_is_activ">VOTING IS ACTIVE
+CLICK TO VOTE</string>
+<string name="lbl_types_choice">Types choice</string>
+<string name="msg_3_cevat_800_po">#3 Cevat 800 points</string>
+<string name="msg_brought_to_you">brought to you by:
+Ac Ayi Kodlamaz
+
+
+
+
+
+
+
+
+
+Yusuf Kesmen
+Tuna Saygın
+Yiğit İlk
+Ali Cevat Erçal
+Ulaş Dilek</string>
+<string name="msg_song_name_will">Song Name Will Be Displayed Here</string>
+<string name="lbl_type">Type</string>
+<string name="msg_weekly_listen_d">Weekly Listen Duration: 20 minutes
+Acount Age: 5 months</string>
+<string name="msg_this_contact_has_no_phone_nu">This contact has no phone number</string>
+</resources>

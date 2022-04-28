@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="podcastsVM" type="com.application.app.modules.podcasts.data.viewmodel.PodcastsVM"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintPodcasts"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_1">
+        <HorizontalScrollView android:fillViewport="true"
+            android:id="@+id/horizontalScrollGroup221"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_width="0dp" android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/imageExitbuttonin">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintProgrammeflow"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" style="@style/groupStyle">
+                <TextView android:id="@+id/txtMusic"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:paddingBottom="@dimen/_17pxv"
+                    android:paddingEnd="@dimen/_18pxh"
+                    android:paddingTop="@dimen/_18pxv"
+                    android:text="@{podcastsVM.podcastsModel.txtMusic}"
+                    app:layout_constraintEnd_toStartOf="@+id/constraintGroup207"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/txtSolidRounded_1" tools:text="@string/lbl_music"/>
+                <TextView android:id="@+id/txtSport"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_21pxh"
+                    android:layout_width="wrap_content"
+                    android:paddingBottom="@dimen/_19pxv"
+                    android:paddingStart="@dimen/_14pxh"
+                    android:paddingTop="@dimen/_16pxv"
+                    android:text="@{podcastsVM.podcastsModel.txtSport}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toEndOf="@+id/constraintGroup207"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/txtSolidRounded_1" tools:text="@string/lbl_sport"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintGroup207"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_21pxh"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/txtSport"
+                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintStart_toEndOf="@+id/txtMusic"
+                    app:layout_constraintTop_toTopOf="parent" style="@style/groupStylewhite_A700cornerRadius">
+                    <ImageView android:id="@+id/imageMaskgroup"
+                        android:layout_height="@dimen/_41pxh"
+                        android:layout_width="@dimen/_177pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_maskgroup_8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtTypesChoice"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_18pxv"
+                        android:layout_marginEnd="@dimen/_51pxh"
+                        android:layout_marginStart="@dimen/_50pxh"
+                        android:layout_marginTop="@dimen/_17pxv"
+                        android:layout_width="wrap_content"
+                        android:singleLine="true"
+                        android:text="@{podcastsVM.podcastsModel.txtTypesChoice}"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageMaskgroup"
+                        app:layout_constraintEnd_toEndOf="@+id/imageMaskgroup"
+                        app:layout_constraintStart_toStartOf="@+id/imageMaskgroup"
+                        app:layout_constraintTop_toTopOf="@+id/imageMaskgroup"
+                        style="@style/txtCormorantGaramondregular12" tools:text="@string/lbl_types_choice"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
+        <ImageView android:clickable="true"
+            android:id="@+id/imageExitbuttonin"
+            android:layout_height="@dimen/_36pxh"
+            android:layout_marginEnd="@dimen/_317pxh"
+            android:layout_marginTop="@dimen/_5pxv"
+            android:layout_width="@dimen/_43pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_exitbuttonin_2"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollGroup221"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/constraintGroup182"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPodcasts"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_50pxv"
+            android:layout_marginTop="@dimen/_19pxv"
+            android:layout_width="0dp" android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollGroup221"
+            itemSpace="@{@dimen/_21pxh}" tools:itemCount="3" tools:listitem="@layout/row_podcasts1"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintGroup182"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_1pxh"
+            android:layout_marginTop="@dimen/_7pxv"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageExitbuttonin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" style="@style/groupStylewhite_A700">
+            <ImageView android:id="@+id/imageHamburger"
+                android:layout_height="@dimen/_46pxh"
+                android:layout_width="@dimen/_43pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_hamburger_4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintGroup180"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            <View android:background="@color/gray_400_0c"
+                android:id="@+id/viewRectangle48"
+                android:layout_height="@dimen/_46pxv"
+                android:layout_width="@dimen/_43pxh"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintGroup180"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:clickable="true"
+                android:id="@+id/constraintGroup180"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5pxv"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_146pxh"
+                android:layout_marginTop="@dimen/_9pxv"
+                android:layout_width="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imageHamburger"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toEndOf="@+id/imageHamburger" app:layout_constraintTop_toTopOf="@+id/imageHamburger">
+                <ImageView android:id="@+id/imageProfilePicture"
+                    android:layout_height="@dimen/_31pxh"
+                    android:layout_marginStart="@dimen/_4pxh"
+                    android:layout_width="@dimen/_22pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_profilepicture_4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.39"
+                    app:layout_constraintStart_toEndOf="@+id/txtDJK3sm3N" app:layout_constraintTop_toTopOf="parent"/>
+                <TextView android:id="@+id/txtDJK3sm3N"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@{podcastsVM.podcastsModel.txtDJK3sm3N}"
+                    app:layout_constraintEnd_toStartOf="@+id/imageProfilePicture"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/txtDosisregular12" tools:text="@string/lbl_dj_k3sm3n"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txt2500Points"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4pxh"
+                    android:layout_marginStart="@dimen/_102pxh"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{podcastsVM.podcastsModel.txt2500Points}"
+                    app:layout_constraintEnd_toEndOf="@+id/txtDJK3sm3N"
+                    app:layout_constraintHorizontal_bias="0.63"
+                    app:layout_constraintStart_toStartOf="@+id/txtDJK3sm3N"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDJK3sm3N"
+                    style="@style/txtDosisregular7" tools:text="@string/lbl_2500_points"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

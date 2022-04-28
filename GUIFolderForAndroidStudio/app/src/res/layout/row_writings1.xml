@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="writings1RowModel" type="com.application.app.modules.writings.data.model.Writings1RowModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:clickable="true" android:id="@+id/constraintGroup"
+        android:layout_height="wrap_content" android:layout_width="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintGroup144"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_7pxv"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" style="@style/groupStyleblue_400">
+            <ImageView android:id="@+id/imageAlbumcover"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_85pxv"
+                android:layout_width="@dimen/_178pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_albumcover"
+                app:layout_constraintBottom_toBottomOf="@+id/txtPhotoTitle"
+                app:layout_constraintDimensionRatio="1.0:0.30898875"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            <TextView android:gravity="start"
+                android:id="@+id/txtPhotoTitle"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_123pxh"
+                android:layout_marginStart="@dimen/_19pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="0dp"
+                android:text="@{writings1RowModel.txtPhotoTitle}"
+                app:layout_constraintBottom_toTopOf="@+id/imageImage3"
+                app:layout_constraintEnd_toEndOf="@+id/imageAlbumcover"
+                app:layout_constraintStart_toStartOf="@+id/imageAlbumcover"
+                app:layout_constraintTop_toTopOf="@+id/imageAlbumcover"
+                style="@style/txtRobotoregular12" tools:text="@string/msg_photo_title"/>
+            <ImageView android:id="@+id/imageImage3"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_4pxv"
+                android:layout_marginEnd="@dimen/_2pxh"
+                android:layout_marginStart="@dimen/_161pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_width="@dimen/_15pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_image3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="0.9375:1.0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/txtPhotoTitle"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView android:id="@+id/imageImage2"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_141pxh"
+            android:layout_marginTop="@dimen/_139pxv"
+            android:layout_width="@dimen/_21pxh"
+            android:scaleType="fitXY" android:src="@drawable/img_image2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="0.5833333:1.0"
+            app:layout_constraintEnd_toEndOf="@+id/constraintGroup144"
+            app:layout_constraintStart_toStartOf="@+id/constraintGroup144" app:layout_constraintTop_toTopOf="@+id/constraintGroup144"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

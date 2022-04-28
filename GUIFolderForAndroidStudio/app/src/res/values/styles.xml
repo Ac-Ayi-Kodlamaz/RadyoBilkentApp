@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="groupStylegray_400cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_gray_400_radius_61_6</item>
+    </style>
+    <style name="txtRobotoregular20" parent="txtRobotoregular14_1">
+        <item name="android:textSize">@dimen/_20pxh</item>
+    </style>
+    <style name="groupStyleblue_400cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_blue_400_radius_10</item>
+    </style>
+    <style name="txtDosisregular24_2" parent="txtDosisregular24">
+        <item name="android:textColor">@color/black_900</item>
+    </style>
+    <style name="btnSolidRounded_2" parent="btnSolidRounded_1">
+        <item name="android:textColor">@color/gray_50</item>
+    </style>
+    <style name="txtDosisregular24_1" parent="txtDosisregular24">
+        <item name="android:textColor">@color/white_A701</item>
+    </style>
+    <style name="btnSolidRounded_1" parent="btnSolid">
+        <item name="android:textSize">@dimen/_24pxh</item>
+        <item name="android:fontFamily">@font/dosis</item>
+        <item name="android:background">@drawable/rectangle_bg_red_a400_radius_10</item>
+    </style>
+    <style name="groupStylecornerRadius">
+        <item name="android:background">@drawable/rectangle_gradient_s_blue_400_e_teal_400_radius_10</item>
+    </style>
+    <style name="txtRobotoregular24" parent="txtRobotoregular14_1">
+        <item name="android:textSize">@dimen/_24pxh</item>
+    </style>
+    <style name="txtSolid_1" parent="txtRobotoregular16_1">
+        <item name="android:textSize">@dimen/_15pxh</item>
+        <item name="android:background">@drawable/rectangle_bg_gray_801</item>
+    </style>
+    <style name="groupStyleblue_900cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_blue_900_radius_20</item>
+    </style>
+    <style name="txtSolid_2" parent="txtSolid">
+        <item name="android:textSize">@dimen/_15pxh</item>
+        <item name="android:textColor">@color/black_900</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="txtDosisregular7" parent="txtDosisregular24_2">
+        <item name="android:textSize">@dimen/_7pxh</item>
+        <item name="android:fontFamily">@font/dosis</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="groupStylewhite_A700">
+        <item name="android:background">@drawable/rectangle_bg_white_a700</item>
+    </style>
+    <style name="groupStylewhite_A700_db">
+        <item name="android:background">@drawable/rectangle_bg_white_a700_db</item>
+    </style>
+    <style name="groupStyledeep_orange_200cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_deep_orange_200_radius_68</item>
+    </style>
+    <style name="btnSolidRounded" parent="btnSolid">
+        <item name="android:textSize">@dimen/_14pxh</item>
+        <item name="android:background">@drawable/rectangle_bg_blue_900_radius_10</item>
+    </style>
+    <style name="groupStylegray_600">
+        <item name="android:background">@drawable/rectangle_bg_gray_600</item>
+    </style>
+    <style name="groupStylegray_400">
+        <item name="android:background">@drawable/rectangle_bg_gray_400</item>
+    </style>
+    <style name="groupStylegray_200">
+        <item name="android:background">@drawable/rectangle_bg_gray_200</item>
+    </style>
+    <style name="groupStylewhite_1">
+        <item name="android:background">@drawable/rectangle_bg_white_a700</item>
+    </style>
+    <style name="txtRobotoregular16" parent="txtRobotoregular14">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:textColor">@color/black_900</item>
+    </style>
+    <style name="txtRobotoregular14" parent="txtRobotoregular14_1">
+        <item name="android:textColor">@color/gray_200</item>
+    </style>
+    <style name="txtRobotoregular15" parent="txtRobotoregular14_1">
+        <item name="android:textSize">@dimen/_15pxh</item>
+    </style>
+    <style name="txtRobotoregular12" parent="txtRobotoregular14_1">
+        <item name="android:textSize">@dimen/_12pxh</item>
+    </style>
+    <style name="txtRobotoregular13">
+        <item name="android:textSize">@dimen/_13pxh</item>
+        <item name="android:textColor">@color/black_900</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="btnSolid">
+        <item name="android:textSize">@dimen/_15pxh</item>
+        <item name="android:textColor">@color/white_A700</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+        <item name="android:background">@drawable/rectangle_bg_gray_801</item>
+    </style>
+    <style name="txtSolid" parent="txtRobotoregular14_1">
+        <item name="android:textSize">@dimen/_24pxh</item>
+        <item name="android:background">@drawable/rectangle_bg_gray_400</item>
+    </style>
+    <style name="btnSolid_1" parent="btnSolid">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:background">@drawable/rectangle_bg_light_green_a700</item>
+    </style>
+    <style name="groupStylecyan_50cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_cyan_50_radius_10</item>
+    </style>
+    <style name="groupStylewhite_A700_d8">
+        <item name="android:background">@drawable/rectangle_bg_white_a700_d8</item>
+    </style>
+    <style name="groupStyle">
+        <item name="android:background">@drawable/rectangle_dhi_0</item>
+    </style>
+    <style name="txtSolidRounded" parent="txtRobotoregular12">
+        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_10</item>
+    </style>
+    <style name="txtCormorantGaramondregular12" parent="txtRobotoregular12">
+        <item name="android:fontFamily">@font/cormorant_garamond</item>
+    </style>
+    <style name="txtRobotoregular9" parent="txtRobotoregular16_1">
+        <item name="android:textSize">@dimen/_9pxh</item>
+        <item name="android:textColor">@color/gray_400</item>
+    </style>
+    <style name="groupStylegray_201cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_gray_201_radius_10</item>
+    </style>
+    <style name="txtDosisregular16">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:textColor">@color/white_A700</item>
+        <item name="android:fontFamily">@font/dosis</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="groupStylegray_200cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_gray_200_radius_10</item>
+    </style>
+    <style name="txtDosisregular12" parent="txtDosisregular20">
+        <item name="android:textSize">@dimen/_12pxh</item>
+        <item name="android:textColor">@color/gray_800</item>
+    </style>
+    <style name="txtregular20">
+        <item name="android:textSize">@dimen/_20pxh</item>
+        <item name="android:textColor">@color/black_900</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="groupStyleblue_1">
+        <item name="android:background">@drawable/rectangle_bg_blue_900_radius_10</item>
+    </style>
+    <style name="txtSolidRounded_1" parent="txtCormorantGaramondregular12">
+        <item name="android:textSize">@dimen/_12pxh</item>
+        <item name="android:textColor">@color/black_900</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_10</item>
+    </style>
+    <style name="txtRobotoregular32" parent="txtRobotoregular14_1">
+        <item name="android:textSize">@dimen/_32pxh</item>
+    </style>
+    <style name="txtregular16">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:textColor">@color/bluegray_400</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="txtRobotoromanregular12" parent="txtRobotoregular14_1">
+        <item name="android:textSize">@dimen/_12pxh</item>
+    </style>
+    <style name="txtRobotoromanregular14" parent="txtRobotoregular14_1">
+        <item name="android:textColor">@color/gray_200</item>
+    </style>
+    <style name="groupStylewhite_A700cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_10</item>
+    </style>
+    <style name="groupStylegray_400_99">
+        <item name="android:background">@drawable/rectangle_bg_gray_400_99</item>
+    </style>
+    <style name="groupStyleblue_400">
+        <item name="android:background">@drawable/rectangle_bg_blue_400</item>
+    </style>
+    <style name="txtRobotoregular14_1" parent="txtRobotoregular13">
+        <item name="android:textSize">@dimen/_14pxh</item>
+    </style>
+    <style name="txtRobotoregular16_1" parent="txtRobotoregular16">
+        <item name="android:textColor">@color/white_A700</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="txtDosisregular24" parent="txtDosisregular16">
+        <item name="android:textSize">@dimen/_24pxh</item>
+    </style>
+    <style name="txtDosisregular20" parent="txtDosisregular24">
+        <item name="android:textSize">@dimen/_20pxh</item>
+        <item name="android:textColor">@color/gray_50</item>
+        <item name="android:fontFamily">@font/dosis</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+</resources>

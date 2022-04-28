@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="programChoiceVM" type="com.application.app.modules.programchoice.data.viewmodel.ProgramChoiceVM"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintProgramChoice"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_1">
+        <TextView android:ellipsize="end" android:gravity="start"
+            android:id="@+id/txtCurrentProgram"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_106pxh"
+            android:layout_marginStart="@dimen/_106pxh"
+            android:layout_marginTop="@dimen/_16pxv"
+            android:layout_width="0dp" android:singleLine="true"
+            android:text="@{programChoiceVM.programChoiceModel.txtCurrentProgram}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageExitbuttonin"
+            style="@style/txtRobotoregular16" tools:text="@string/msg_current_program2"/>
+        <TextView android:ellipsize="end" android:gravity="start"
+            android:id="@+id/txtProgrammeA"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_596pxv"
+            android:layout_marginEnd="@dimen/_130pxh"
+            android:layout_marginStart="@dimen/_130pxh"
+            android:layout_marginTop="@dimen/_56pxv"
+            android:layout_width="0dp" android:singleLine="true"
+            android:text="@{programChoiceVM.programChoiceModel.txtProgrammeA}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCurrentProgram"
+            style="@style/txtRobotoregular16" tools:text="@string/lbl_programme_a"/>
+        <ImageView android:clickable="true"
+            android:id="@+id/imageExitbuttonin"
+            android:layout_height="@dimen/_36pxh"
+            android:layout_marginEnd="@dimen/_317pxh"
+            android:layout_marginTop="@dimen/_5pxv"
+            android:layout_width="@dimen/_43pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_exitbuttonin_2"
+            app:layout_constraintBottom_toTopOf="@+id/txtCurrentProgram"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/constraintGroup132"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintGroup132"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_1pxh"
+            android:layout_marginTop="@dimen/_7pxv"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageExitbuttonin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" style="@style/groupStylewhite_A700">
+            <ImageView android:id="@+id/imageHamburger"
+                android:layout_height="@dimen/_46pxh"
+                android:layout_width="@dimen/_43pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_hamburger_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintGroup130"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            <View android:background="@color/gray_400_0c"
+                android:id="@+id/viewRectangle48"
+                android:layout_height="@dimen/_46pxv"
+                android:layout_width="@dimen/_43pxh"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintGroup130"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:clickable="true"
+                android:id="@+id/constraintGroup130"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5pxv"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_146pxh"
+                android:layout_marginTop="@dimen/_9pxv"
+                android:layout_width="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imageHamburger"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toEndOf="@+id/imageHamburger" app:layout_constraintTop_toTopOf="@+id/imageHamburger">
+                <ImageView android:id="@+id/imageProfilePicture"
+                    android:layout_height="@dimen/_31pxh"
+                    android:layout_marginStart="@dimen/_4pxh"
+                    android:layout_width="@dimen/_22pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_profilepicture_2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.39"
+                    app:layout_constraintStart_toEndOf="@+id/txtDJK3sm3N" app:layout_constraintTop_toTopOf="parent"/>
+                <TextView android:id="@+id/txtDJK3sm3N"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@{programChoiceVM.programChoiceModel.txtDJK3sm3N}"
+                    app:layout_constraintEnd_toStartOf="@+id/imageProfilePicture"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/txtDosisregular12" tools:text="@string/lbl_dj_k3sm3n"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txt2500Points"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4pxh"
+                    android:layout_marginStart="@dimen/_102pxh"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{programChoiceVM.programChoiceModel.txt2500Points}"
+                    app:layout_constraintEnd_toEndOf="@+id/txtDJK3sm3N"
+                    app:layout_constraintHorizontal_bias="0.63"
+                    app:layout_constraintStart_toStartOf="@+id/txtDJK3sm3N"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDJK3sm3N"
+                    style="@style/txtDosisregular7" tools:text="@string/lbl_2500_points"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

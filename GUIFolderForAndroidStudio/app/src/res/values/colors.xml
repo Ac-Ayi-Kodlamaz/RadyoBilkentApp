@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+<color name="white_A700_b2">#b2ffffff</color>
+<color name="white_A700_d8">#d8ffffff</color>
+<color name="gray_400_0c">#0cc4c4c4</color>
+<color name="light_green_A700">#26bf00</color>
+<color name="gray_50">#fffafa</color>
+<color name="teal_400">#1f918a</color>
+<color name="green_A700">#00f217</color>
+<color name="black_900">#000000</color>
+<color name="black_900_40">#40000000</color>
+<color name="red_A400">#ff1745</color>
+<color name="deep_purple_A400">#6e29ff</color>
+<color name="deep_orange_200">#ffa38f</color>
+<color name="gray_400_99">#99c4c4c4</color>
+<color name="gray_600">#a65e5e</color>
+<color name="blue_900">#0d4d96</color>
+<color name="gray_400">#c4c4c4</color>
+<color name="gray_800">#4f4f4f</color>
+<color name="gray_801">#524242</color>
+<color name="gray_400_7f">#7fc4c4c4</color>
+<color name="gray_200">#f0f0f0</color>
+<color name="gray_201">#ebebeb</color>
+<color name="white_A700_db">#dbffffff</color>
+<color name="bluegray_400">#888888</color>
+<color name="blue_400">#5496e0</color>
+<color name="cyan_50">#e6fff5</color>
+<color name="white_A701">#fffcfc</color>
+<color name="white_A700">#ffffff</color>
+<color name="ic_launcher_background">#FFFFFF</color>
+</resources>

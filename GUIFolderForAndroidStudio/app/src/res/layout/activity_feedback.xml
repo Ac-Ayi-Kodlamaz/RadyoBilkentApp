@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="feedbackVM" type="com.application.app.modules.feedback.data.viewmodel.FeedbackVM"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintFeedback"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_1">
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnSend"
+            android:layout_height="@dimen/_58pxv"
+            android:layout_marginBottom="@dimen/_38pxv"
+            android:layout_marginEnd="@dimen/_17pxh"
+            android:layout_marginStart="@dimen/_16pxh"
+            android:layout_marginTop="@dimen/_444pxv"
+            android:layout_width="0dp"
+            android:paddingBottom="@dimen/_14pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_14pxv" android:singleLine="true"
+            android:text="@string/lbl_send" android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/constraintGroup318"
+            app:layout_constraintStart_toStartOf="@+id/constraintGroup318"
+            app:layout_constraintTop_toTopOf="@+id/constraintGroup318"
+            style="@style/btnSolidRounded_2" tools:text="@string/lbl_send"/>
+        <ImageView android:id="@+id/imageExitbuttonin"
+            android:layout_height="@dimen/_36pxh"
+            android:layout_marginEnd="@dimen/_317pxh"
+            android:layout_marginTop="@dimen/_12pxv"
+            android:layout_width="@dimen/_43pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_exitbuttonin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintGroup318"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_192pxv"
+            android:layout_marginEnd="@dimen/_15pxh"
+            android:layout_marginStart="@dimen/_16pxh"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageExitbuttonin" style="@style/groupStyleblue_400cornerRadius">
+            <TextView android:gravity="start"
+                android:id="@+id/txtInputYourFeed"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_54pxh"
+                android:layout_marginStart="@dimen/_55pxh"
+                android:layout_marginTop="@dimen/_40pxv"
+                android:layout_width="0dp"
+                android:text="@{feedbackVM.feedbackModel.txtInputYourFeed}"
+                app:layout_constraintEnd_toEndOf="@+id/constraintRectangle32"
+                app:layout_constraintStart_toStartOf="@+id/constraintRectangle32"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/txtDosisregular24_2" tools:text="@string/msg_input_your_feed"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintRectangle32"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_129pxv"
+                android:layout_marginEnd="@dimen/_17pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInputYourFeed" style="@style/groupStylegray_200cornerRadius">
+                <TextView android:ellipsize="end"
+                    android:gravity="start"
+                    android:id="@+id/txtTextInputByU"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_270pxv"
+                    android:layout_marginEnd="@dimen/_17pxh"
+                    android:layout_marginStart="@dimen/_17pxh"
+                    android:layout_marginTop="@dimen/_11pxv"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{feedbackVM.feedbackModel.txtTextInputByU}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/txtDosisregular24_2" tools:text="@string/msg_text_input_by_u"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

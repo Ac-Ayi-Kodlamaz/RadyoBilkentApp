@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="songChoicesVM" type="com.application.app.modules.songchoices.data.viewmodel.SongChoicesVM"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintHiddenexitbut"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700_db">
+        <TextView android:ellipsize="end" android:gravity="center"
+            android:id="@+id/txtSleepTimer"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_117pxh"
+            android:layout_marginStart="@dimen/_116pxh"
+            android:layout_marginTop="@dimen/_55pxv"
+            android:layout_width="0dp" android:singleLine="true"
+            android:text="@{songChoicesVM.songChoicesModel.txtSleepTimer}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageExitbuttonin"
+            style="@style/txtRobotoregular24" tools:text="@string/lbl_sleep_timer"/>
+        <TextView android:ellipsize="end" android:gravity="center"
+            android:id="@+id/txtShareMusic"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_111pxh"
+            android:layout_marginStart="@dimen/_116pxh"
+            android:layout_marginTop="@dimen/_49pxv"
+            android:layout_width="0dp" android:singleLine="true"
+            android:text="@{songChoicesVM.songChoicesModel.txtShareMusic}"
+            app:layout_constraintBottom_toTopOf="@+id/txtCopyMusicName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSleepTimer"
+            style="@style/txtRobotoregular24" tools:text="@string/lbl_share_music"/>
+        <TextView android:ellipsize="end" android:gravity="center"
+            android:id="@+id/txtCopyMusicName"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_515pxv"
+            android:layout_marginEnd="@dimen/_83pxh"
+            android:layout_marginStart="@dimen/_82pxh"
+            android:layout_marginTop="@dimen/_49pxv"
+            android:layout_width="0dp" android:singleLine="true"
+            android:text="@{songChoicesVM.songChoicesModel.txtCopyMusicName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtShareMusic"
+            style="@style/txtRobotoregular24" tools:text="@string/lbl_copy_music_name"/>
+        <ImageView android:clickable="true"
+            android:id="@+id/imageExitbuttonin"
+            android:layout_height="@dimen/_36pxh"
+            android:layout_marginEnd="@dimen/_317pxh"
+            android:layout_marginTop="@dimen/_12pxv"
+            android:layout_width="@dimen/_43pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_exitbuttonin_4"
+            app:layout_constraintBottom_toTopOf="@+id/txtSleepTimer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
