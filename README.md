@@ -1,4 +1,4 @@
-# BilkentRadyo
+# RadyoBilkentApp
 ![RadyoBilkent](https://w3.bilkent.edu.tr/www/wp-content/uploads/sites/5/2022/04/RadyoBilkent-Logo.png)
 
 This is a mobile app for our CS102 project
