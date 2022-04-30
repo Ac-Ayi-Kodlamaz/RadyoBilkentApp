@@ -6,8 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.xml.datatype.Duration;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
 
 
 public class HelloApplication extends Application {
@@ -21,9 +25,19 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        FireBaseService fs = new FireBaseService();
-        fs.getDb();
+    public static void main(String[] args) throws  IOException {
+        ArrayList<Integer> points = new ArrayList<>();
+        points.add(300);
+        points.add(600);
+        URL link = new URL("https://docs.oracle.com/javase/7/docs/api/java/net/URL.html#URL(java.lang.String)");
+        System.out.println(link);
+        Song song1 = new Song("Bir Pazar Kahvaltısı", null, new Date(), null,
+                "Emre Aydın", 5, link, "Unknown", "Turkish Pop",points);
+        song1.addDoc();
+        System.out.println(song1.getData());
+        demo d = new demo("Yücel", 50, "Red");
+        d.addDoc();
+        System.out.println(d.getData());
         System.out.println("Succesful!");
         launch();
     }

@@ -11,15 +11,16 @@ public class FireBaseService {
     private Firestore db;
     public FireBaseService(){
         try {
-            System.out.println("Connecting to DB");
-            FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
+
+            FileInputStream serviceAccount = new FileInputStream("radyo-bilkent-app-firebase-adminsdk-noq60-aac9a82e0a.json");
             FirestoreOptions firestoreOptions =
                     FirestoreOptions.getDefaultInstance().toBuilder()
                             .setProjectId("radyo-bilkent-app")
                             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                             .build();
-            db = firestoreOptions.getService();
 
+            db = firestoreOptions.getService();
+            System.out.println("Successfully connected");
         }catch (Exception e){
             e.printStackTrace();
         }
