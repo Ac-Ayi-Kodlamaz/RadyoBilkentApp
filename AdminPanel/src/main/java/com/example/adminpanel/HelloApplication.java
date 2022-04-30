@@ -1,5 +1,6 @@
 package com.example.adminpanel;
 
+import eu.hansolo.tilesfx.tools.Fire;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,6 +22,9 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        FireBaseService fs = new FireBaseService();
+        fs.getDb();
+        System.out.println("Succesful!");
         launch();
     }
 }

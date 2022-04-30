@@ -11,14 +11,12 @@ public class FireBaseService {
     private Firestore db;
     public FireBaseService(){
         try {
-            File file = new File("trialFile.txt");
             System.out.println("Connecting to DB");
-            file.createNewFile();
-            FileInputStream serviceAccount = new FileInputStream("./serviceAccountKey.json");
+            FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
             FirestoreOptions firestoreOptions =
                     FirestoreOptions.getDefaultInstance().toBuilder()
-                            .setProjectId("trial-eae9f")
-                            .setCredentials(GoogleCredentials.getApplicationDefault())
+                            .setProjectId("radyo-bilkent-app")
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                             .build();
             db = firestoreOptions.getService();
 
