@@ -40,5 +40,6 @@ public class MainApplication extends Application {
         Song s = new Song();
         System.out.println(s.getData());
         launch();
+
     }
 }

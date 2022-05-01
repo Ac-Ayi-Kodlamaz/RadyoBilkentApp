@@ -43,7 +43,7 @@ public class Blog extends Content
     public void setContent(String content) {
         this.content = content;
     }
-
+    //other methods
     /**
      * Leading the user to the related Spotify link of the current song.
      * @return a boolean type for successful openings
