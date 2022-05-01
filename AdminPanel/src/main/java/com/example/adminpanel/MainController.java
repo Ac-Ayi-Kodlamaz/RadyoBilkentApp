@@ -13,23 +13,23 @@ import java.util.Optional;
 
 public class MainController {
 
-    private AnchorPane pane;
+    private AnchorPane podcastPane;
 
     @FXML
     private AnchorPane blogPane;
 
     @FXML
-    private Button newPodc;
+    private Button newPodcast;
 
     @FXML
     private Button newBlog;
 
 
     @FXML
-    void addPodcast(ActionEvent event) throws IOException {
+    public void addPodcast(ActionEvent event) throws IOException {
 
         Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.initOwner(pane.getScene().getWindow());
+        dialog.initOwner(podcastPane.getScene().getWindow());
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("PodcastEditor"));
@@ -51,7 +51,7 @@ public class MainController {
     }
 
     @FXML
-    void addBlog(ActionEvent event) throws IOException {
+    public void addBlog(ActionEvent event) throws IOException {
         Dialog<ButtonType> blogDialog = new Dialog<>();
         blogDialog.initOwner(blogPane.getScene().getWindow());
 
@@ -71,6 +71,13 @@ public class MainController {
             com.example.adminpanel.BlogController dialogController = fxmlLoader.getController();
             dialogController.createBlog();
         }
+    }
+
+    @FXML
+    public void addProgramme(ActionEvent event)
+    {
+        com.example.adminpanel.ProgrammeFlowController programmeCreate = new com.example.adminpanel.ProgrammeFlowController();
+        programmeCreate.addProgramme();
     }
 
 }

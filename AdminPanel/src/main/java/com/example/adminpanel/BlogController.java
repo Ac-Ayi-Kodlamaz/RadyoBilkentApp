@@ -48,3 +48,5 @@ public class BlogController {
 
         //Will be added to the database
     }
+
+}
