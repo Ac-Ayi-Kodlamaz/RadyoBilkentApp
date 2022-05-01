@@ -1,4 +1,5 @@
 package com.example.adminpanel;
+
 /**
  * this interface provides acces to FireStore Database. Datas can be read written and updated
  * also with static db variable one can acces db reference for other purposes

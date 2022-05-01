@@ -1,3 +1,5 @@
+package com.example.adminpanel;
+
 import com.example.adminpanel.Podcast;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
