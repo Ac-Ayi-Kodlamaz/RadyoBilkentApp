@@ -4,22 +4,116 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adminpanel.MainController">
     <tabs>
-        <Tab text="Voting Settings" />
-        <Tab text="Edit Blog">
+        <Tab text="Voting Settings">
          <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TabPane prefHeight="342.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Voting Schedule" />
+                      <Tab text="Add Voting">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutY="70.0" prefHeight="214.0" prefWidth="600.0">
+                                       <children>
+                                          <Pane prefHeight="60.0" prefWidth="600.0">
+                                             <children>
+                                                <Label layoutX="162.0" layoutY="18.0" prefHeight="18.0" prefWidth="50.0" text="Song 1:" />
+                                                <TextField fx:id="songName1" layoutX="309.0" layoutY="14.0" promptText="Song Name" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="59.0" prefWidth="600.0">
+                                             <children>
+                                                <TextField fx:id="songName2" layoutX="309.0" layoutY="14.0" promptText="Song Name" />
+                                                <Label layoutX="161.0" layoutY="18.0" prefHeight="18.0" prefWidth="50.0" text="Song 2:" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="60.0" prefWidth="600.0">
+                                             <children>
+                                                <TextField fx:id="songName3" layoutX="309.0" layoutY="14.0" promptText="Song Name" />
+                                                <Label layoutX="163.0" layoutY="18.0" prefHeight="18.0" prefWidth="50.0" text="Song 3:" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="59.0" prefWidth="600.0">
+                                             <children>
+                                                <TextField fx:id="songName4" layoutX="307.0" layoutY="14.0" promptText="Song Name" />
+                                                <Label layoutX="164.0" layoutY="18.0" prefHeight="18.0" prefWidth="50.0" text="Song 4:" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="60.0" prefWidth="600.0">
+                                             <children>
+                                                <Button layoutX="264.0" layoutY="6.0" mnemonicParsing="false" onAction="#addVoting" text="Apply" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </VBox>
+                                    <Pane prefHeight="75.0" prefWidth="600.0">
+                                       <children>
+                                          <Text fill="#166ddf" layoutX="57.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Voting Session:">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="beginVote" layoutX="340.0" layoutY="10.0" promptText="Begin:" />
+                                          <TextField fx:id="endVote" layoutX="340.0" layoutY="41.0" promptText="End:" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </content></Tab>
+        <Tab text="Programme Flow Settings">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TabPane prefHeight="343.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Programme Flow" />
+                      <Tab text="Add Programme">
+                           <content>
+                              <AnchorPane prefHeight="391.0" prefWidth="619.0">
+                                 <children>
+                                    <Button layoutX="265.0" layoutY="240.0" mnemonicParsing="false" onAction="#addProgramme" text="Apply" />
+                                    <TextField fx:id="titleField" layoutX="89.0" layoutY="23.0" prefHeight="31.0" prefWidth="222.0" promptText="Title:" />
+                                    <TextField fx:id="beginTime" layoutX="385.0" layoutY="26.0" promptText="Begin:" />
+                                    <TextField fx:id="finishTime" layoutX="385.0" layoutY="59.0" promptText="Finish:" />
+                                    <TextArea layoutX="80.0" layoutY="103.0" prefHeight="124.0" prefWidth="463.0" promptText="Explanation:" />
+                                    <TextField fx:id="imageLink" layoutX="88.0" layoutY="58.0" prefHeight="26.0" prefWidth="223.0" promptText="Image:" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Edit Blog">
+         <content>
+            <AnchorPane fx:id="blogPane" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label layoutX="260.0" layoutY="14.0" text="Blogs">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button layoutX="49.0" layoutY="54.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="502.0" text="Add a new one" />
+                  <Button fx:id="newBlog" layoutX="49.0" layoutY="54.0" mnemonicParsing="false" onAction="#addBlog" prefHeight="57.0" prefWidth="502.0" text="Add a new one" />
                </children>
             </AnchorPane>
          </content></Tab>
@@ -36,11 +130,6 @@
                </children>
             </AnchorPane>
          </content></Tab>
-        <Tab text="Edit Programme Flow">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-        </Tab>
         <Tab text="Feedbacks">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">

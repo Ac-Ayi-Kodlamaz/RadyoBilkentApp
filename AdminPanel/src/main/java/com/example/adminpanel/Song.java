@@ -54,6 +54,12 @@ public class Song extends Content {
         this.points = points;
     }
 
+    //Search for a strong whose name is same as the given parameter from database and return it
+    public Song searchSong(String name)
+    {
+        return null;
+    }
+
     /**
      * Leading the user to the related Spotify link of the current song.
      * @return a boolean type for successful openings

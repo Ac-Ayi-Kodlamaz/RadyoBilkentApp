@@ -6,25 +6,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Optional;
 
 public class MainController {
 
+    //Podcast Controller
     private AnchorPane podcastPane;
-
-    @FXML
-    private AnchorPane blogPane;
-
     @FXML
     private Button newPodcast;
-
-    @FXML
-    private Button newBlog;
-
-
     @FXML
     public void addPodcast(ActionEvent event) throws IOException {
 
@@ -50,6 +45,11 @@ public class MainController {
 
     }
 
+    //Blog Controller
+    @FXML
+    private AnchorPane blogPane;
+    @FXML
+    private Button newBlog;
     @FXML
     public void addBlog(ActionEvent event) throws IOException {
         Dialog<ButtonType> blogDialog = new Dialog<>();
@@ -73,11 +73,67 @@ public class MainController {
         }
     }
 
+
+    //Programme Flow Controller
     @FXML
+    private TextField beginTime;
+    @FXML
+    private TextField finishTime;
+    @FXML
+    private TextField imageLink;
+    @FXML
+    private TextField titleField;
+
     public void addProgramme(ActionEvent event)
     {
-        com.example.adminpanel.ProgrammeFlowController programmeCreate = new com.example.adminpanel.ProgrammeFlowController();
-        programmeCreate.addProgramme();
+        String name = titleField.getText();
+        Date finish = new Date(finishTime.getText());
+        Date begin = new Date(beginTime.getText());
+        ImageIcon cover = new ImageIcon(imageLink.getText());
+
+        //TODO
+        //Create and add programme to the data base
+
+        beginTime.setText("");
+        finishTime.setText("");
+        imageLink.setText("");
+        titleField.setText("");
+    }
+
+    //Voting Settings Controller
+
+    @FXML
+    private TextField songName1;
+    @FXML
+    private TextField songName2;
+    @FXML
+    private TextField songName3;
+    @FXML
+    private TextField songName4;
+    @FXML
+    private TextField beginVote;
+    @FXML
+    private TextField endVote;
+    public void addVoting(ActionEvent event)
+    {
+        com.example.adminpanel.Song firstSong = searchSong(songName1);
+        com.example.adminpanel.Song secondSong = searchSong(songName2);
+        com.example.adminpanel.Song thirdSong = searchSong(songName3);
+        com.example.adminpanel.Song forthSong = searchSong(songName4);
+
+        Date finishForVote = new Date(beginVote.getText());
+        Date beginForVote = new Date(endVote.getText());
+
+        //TODO
+        //Create and add voting session to the data base
+
+        songName1.setText("");
+        songName2.setText("");
+        songName3.setText("");
+        songName4.setText("");
+        beginVote.setText("");
+        endVote.setText("");
+
     }
 
 }
