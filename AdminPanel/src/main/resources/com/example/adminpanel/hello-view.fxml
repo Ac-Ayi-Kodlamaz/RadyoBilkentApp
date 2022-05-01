@@ -19,7 +19,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button layoutX="36.0" layoutY="54.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="502.0" text="Add a new one" />
+                  <Button layoutX="49.0" layoutY="54.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="502.0" text="Add a new one" />
                </children>
             </AnchorPane>
          </content></Tab>
@@ -27,12 +27,12 @@
          <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="247.0" layoutY="14.0" text="Podcasts">
+                  <Label layoutX="260.0" layoutY="14.0" text="Podcasts">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button layoutX="54.0" layoutY="54.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="510.0" text="Add a new one" />
+                  <Button layoutX="48.0" layoutY="54.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="510.0" text="Add a new one" />
                </children>
             </AnchorPane>
          </content></Tab>

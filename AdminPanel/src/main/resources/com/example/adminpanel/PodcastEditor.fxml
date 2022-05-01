@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="80.0" layoutY="219.0" prefHeight="40.0" prefWidth="87.0" text="Link:" textFill="#2998e7">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="80.0" layoutY="75.0" prefHeight="18.0" prefWidth="169.0" text="Title: " textFill="#2998e7">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="115.0" prefHeight="52.0" prefWidth="126.0" text="Duration:" textFill="#2998e7">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="167.0" prefHeight="52.0" prefWidth="126.0" text="Image: " textFill="#2998e7">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="80.0" layoutY="270.0" prefHeight="18.0" prefWidth="94.0" text="Date:" textFill="#2998e7">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <TextField fx:id="title" layoutX="205.0" layoutY="82.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextField fx:id="duration" layoutX="205.0" layoutY="128.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextField fx:id="image" layoutX="205.0" layoutY="180.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextField fx:id="link" layoutX="205.0" layoutY="228.0" prefHeight="26.0" prefWidth="354.0" />
+      <DatePicker fx:id="date" layoutX="205.0" layoutY="278.0" prefHeight="26.0" prefWidth="354.0" />
+   </children>
+</AnchorPane>
