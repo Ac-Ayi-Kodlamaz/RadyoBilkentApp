@@ -1,3 +1,5 @@
+package com.example.adminpanel;
+
 import com.example.adminpanel.Podcast;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,10 +46,10 @@ public class PodcastController
 
         com.example.adminpanel.Podcast podcast = new Podcast();
         podcast.title = head;
-        podcast.date = datePublish;
+        //podcast.date = datePublish;
         podcast.link = url;
         podcast.duration = totalDuration;
-        podcast.cover = cover;
+        //podcast.cover = cover;
         podcast.creator = generator;
 
         //Will be added to the database

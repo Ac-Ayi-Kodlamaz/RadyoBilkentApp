@@ -6,6 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import javax.swing.*;
+import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -43,7 +44,7 @@ public class BlogController {
         String generator = creator.getText().trim();
         String content = Content.getText();
 
-        com.example.adminpanel.Blog blog = new com.example.adminpanel.Blog(head, cover, datePublish, totalDuration, generator, 0, url, false, content);
+        //com.example.adminpanel.Blog blog = new com.example.adminpanel.Blog(head, cover, datePublish, totalDuration, generator, 0, url, false, content);
 
 
         //Will be added to the database

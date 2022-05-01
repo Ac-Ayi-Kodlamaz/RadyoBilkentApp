@@ -116,10 +116,10 @@ public class MainController {
     private TextField endVote;
     public void addVoting(ActionEvent event)
     {
-        com.example.adminpanel.Song firstSong = searchSong(songName1);
+        /*com.example.adminpanel.Song firstSong = searchSong(songName1);
         com.example.adminpanel.Song secondSong = searchSong(songName2);
         com.example.adminpanel.Song thirdSong = searchSong(songName3);
-        com.example.adminpanel.Song forthSong = searchSong(songName4);
+        com.example.adminpanel.Song forthSong = searchSong(songName4);*/
 
         Date finishForVote = new Date(beginVote.getText());
         Date beginForVote = new Date(endVote.getText());
