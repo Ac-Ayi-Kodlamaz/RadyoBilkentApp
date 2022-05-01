@@ -33,12 +33,14 @@ public class HelloApplication extends Application {
         System.out.println(link);
         Song song1 = new Song("Bir Pazar Kahvaltısı", null, new Date(), null,
                 "Emre Aydın", 5, link, "Unknown", "Turkish Pop",points);
-        song1.addDoc();
+        song1.addVote(500);
         System.out.println(song1.getData());
-        demo d = new demo("Yücel", 50, "Red");
+        demo d = new demo("Emir Şahin Dİlli", 18, "Red");
         d.addDoc();
         System.out.println(d.getData());
         System.out.println("Succesful!");
+        Song s = new Song();
+        System.out.println(s.getData());
         launch();
     }
 }

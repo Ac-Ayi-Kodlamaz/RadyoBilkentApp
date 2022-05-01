@@ -78,7 +78,7 @@ public class demo implements Storable<demo> {
     }
 
     @Override
-    public void uptade(int point) {
+    public void update(int point) {
 
     }
 

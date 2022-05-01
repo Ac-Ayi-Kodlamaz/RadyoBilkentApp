@@ -71,7 +71,9 @@ public class Song extends Content {
     public void addVote( int point)
     {
         //TODO
-        points.add(point);
+        update(point);//this method will both update arrayList points
+        // and update the points field in Firestore
+
     }
 
     /**
@@ -145,13 +147,29 @@ public class Song extends Content {
     }
 
     @Override
-    public void uptade(int point) {
+    public void update(int point) {
         DocumentReference reference = db.collection("songs").document(title);
+        points.add((Integer) point);
+        ApiFuture<WriteResult> result = reference.update("points", points);
+        try {
+            System.out.println("update time: " + result.get().getUpdateTime());
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }catch (ExecutionException e){
+            e.printStackTrace();
+        }
     }
-
     @Override
     public void deleteDoc() {
-
+        DocumentReference reference = db.collection("songs").document(title);
+        ApiFuture<WriteResult> result = reference.delete();
+        try {
+            System.out.println("Deleting time: " + result.get().getUpdateTime());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -170,6 +188,7 @@ public class Song extends Content {
                 song.setAlbum(document.getString("album"));
                 song.setGenre(document.getString("genre"));
                 song.setTitle(document.getString("title"));
+                song.setPoints((ArrayList<Integer>) document.get("points"));
                 song.setTimesConsumed(document.getLong("timesConsumed").intValue());
                 song.setDuration((Duration)document.get("duration"));
                 result.add(song);
