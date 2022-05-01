@@ -12,7 +12,7 @@ public interface Storable<T> {
     static FireBaseService fs = new FireBaseService();
     static Firestore db =  fs.getDb();
     void addDoc();
-    void uptade(int point);
+    void update(int point);
     void deleteDoc();
     ArrayList<T> getData();
     /*
