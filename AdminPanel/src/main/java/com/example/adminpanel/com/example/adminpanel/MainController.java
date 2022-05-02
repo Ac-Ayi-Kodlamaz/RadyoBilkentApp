@@ -1,20 +1,133 @@
 package com.example.adminpanel;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.Label;
+import java.awt.TextArea;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable
+{
+
+
+
+    //Initialized Views
+
+    ArrayList<Blog> blogs;
+    ArrayList<Podcast> podcasts;
+    ArrayList<Programme> programmes;
+    ArrayList<VotingSession> votingSessions;
+    Blog currentBlog;
+    Podcast currentPodcast;
+    Programme currentProgramme;
+    VotingSession currentVoting;
+
+    @FXML
+    private Label votingInfo;
+    @FXML
+    private ListView<VotingSession> votingView;
+    @FXML
+    private Label BlogText;
+    @FXML
+    private ListView<Blog> BlogView;
+    @FXML
+    private Label PodcastText;
+    @FXML
+    private ListView<String> PodcastView;  //private ListView<Podcast> PodcastView; //Test
+    @FXML
+    private Label ProgrammeText;
+    @FXML
+    private ListView<Programme> ProgrammeView;
+
+    //Here it is accepted that toString returns the listView and display returns the detailed specifications to show to the user
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        votingView.getItems().addAll(votingSessions);
+        votingView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<VotingSession>() {
+            @Override
+            public void changed(ObservableValue<? extends VotingSession> observableValue, VotingSession votingSession, VotingSession t1) {
+                currentVoting = votingView.getSelectionModel().getSelectedItem();
+                votingInfo.setText(currentVoting.display());
+
+            }
+        });
+
+        BlogView.getItems().addAll(blogs);
+        BlogView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Blog>() {
+            @Override
+            public void changed(ObservableValue<? extends Blog> observableValue, Blog blog, Blog t1) {
+                currentBlog = BlogView.getSelectionModel().getSelectedItem();
+                BlogText.setText(currentBlog.display());
+            }
+        });
+
+        /**
+        PodcastView.getItems().addAll(podcasts);
+        PodcastView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Podcast>() {
+            @Override
+            public void changed(ObservableValue<? extends Podcast> observableValue, Podcast podcast, Podcast t1) {
+                currentPodcast = PodcastView.getSelectionModel().getSelectedItem();
+                PodcastText.setText(currentPodcast.display());
+            }
+        });*/
+
+        //Changing variables to test
+        ArrayList<String> pods = new ArrayList<>();
+        pods.add("Yusuf");
+        pods.add("Tuna");
+        pods.add("Ulaş");
+        pods.add("Cevat");
+        pods.add("Yiğit");
+        PodcastView.getItems().addAll(pods);
+        PodcastView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                PodcastText.setText(PodcastView.getSelectionModel().getSelectedItem().toString());
+            }
+        });
+
+        ProgrammeView.getItems().addAll(programmes);
+        ProgrammeView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Programme>() {
+            @Override
+            public void changed(ObservableValue<? extends Programme> observableValue, Programme programme, Programme t1) {
+                currentProgramme = ProgrammeView.getSelectionModel().getSelectedItem();
+                PodcastText.setText(currentProgramme.display());
+            }
+        });
+
+
+    }
+
+    public void arrangeFirstViews()
+    {
+        //TODO
+        //It will add all blogs, podcasts, programmes and voting sessions to the related ArrayList from database
+    }
+
+
+
+
 
     //Podcast Controller
     private AnchorPane podcastPane;
@@ -45,6 +158,8 @@ public class MainController {
 
     }
 
+
+
     //Blog Controller
     @FXML
     private AnchorPane blogPane;
@@ -74,6 +189,7 @@ public class MainController {
     }
 
 
+
     //Programme Flow Controller
     @FXML
     private TextField beginTime;
@@ -100,8 +216,9 @@ public class MainController {
         titleField.setText("");
     }
 
-    //Voting Settings Controller
 
+
+    //Voting Settings Controller
     @FXML
     private TextField songName1;
     @FXML
@@ -134,6 +251,53 @@ public class MainController {
         beginVote.setText("");
         endVote.setText("");
 
+    }
+
+
+
+    //AddSong Controller
+    @FXML
+    private TextField songAlbum;
+    @FXML
+    private TextField songCover;
+    @FXML
+    private TextField songCreator;
+    @FXML
+    private TextField songDate;
+    @FXML
+    private TextField songDuration;
+    @FXML
+    private TextField songGenre;
+    @FXML
+    private TextField songLink;
+    @FXML
+    private TextField songTitle;
+
+    @FXML
+    public void generateSong(ActionEvent event) throws MalformedURLException
+    {
+        String title = songTitle.getText();
+        ImageIcon cover = new ImageIcon(songCover.getText());
+        String album = songAlbum.getText();
+        String creator = songCreator.getText();
+        String genre = songGenre.getText();
+        Date date = new Date(songDate.getText());
+        Duration duration = Duration.parse(songDuration.getText());
+        URL link = new URL(songLink.getText());
+
+        Song song = new Song(title,cover,date,duration,creator,0,link,album,genre,null);
+        
+        //Add to the database
+        
+        songTitle.setText("");
+        songCover.setText("");
+        songAlbum.setText("");
+        songCreator.setText("");
+        songDate.setText("");
+        songDuration.setText("");
+        songLink.setText("");
+        songGenre.setText("");
+        
     }
 
 }
