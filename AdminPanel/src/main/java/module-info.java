@@ -19,5 +19,6 @@ module com.example.adminpanel {
     requires com.google.api.apicommon;
     //-----------------------------------------------------
     opens com.example.adminpanel to javafx.fxml;
-    exports com.example.adminpanel;
+    opens com.example.adminpanel.com.example.adminpanel to javafx.fxml;
+    //exports com.example.adminpanel;
 }

@@ -1,4 +1,4 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
 import com.example.adminpanel.Podcast;
 import javafx.event.ActionEvent;
@@ -44,7 +44,7 @@ public class PodcastController
         ImageIcon cover = new ImageIcon(image.getText());
         String generator = creator.getText().trim();
 
-        com.example.adminpanel.Podcast podcast = new Podcast();
+        Podcast podcast = new Podcast();
         podcast.title = head;
         //podcast.date = datePublish;
         podcast.link = url;

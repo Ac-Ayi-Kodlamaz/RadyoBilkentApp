@@ -1,4 +1,4 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;

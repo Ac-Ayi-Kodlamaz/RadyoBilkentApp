@@ -1,6 +1,6 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
-import eu.hansolo.tilesfx.tools.Fire;
+import com.example.adminpanel.com.example.adminpanel.Song;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,9 +33,6 @@ public class MainApplication extends Application {
                 "Emre Aydın", 5, link, "Unknown", "Turkish Pop",points);
         song1.addVote(500);
         System.out.println(song1.getData());
-        demo d = new demo("Emir Şahin Dİlli", 18, "Red");
-        d.addDoc();
-        System.out.println(d.getData());
         System.out.println("Succesful!");
         Song s = new Song();
         System.out.println(s.getData());

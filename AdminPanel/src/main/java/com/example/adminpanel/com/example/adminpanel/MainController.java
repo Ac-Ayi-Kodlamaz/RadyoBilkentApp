@@ -1,5 +1,6 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
+import com.example.adminpanel.com.example.adminpanel.Song;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -13,14 +14,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.Label;
-import java.awt.TextArea;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
@@ -152,7 +150,7 @@ public class MainController implements Initializable
 
         if(result.get() == ButtonType.APPLY)
         {
-            com.example.adminpanel.PodcastController dialogController = fxmlLoader.getController();
+            PodcastController dialogController = fxmlLoader.getController();
             dialogController.createPodcast();
         }
 
@@ -233,10 +231,10 @@ public class MainController implements Initializable
     private TextField endVote;
     public void addVoting(ActionEvent event)
     {
-        /*com.example.adminpanel.Song firstSong = searchSong(songName1);
-        com.example.adminpanel.Song secondSong = searchSong(songName2);
-        com.example.adminpanel.Song thirdSong = searchSong(songName3);
-        com.example.adminpanel.Song forthSong = searchSong(songName4);*/
+        /*com.example.adminpanel.com.example.adminpanel.Song firstSong = searchSong(songName1);
+        com.example.adminpanel.com.example.adminpanel.Song secondSong = searchSong(songName2);
+        com.example.adminpanel.com.example.adminpanel.Song thirdSong = searchSong(songName3);
+        com.example.adminpanel.com.example.adminpanel.Song forthSong = searchSong(songName4);*/
 
         Date finishForVote = new Date(beginVote.getText());
         Date beginForVote = new Date(endVote.getText());

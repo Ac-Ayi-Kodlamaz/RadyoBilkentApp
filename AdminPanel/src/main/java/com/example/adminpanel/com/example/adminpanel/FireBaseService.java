@@ -1,4 +1,4 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;

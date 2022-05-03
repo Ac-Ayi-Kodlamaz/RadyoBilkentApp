@@ -1,11 +1,8 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 import com.google.api.core.ApiFuture;
-import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.*;
 
 import java.awt.Image;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -52,12 +49,6 @@ public class Song extends Content {
 
     public void setPoints(ArrayList<Integer> points) {
         this.points = points;
-    }
-
-    //Search for a strong whose name is same as the given parameter from database and return it
-    public Song searchSong(String name)
-    {
-        return null;
     }
 
     /**
@@ -225,5 +216,42 @@ public class Song extends Content {
                 ", genre='" + genre + '\'' +
                 ", points=" + points +
                 '}';
+    }
+
+    /**
+     * This method will querry songs that start with the given text.
+     * @param text String that the wanted song starts with
+     * @return arraylist that contains all the song that starts with this text
+     */
+    public List<Song> searchSong(String text)
+    {
+        List<Song> searchResult = new ArrayList<>();
+        try {
+            List<QueryDocumentSnapshot> query = db.collection("songs")
+                    .orderBy("title").whereGreaterThanOrEqualTo("title", text)
+                    .whereLessThanOrEqualTo("title", text + "z").get().get().getDocuments();
+            for(QueryDocumentSnapshot document: query)
+            {
+                Song song = new Song();
+                song.setDate(document.getDate("date"));
+                song.setLink(new URL(document.getString("link")));
+                song.setCover((Image)document.get("cover"));
+                song.setCreator(document.getString("creator"));
+                song.setAlbum(document.getString("album"));
+                song.setGenre(document.getString("genre"));
+                song.setTitle(document.getString("title"));
+                song.setPoints((ArrayList<Integer>) document.get("points"));
+                song.setTimesConsumed(document.getLong("timesConsumed").intValue());
+                song.setDuration((Duration)document.get("duration"));
+                searchResult.add(song);
+            }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return searchResult;
     }
 }

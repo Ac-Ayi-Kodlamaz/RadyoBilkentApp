@@ -1,4 +1,4 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;

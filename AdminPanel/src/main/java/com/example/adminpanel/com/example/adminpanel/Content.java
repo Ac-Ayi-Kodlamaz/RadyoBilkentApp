@@ -1,15 +1,11 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.WriteResult;
+import com.example.adminpanel.com.example.adminpanel.Storable;
 
 import java.awt.*;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public abstract class Content implements Storable<Content>
 {

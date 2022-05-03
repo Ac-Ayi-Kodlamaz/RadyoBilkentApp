@@ -1,4 +1,4 @@
-package com.example.adminpanel;
+package com.example.adminpanel.com.example.adminpanel;
 
 /**
  * this interface provides acces to FireStore Database. Datas can be read written and updated
