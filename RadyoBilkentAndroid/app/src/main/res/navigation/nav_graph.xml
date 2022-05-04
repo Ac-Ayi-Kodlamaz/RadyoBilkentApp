@@ -3,16 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/startActivity">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.radyobilkentandroid.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
     <activity
         android:id="@+id/registerWithEmailActivity"
         android:name="com.example.radyobilkentandroid.RegisterWithEmailActivity"
         android:label="activity_register_with_email"
         tools:layout="@layout/activity_register_with_email" />
+    <activity
+        android:id="@+id/startActivity"
+        android:name="com.example.radyobilkentandroid.StartActivity"
+        android:label="activity_start"
+        tools:layout="@layout/activity_start" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.radyobilkentandroid.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

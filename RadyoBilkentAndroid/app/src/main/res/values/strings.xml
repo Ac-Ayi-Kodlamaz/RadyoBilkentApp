@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">RadyoBilkentAndroid</string>
+    <string name="app_name">Radyo Bilkent</string>
     <string name="prompt_email">Enter email</string>
+    <string name="prompt_username">Enter username</string>
     <string name="prompt_password">Enter password</string>
     <string name="register_text">SIGN IN</string>
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Non-binary</item>
+        <item>Do not wish to disclose</item>
+    </string-array>
 </resources>

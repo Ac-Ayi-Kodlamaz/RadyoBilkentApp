@@ -1,32 +1,29 @@
 package com.example.radyobilkentandroid;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import model.User;
+
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseAuth firebaseAuth;
+    private User user;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() == null) {
-            startActivity(new Intent(this, RegisterWithEmailActivity.class));
-        }
-        else {
-            // TODO navigate to home screen
-        }
-    }
 
+        mAuth = FirebaseAuth.getInstance();
+        user = new User(mAuth.getCurrentUser());
+        System.out.println(user.getUsername());
+        System.out.println(user.getPoints());
+        System.out.println(user.getGender());
+
+    }
 }

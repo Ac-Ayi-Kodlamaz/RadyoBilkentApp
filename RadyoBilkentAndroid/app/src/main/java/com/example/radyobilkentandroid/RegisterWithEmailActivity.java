@@ -1,24 +1,29 @@
 package com.example.radyobilkentandroid;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.Spinner;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import model.Gender;
+import model.User;
 
 public class RegisterWithEmailActivity extends AppCompatActivity {
 
     private EditText email;
+    private EditText username;
     private EditText password;
+    private Spinner genders;
     private Button button;
+
+    private User user;
 
     private FirebaseAuth firebaseAuth;
 
@@ -28,36 +33,31 @@ public class RegisterWithEmailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_with_email);
 
         email = findViewById(R.id.email_field);
+        username = findViewById(R.id.username_field);
         password = findViewById(R.id.password_field);
+        genders = findViewById(R.id.gender_spinner);
         button = findViewById(R.id.register_button);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        user = new User();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txtEmail = email.getText().toString();
+                String txtUsername = username.getText().toString();
                 String txtPassword = password.getText().toString();
+                Gender gender = Gender.valueOfLabel((String) genders.getSelectedItem());
 
                 //TODO check for email & password validity
-                registerUser(txtEmail, txtPassword);
+                user.registerUser(txtEmail, txtPassword, txtUsername, gender);
+                // TODO check success
+                startActivity(new Intent(RegisterWithEmailActivity.this, MainActivity.class));
+
 
             }
         });
     }
 
-    private void registerUser(String email, String password) {
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterWithEmailActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(RegisterWithEmailActivity.this, "Signed in new user", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(RegisterWithEmailActivity.this, "Sign in attempt unsuccessful", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-    }
 }
