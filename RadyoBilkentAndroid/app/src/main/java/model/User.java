@@ -23,9 +23,6 @@ import java.util.Map;
 
 public class User {
 
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
-    private FirebaseFirestore db;
     private DocumentReference mReference;
     private Integer points;
     private String username;
@@ -35,14 +32,12 @@ public class User {
 //    private ArrayList<Item> items;
 
     public User() {
-        mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
     }
 
-    public User(FirebaseUser firebaseUser) {
+    public User(FirebaseFirestore db, FirebaseUser firebaseUser) {
         this();
         if (firebaseUser != null) {
-            prepareDatabase();
+            prepareDatabase(firebaseUser, db);
             mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -59,7 +54,7 @@ public class User {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     // TODO make this more sensible
-                    System.out.println("I don't know what i am doing");
+                    Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
                 }
             });
         }
@@ -77,42 +72,29 @@ public class User {
         return gender;
     }
 
-    public void registerUser(String email, String password, String username, Gender gender) {
-        boolean result = true;
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    public boolean updateUser(FirebaseUser mUser, FirebaseFirestore db, String username, Gender gender) {
+        boolean[] result = {true};
+        prepareDatabase(mUser, db);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("username", username);
+        map.put("points", points);
+        map.put("gender", gender);
+//        map.put("avatar", new Avatar());
+//        map.put("items", new ArrayList<Item>());
+        mReference.set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    // TODO handle success
-                    prepareDatabase();
-                    HashMap<String, Object> map = new HashMap<>();
-                    map.put("username", username);
-                    map.put("points"  , 0);
-                    map.put("gender"  , gender);
-//                    map.put("avatar"  , new Avatar());
-//                    map.put("items"   , new ArrayList<Item>());
-                    mReference.set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                System.out.println("user created succesfully");
-                            }
-                            else {
-                                mReference.delete();
-                                mUser.delete();
-                            }
-                        }
-                    });
-                }
-                else {
-                    // TODO handle failure
+                    System.out.println("user updated succesfully");
+                } else {
+                    result[0] = false;
                 }
             }
         });
+        return result[0];
     }
 
-    private void prepareDatabase() {
-        mUser = mAuth.getCurrentUser();
+    private void prepareDatabase(FirebaseUser mUser, FirebaseFirestore db) {
         mReference = db.collection("users").document(mUser.getUid());
     }
 

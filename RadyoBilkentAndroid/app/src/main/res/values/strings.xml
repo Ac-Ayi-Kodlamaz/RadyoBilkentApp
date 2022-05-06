@@ -3,11 +3,18 @@
     <string name="prompt_email">Enter email</string>
     <string name="prompt_username">Enter username</string>
     <string name="prompt_password">Enter password</string>
+    <string name="prompt_password_confirm">Enter password again</string>
+    <string name="login_text">LOG IN</string>
     <string name="register_text">SIGN IN</string>
+    <string name="gender_label">Gender</string>
     <string-array name="genders">
         <item>Male</item>
         <item>Female</item>
         <item>Non-binary</item>
         <item>Do not wish to disclose</item>
     </string-array>
+    <string name="confirm_text">CONFIRM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="or">or</string>
 </resources>

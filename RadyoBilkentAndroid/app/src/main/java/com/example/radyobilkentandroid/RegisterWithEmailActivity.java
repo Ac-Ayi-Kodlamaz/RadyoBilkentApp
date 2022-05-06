@@ -51,7 +51,7 @@ public class RegisterWithEmailActivity extends AppCompatActivity {
                 Gender gender = Gender.valueOfLabel((String) genders.getSelectedItem());
 
                 //TODO check for email & password validity
-                user.registerUser(txtEmail, txtPassword, txtUsername, gender);
+                //user.registerUser(txtEmail, txtPassword, txtUsername, gender);
                 // TODO check success
                 startActivity(new Intent(RegisterWithEmailActivity.this, MainActivity.class));
 
