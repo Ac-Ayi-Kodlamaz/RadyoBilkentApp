@@ -40,6 +40,7 @@ public class LoginFragment extends Fragment {
         if (getArguments() != null) {
 
         }
+        //TODO views are not created yet
         email = getView().findViewById(R.id.email_field);
         password = getView().findViewById(R.id.password_field);
         loginButton = getView().findViewById(R.id.sign_in_button);

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RadyoBilkentAndroid">
         <activity
+            android:name=".NowPlayingActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateUserInfoActivity"
             android:exported="false" />
         <activity

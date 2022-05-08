@@ -17,6 +17,12 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         firebaseAuth = FirebaseAuth.getInstance();
 
+        //TODO
+
+        /*startActivity(new Intent(this, NowPlayingActivity.class));
+        finish();
+        */
+
         if (firebaseAuth.getCurrentUser() == null) {
             startActivity(new Intent(this, RegisterWithEmailActivity.class));
             finish();
@@ -25,6 +31,8 @@ public class StartActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         }
+
+
     }
 
 }
