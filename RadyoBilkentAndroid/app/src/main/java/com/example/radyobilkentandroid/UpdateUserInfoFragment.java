@@ -1,7 +1,10 @@
 package com.example.radyobilkentandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -51,20 +54,6 @@ public class UpdateUserInfoFragment extends Fragment {
             data = (Data) getArguments().getSerializable(DATA_KEY);
         }
 
-        username = getActivity().findViewById(R.id.username_field);
-        genderSpinner = getActivity().findViewById(R.id.gender_spinner);
-        confirm = getActivity().findViewById(R.id.confirm_button);
-
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String txtUsername = username.getText().toString();
-                Gender gender = Gender.valueOfLabel((String) genderSpinner.getSelectedItem());
-                if (data.getUser().updateUser(mUser, data.getDB(), txtUsername, gender)) {
-                    // TODO handle successful update and move back to the previous activity
-                }
-            }
-        });
     }
 
     @Override
@@ -74,8 +63,26 @@ public class UpdateUserInfoFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_update_user_info, container, false);
     }
 
-    private void setUser(FirebaseUser mUser) {
-        this.setUser(mUser);
-    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        username = view.findViewById(R.id.username_field);
+        genderSpinner = view.findViewById(R.id.gender_spinner);
+        confirm = view.findViewById(R.id.confirm_button);
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtUsername = username.getText().toString();
+                Gender gender = Gender.valueOfLabel((String) genderSpinner.getSelectedItem());
+                if (data.getUser().updateUser(mUser, data.getDB(), txtUsername, gender)) {
+                    // TODO handle successful update and move back to the previous activity
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
+            }
+        });
+    }
 }

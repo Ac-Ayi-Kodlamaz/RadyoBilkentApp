@@ -2,22 +2,30 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/startActivity">
+    android:id="@+id/nav_graph">
 
-    <activity
-        android:id="@+id/registerWithEmailActivity"
-        android:name="com.example.radyobilkentandroid.RegisterWithEmailActivity"
-        android:label="activity_register_with_email"
-        tools:layout="@layout/activity_register_with_email" />
-    <activity
-        android:id="@+id/startActivity"
-        android:name="com.example.radyobilkentandroid.StartActivity"
-        android:label="activity_start"
-        tools:layout="@layout/activity_start" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.radyobilkentandroid.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.radyobilkentandroid.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nowPlayingFragment2"
+        android:name="com.example.radyobilkentandroid.NowPlayingFragment"
+        android:label="fragment_now_playing"
+        tools:layout="@layout/fragment_now_playing" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.radyobilkentandroid.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_updateUserInfoFragment"
+            app:destination="@id/updateUserInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateUserInfoFragment"
+        android:name="com.example.radyobilkentandroid.UpdateUserInfoFragment"
+        android:label="fragment_update_user_info"
+        tools:layout="@layout/fragment_update_user_info" />
 </navigation>

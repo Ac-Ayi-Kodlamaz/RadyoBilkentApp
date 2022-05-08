@@ -21,7 +21,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="50dp"
         android:text="@string/gender_label"
-        android:textSize="18dp"/>
+        android:textSize="18sp"/>
 
     <Spinner
         android:id="@+id/gender_spinner"

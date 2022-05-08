@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_in_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignInFragment">
@@ -10,7 +11,6 @@
         android:id="@+id/email_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
         android:layout_marginTop="100dp"
         android:hint="@string/prompt_email" />
 
@@ -18,18 +18,16 @@
         android:id="@+id/password_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="@string/prompt_password"
         android:layout_below="@+id/email_field"
+        android:layout_marginTop="12dp"
+        android:hint="@string/prompt_password"
         android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/password_confirmation_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:hint="@string/prompt_password_confirm"
         android:layout_below="@+id/password_field"
         android:inputType="textPassword" />
@@ -50,7 +48,6 @@
         android:layout_below="@id/sign_in_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="50dp"
         android:background="?android:attr/listDivider" />
 
     <TextView

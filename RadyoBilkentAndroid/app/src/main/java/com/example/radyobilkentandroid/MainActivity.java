@@ -19,11 +19,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-        user = new User(mAuth.getCurrentUser());
-        System.out.println(user.getUsername());
-        System.out.println(user.getPoints());
-        System.out.println(user.getGender());
-
     }
 }
