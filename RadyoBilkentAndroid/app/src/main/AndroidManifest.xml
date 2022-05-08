@@ -15,6 +15,9 @@
             android:name=".UpdateUserInfoActivity"
             android:exported="false" />
         <activity
+            android:name=".VotingActivity"
+            android:exported="false" />
+        <activity
             android:name=".NowPlayingActivity"
             android:exported="false" />
         <activity

@@ -136,10 +136,10 @@ public class SignInFragment extends Fragment {
 
     private void signedIn(View view, FirebaseUser mUser) {
         Log.d("SIGN IN BUTTON", "annen");
-        Data data = new Data();
-        data.setUser(mUser);
+        //Data data = new Data();
+        //data.setUser(mUser);
         Intent intent = new Intent(getActivity(), UpdateUserInfoActivity.class);
-        intent.putExtra("data_key", data);
+        //intent.putExtra("data_key", data);
         startActivity(intent);
         getActivity().finish();
 
