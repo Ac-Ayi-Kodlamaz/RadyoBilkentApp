@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName);
+                    NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
                     ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
                     ft.commit();
                 }
