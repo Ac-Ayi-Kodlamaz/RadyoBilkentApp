@@ -80,7 +80,6 @@ public class UpdateUserInfoFragment extends Fragment {
         genderSpinner = view.findViewById(R.id.gender_spinner);
         confirm = view.findViewById(R.id.confirm_button);
 
-        Toast.makeText(getContext(), "1234567", Toast.LENGTH_SHORT).show();
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,7 +90,7 @@ public class UpdateUserInfoFragment extends Fragment {
                 // TODO handle successful update and move back to the previous activity
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
-//                getActivity().finish();
+                getActivity().finish();
 
             }
         });

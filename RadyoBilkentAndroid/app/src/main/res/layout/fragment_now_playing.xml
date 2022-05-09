@@ -8,37 +8,43 @@
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="144px"
-        android:layout_height="144px"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="-6dp"
         android:alpha="1"
         android:background="@drawable/start_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/stopButton"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/stopButton"
-        android:layout_width="144px"
-        android:layout_height="144px"
-        android:layout_marginEnd="8dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:alpha="0.5"
         android:background="@drawable/pause_icon"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/songName"
-        android:layout_width="179dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_marginStart="20dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/startButton"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/music_note"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
