@@ -87,14 +87,12 @@ public class UpdateUserInfoFragment extends Fragment {
                 String txtUsername = username.getText().toString();
                 Gender gender = Gender.valueOfLabel((String) genderSpinner.getSelectedItem());
                 User user = new User(mDB,mUser);
-                if (user.updateUser(mUser, mDB, txtUsername, gender)) {
-                    // TODO handle successful update and move back to the previous activity
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
-                }
+                user.updateUser(mUser, mDB, txtUsername, gender);
+                // TODO handle successful update and move back to the previous activity
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+//                getActivity().finish();
 
-                Toast.makeText(getContext(), "HATAAA", Toast.LENGTH_SHORT).show();
             }
         });
     }

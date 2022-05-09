@@ -24,7 +24,7 @@ import java.util.Map;
 public class User {
 
     private DocumentReference mReference;
-    private Integer points;
+    private Long points;
     private String username;
     private Gender gender;
 
@@ -38,14 +38,15 @@ public class User {
         this();
         if (firebaseUser != null) {
             prepareDatabase(firebaseUser, db);
+            // we get info from the database
             mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.exists()) {
                         Map<String, Object> map = documentSnapshot.getData();
-                        points = (Integer) map.get("points");
+                        points = (Long) map.get("points");
                         username = (String) map.get("username");
-                        gender = (Gender) map.get("gender");
+                        gender = Gender.valueOfLabel((String) map.get("gender"));
 //                        avatar = (Avatar) map.get("avatar");
 //                        items = (ArrayList<Item>) map.get("items");
                     }
@@ -60,7 +61,7 @@ public class User {
         }
     }
 
-    public Integer getPoints() {
+    public Long getPoints() {
         return points;
     }
 
@@ -72,11 +73,12 @@ public class User {
         return gender;
     }
 
-    public boolean updateUser(FirebaseUser mUser, FirebaseFirestore db, String username, Gender gender) {
-        boolean[] result = {true};
+    public void updateUser(FirebaseUser mUser, FirebaseFirestore db, String username, Gender gender) {
         prepareDatabase(mUser, db);
+        // we set info to the database
         HashMap<String, Object> map = new HashMap<>();
-        map.put("username", username);
+        map.put("username", username); // key, value
+        points = points == null ? 0: points;
         map.put("points", points);
         map.put("gender", gender);
 //        map.put("avatar", new Avatar());
@@ -85,13 +87,13 @@ public class User {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    System.out.println("user updated succesfully");
-                } else {
-                    result[0] = false;
+                    Log.d("USER_UPDATE:", "User updated successfully");
+                }
+                else {
+                    Log.d("USER_UPDATE:", "Could not update user");
                 }
             }
         });
-        return result[0];
     }
 
     private void prepareDatabase(FirebaseUser mUser, FirebaseFirestore db) {

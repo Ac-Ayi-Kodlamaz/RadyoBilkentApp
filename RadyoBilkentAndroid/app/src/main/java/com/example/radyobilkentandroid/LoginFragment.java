@@ -153,6 +153,7 @@ public class LoginFragment extends Fragment {
     private void loggedIn() {
         Intent intent = new Intent(getContext(), MainActivity.class);
         startActivity(intent);
+        getActivity().finish();
     }
 
     private void createRequest() {
