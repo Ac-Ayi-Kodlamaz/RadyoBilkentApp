@@ -13,13 +13,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Serializable;
 
 import data.Data;
 import model.Gender;
+import model.User;
 
 public class UpdateUserInfoFragment extends Fragment {
 
@@ -29,6 +33,8 @@ public class UpdateUserInfoFragment extends Fragment {
     private FirebaseUser mUser;
     private Data data;
 
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore mDB;
     private EditText username;
     private Spinner genderSpinner;
     private Button confirm;
@@ -53,6 +59,9 @@ public class UpdateUserInfoFragment extends Fragment {
             mUser = (FirebaseUser) getArguments().getSerializable(MUSER_KEY);
             data = (Data) getArguments().getSerializable(DATA_KEY);
         }
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        mDB = FirebaseFirestore.getInstance();
 
     }
 
@@ -71,17 +80,21 @@ public class UpdateUserInfoFragment extends Fragment {
         genderSpinner = view.findViewById(R.id.gender_spinner);
         confirm = view.findViewById(R.id.confirm_button);
 
+        Toast.makeText(getContext(), "1234567", Toast.LENGTH_SHORT).show();
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txtUsername = username.getText().toString();
                 Gender gender = Gender.valueOfLabel((String) genderSpinner.getSelectedItem());
-                if (data.getUser().updateUser(mUser, data.getDB(), txtUsername, gender)) {
+                User user = new User(mDB,mUser);
+                if (user.updateUser(mUser, mDB, txtUsername, gender)) {
                     // TODO handle successful update and move back to the previous activity
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
                     getActivity().finish();
                 }
+
+                Toast.makeText(getContext(), "HATAAA", Toast.LENGTH_SHORT).show();
             }
         });
     }

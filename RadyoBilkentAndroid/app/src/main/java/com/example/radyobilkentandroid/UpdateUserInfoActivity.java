@@ -32,7 +32,7 @@ public class UpdateUserInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("selam","activity girildi");
         setContentView(R.layout.activity_update_user_info);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -41,7 +41,7 @@ public class UpdateUserInfoActivity extends AppCompatActivity {
         data.setUser(mUser);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        UpdateUserInfoFragment fragment = UpdateUserInfoFragment.newInstance(mUser, data);
+        UpdateUserInfoFragment fragment = new UpdateUserInfoFragment();
         ft.replace(R.id.update_user_info_fragment, fragment);
         ft.commit();
 
