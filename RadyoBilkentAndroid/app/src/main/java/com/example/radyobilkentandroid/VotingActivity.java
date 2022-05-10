@@ -21,6 +21,7 @@ import com.google.firebase.firestore.Blob;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firestore.v1.WriteResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +70,8 @@ public class VotingActivity extends AppCompatActivity {
 
         mReference = mDB.collection("votingSession").document("test");
         uReference = mDB.collection("users").document(mUser.getUid());
+
+
 
         mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -310,6 +313,7 @@ public class VotingActivity extends AppCompatActivity {
 
         new_map.put("SongNames",songNames);
         new_map.put("songPoints", songPoints);
+
 
         mReference.set(new_map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
