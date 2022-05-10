@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    //the upcoming colors are our own choices for the app
+
+    <color name="no_interact">#0E4D96</color>
+    <color name="yes_interact">#5596E0</color>
+    <color name="button_red">#FF1744</color>
+    <color name="button_skin">#FFA38F</color>
+    <color name="dark_radio_bilkent_purple">#0c101b</color>
+    <color name="bilkent_gray">#EFEFEF</color>
+
 </resources>
