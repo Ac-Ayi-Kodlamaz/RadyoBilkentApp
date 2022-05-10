@@ -14,7 +14,9 @@
         <item>Do not wish to disclose</item>
     </string-array>
     <string name="confirm_text">CONFIRM</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="or">or</string>
+
+<!--    voting session    -->
+    <string name="voting_active">VOTING SESSION IS ACTIVE\nCLICK TO VOTE</string>
+    <string name="voting_inactive">VOTING SESSION FINISHED\nCLICK TO GO TO AUCTION</string>
 </resources>

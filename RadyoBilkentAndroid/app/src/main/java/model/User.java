@@ -73,6 +73,10 @@ public class User {
         return gender;
     }
 
+    public DocumentReference getmReference() {
+        return mReference;
+    }
+
     public void updateUser(FirebaseUser mUser, FirebaseFirestore db, String username, Gender gender) {
         prepareDatabase(mUser, db);
         // we set info to the database

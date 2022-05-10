@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="program_flow_next_item_visible">23dp</dimen> <!-- should be smaller than horizontal_margin -->
+    <dimen name="program_flow_current_item_horizontal_margin">46dp</dimen>
+
+    <dimen name="program_image_width">200dp</dimen>
+</resources>

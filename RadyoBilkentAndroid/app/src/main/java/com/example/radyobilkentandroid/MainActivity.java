@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -17,17 +20,18 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
-import model.Gender;
 import model.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    private User user;
+    public static User user;
 
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore mDB;
-    private FirebaseUser mUser;
-    private DocumentReference mReference;
+    public static FirebaseAuth mAuth;
+    public static FirebaseFirestore mDB;
+    public static FirebaseUser mUser;
+    private DocumentReference mSongReference;
+
+    private Button votingButton;
 
     private String songURL;
     private String imageURL;
@@ -42,12 +46,32 @@ public class MainActivity extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
         mDB = FirebaseFirestore.getInstance();
 
+        user = new User(mDB, mUser);
+
+        FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
+        TopBarFragment topBarFragment = TopBarFragment.newInstance();
+        ft1.replace(R.id.top_bar_frame, topBarFragment);
+        ft1.commit();
+
+        FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+        ProgramFlowFragment programFlowFragment = ProgramFlowFragment.newInstance();
+        ft2.replace(R.id.program_flow_frame, programFlowFragment);
+        ft2.commit();
+
+        votingButton = findViewById(R.id.voting_session_button);
+        votingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, VotingActivity.class);
+            }
+        });
+
         //TODO make it dynamic
         String songPath = "Test";
         //
-        mReference = mDB.collection("songs").document(songPath);
+        mSongReference = mDB.collection("songs").document(songPath);
 
-        mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        mSongReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {

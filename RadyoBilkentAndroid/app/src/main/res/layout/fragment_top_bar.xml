@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TopBarFragment">
+
+    <TextView
+        android:id="@+id/top_bar_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingHorizontal="5dp"
+        android:text="username"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/top_bar_avatar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/top_bar_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 points"
+        android:paddingHorizontal="5dp"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/top_bar_username"
+        app:layout_constraintTop_toBottomOf="@id/top_bar_username" />
+
+    <ImageView
+        android:id="@+id/top_bar_avatar"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="6dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/circle_bounding"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="6dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/circle_bounding" />
+
+    <ImageButton
+        android:id="@+id/hamburger_button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_hamburger_menu_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
