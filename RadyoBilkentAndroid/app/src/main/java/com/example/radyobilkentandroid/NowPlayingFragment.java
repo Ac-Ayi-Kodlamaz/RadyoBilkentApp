@@ -107,7 +107,8 @@ public class NowPlayingFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_now_playing, container, false);
     }
-
+    //TODO
+    // change fragment when url is changed
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -145,17 +146,14 @@ public class NowPlayingFragment extends Fragment {
                             String username = (String) map.get("username");
                             //TODO Gender burada string olunca DNWTD oluyor bu da enumda değer bulamayınca
                             //TODO null gönderiyor user düzelticek
-                            Gender gender = Gender.valueOfLabel("Do not wish to disclose");
-                            //Gender gender = Gender.valueOfLabel((String) map.get("gender"));
+                            //Gender gender = Gender.valueOfLabel("Do not wish to disclose");
+                            Gender gender = Gender.valueOfLabel((String) map.get("gender"));
 
-                            HashMap<String, Object> new_map = new HashMap<>();
 
-                            new_map.put("username",username);
-                            new_map.put("gender", gender);
                             //TODO increment count
                             points += 10;
-                            new_map.put("points",points);
-                            mReference.set(new_map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            map.put("points",points);
+                            mReference.set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {

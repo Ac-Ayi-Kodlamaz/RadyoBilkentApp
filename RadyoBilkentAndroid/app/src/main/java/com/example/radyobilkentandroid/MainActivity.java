@@ -6,9 +6,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,11 +32,17 @@ public class MainActivity extends AppCompatActivity {
     public static FirebaseFirestore mDB;
     public static FirebaseUser mUser;
     private DocumentReference mSongReference;
+    private DocumentReference mCurrentSong;
 
     private Button votingButton;
     private String songURL;
+
     private String imageURL;
     private String songName;
+    private String songPath;
+    private String oldPath;
+
+    private CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,26 +70,86 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //TODO make it dynamic
-        String songPath = "Test";
-        //
-        mSongReference = mDB.collection("songs").document(songPath);
+        timer = new CountDownTimer(100000000, 5000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
 
-        mSongReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                if (songPath == null){
+                    readCurrentSong(true);
+                }
+                else{
+                    readCurrentSong(false);
+                }
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+        timer.start();
+        //TODO make it dynamic
+        // url boş ise database eski = yeni
+        // url eski = yeni ise nothing
+        // url yeni != eski
+        //      yeni fragment yeni_url
+        //      eski = yeni
+        mCurrentSong = mDB.collection("currentSong").document("trial");
+
+
+
+
+    }
+    private void goToVoting(){
+        Intent intent = new Intent(this, VotingActivity.class);
+        startActivity(intent);
+    }
+
+
+    private void readCurrentSong(boolean isFirst){
+        mCurrentSong.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
 
                     Map<String, Object> map = documentSnapshot.getData();
+                    songPath = (String) map.get("name");
 
-                    songURL = (String) map.get("song_url");
-                    imageURL = (String) map.get("image_url");
-                    songName = (String) map.get("name");
+                    if (isFirst){
+                        changeFrangment();
+                        oldPath = songPath;
+                    }
+                    else{
+                        if (!oldPath.equals(songPath)){
+                            Toast.makeText(MainActivity.this, "music changed", Toast.LENGTH_SHORT).show();
+                            changeFrangment();
+                            oldPath = songPath;
+                        }
+                    }
 
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
-                    ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
-                    ft.commit();
+                }
+            }
+        });
+    }
+
+    private void changeFrangment(){
+        mSongReference = mDB.collection("songs").document(songPath);
+        mSongReference = mDB.collection("songs").document("Another Brick on the Wall");
+
+        mSongReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    Log.d("ggggggggg", "gggggggg");
+                    Map<String, Object> map = documentSnapshot.getData();
+
+                    songURL = (String) map.get("link");
+                    imageURL = (String) map.get("cover");
+                    songName = (String) map.get("creator");
+                    reloadFragment();
+                }
+                else{
+                    Log.d("hataa", "olmadı");
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -91,14 +159,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
             }
         });
+    }
+    private void reloadFragment(){
+        //TODO değişim
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
+        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
+        ft.commit();
+    }
 
+    private void readDatabase(){
 
-
-//        String url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(url, songName);
-//        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
-//        ft.commit();
     }
 
     private void startTopBarFragment() {
@@ -108,9 +179,7 @@ public class MainActivity extends AppCompatActivity {
         ft1.commit();
     }
 
-    private void goToVoting(){
-        Intent intent = new Intent(this, VotingActivity.class);
-        startActivity(intent);
-    }
+
+
 
 }

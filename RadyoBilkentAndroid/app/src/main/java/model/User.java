@@ -92,7 +92,7 @@ public class User {
         map.put("username", username); // key, value
         points = points == null ? 0: points;
         map.put("points", points);
-        map.put("gender", gender);
+        map.put("gender", gender.toString());
 //        map.put("avatar", new Avatar());
 //        map.put("items", new ArrayList<Item>());
         mReference.set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
