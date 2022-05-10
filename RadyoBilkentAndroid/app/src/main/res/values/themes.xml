@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/button_red</item>
         <item name="colorPrimaryVariant">@color/yes_interact</item>
         <item name="colorOnPrimary">@color/bilkent_gray</item>
-        <!-- Secondary brand color. -->
+        <!-- Secondary brand color. -->//Use the secondary colors to use for not intractable GUI elements
         <item name="colorSecondary">@color/button_skin</item>
         <item name="colorSecondaryVariant">@color/no_interact</item>
         <item name="colorOnSecondary">@color/bilkent_gray</item>
