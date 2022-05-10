@@ -66,12 +66,13 @@ public class ProgramFlowFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if ( task.isSuccessful()) {
-                    programData = new Object[task.getResult().size()][2];
+                    programData = new Object[task.getResult().size()][4];
                     for (int i = 0; i < task.getResult().size(); i++) {
                         Map<String, Object> map = task.getResult().getDocuments().get(i).getData();
-                        programData[i][0] = (String) map.get("name");
+                        programData[i][0] = (String) map.get("title");
                         programData[i][1] = (String) map.get("time");
-                        // programData[i][2] = (String) map.get("image");
+                        programData[i][2] = (String) map.get("explanation");
+                        programData[i][3] = (String) map.get("image");
                     }
                 }
                 else {

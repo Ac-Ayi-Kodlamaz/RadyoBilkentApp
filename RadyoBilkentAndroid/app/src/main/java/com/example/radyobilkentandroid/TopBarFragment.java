@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.util.Map;
+
+import model.Gender;
 import model.User;
 
 public class TopBarFragment extends Fragment {
@@ -24,10 +31,12 @@ public class TopBarFragment extends Fragment {
     private TextView pointText;
     private ImageButton hamburgerMenuButton;
 
+    private String strUsername;
+    private Long lngPoints;
+
     public TopBarFragment() {
         // Required empty public constructor
     }
-
 
     public static TopBarFragment newInstance() {
         TopBarFragment fragment = new TopBarFragment();
@@ -67,8 +76,32 @@ public class TopBarFragment extends Fragment {
 //        profilePic.setImageResource();
 //        profilePic.setImageBitmap();
 
-        username.setText(MainActivity.user.getUsername());
-        pointText.setText(MainActivity.user.getPoints() + " points");
+        if (username == null || lngPoints == null) {
+            MainActivity.user.getmReference().get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists()) {
+                        Map<String, Object> map = documentSnapshot.getData();
+                        lngPoints = (Long) map.get("points");
+                        strUsername = (String) map.get("username");
+
+                        username.setText(strUsername);
+                        pointText.setText(lngPoints.toString());
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    // TODO make this more sensible
+                    Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
+                }
+            });
+        }
+        else {
+            username.setText(strUsername);
+            pointText.setText(lngPoints.toString() + " points");
+        }
+
         hamburgerMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -47,10 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         user = new User(mDB, mUser);
 
-        FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
-        TopBarFragment topBarFragment = TopBarFragment.newInstance();
-        ft1.replace(R.id.top_bar_frame, topBarFragment);
-        ft1.commit();
+        startTopBarFragment();
 
         FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
         ProgramFlowFragment programFlowFragment = ProgramFlowFragment.newInstance();
@@ -81,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                     imageURL = (String) map.get("image_url");
                     songName = (String) map.get("name");
 
-
                     FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                     NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
                     ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
@@ -104,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
 //        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
 //        ft.commit();
     }
+
+    private void startTopBarFragment() {
+        FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
+        TopBarFragment topBarFragment = TopBarFragment.newInstance();
+        ft1.replace(R.id.top_bar_frame, topBarFragment);
+        ft1.commit();
+    }
+
     private void goToVoting(){
         Intent intent = new Intent(this, VotingActivity.class);
         startActivity(intent);

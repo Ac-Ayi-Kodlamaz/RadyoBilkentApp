@@ -1,6 +1,9 @@
 package com.example.radyobilkentandroid;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.InputStream;
 
 public class ProgramFlowRecyclerViewAdapter extends RecyclerView.Adapter<ProgramFlowRecyclerViewAdapter.ViewHolder> {
 
@@ -57,7 +62,8 @@ public class ProgramFlowRecyclerViewAdapter extends RecyclerView.Adapter<Program
         // contents of the view with that element
         holder.getProgramName().setText((String) localDataSet[position][0]);
         holder.getProgramTime().setText((String) localDataSet[position][1]);
-        //holder.getProgramImage().setImageBitmap((Bitmap) localDataSet[position][2]);
+        holder.getProgramExplanation().setText((String) localDataSet[position][2]);
+        new DownloadImageTask(holder.getProgramImage()).execute((String) localDataSet[position][3]);
     }
 
     /**
@@ -76,6 +82,7 @@ public class ProgramFlowRecyclerViewAdapter extends RecyclerView.Adapter<Program
 
         private TextView programName;
         private TextView programTime;
+        private TextView programExplanation;
         private ImageView programImage;
 
         public ViewHolder(View view) {
@@ -84,6 +91,7 @@ public class ProgramFlowRecyclerViewAdapter extends RecyclerView.Adapter<Program
 
             programName = view.findViewById(R.id.program_name_text);
             programTime = view.findViewById(R.id.program_time_text);
+            programExplanation = view.findViewById(R.id.program_explanation_text);
             programImage = view.findViewById(R.id.program_image);
             programImage.setImageResource(R.color.teal_700);
         }
@@ -96,8 +104,37 @@ public class ProgramFlowRecyclerViewAdapter extends RecyclerView.Adapter<Program
             return programTime;
         }
 
+        public TextView getProgramExplanation() {
+            return programExplanation;
+        }
+
         public ImageView getProgramImage() {
             return programImage;
+        }
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView imageView;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.imageView = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            imageView.setImageBitmap(result);
         }
     }
 }

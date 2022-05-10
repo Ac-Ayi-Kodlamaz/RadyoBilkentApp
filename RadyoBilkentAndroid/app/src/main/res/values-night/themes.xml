@@ -12,5 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/dark_radio_bilkent_purple</item>
+        <item name="backgroundColor">@color/dark_radio_bilkent_purple</item>
     </style>
 </resources>

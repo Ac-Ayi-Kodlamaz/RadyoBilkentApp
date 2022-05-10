@@ -28,6 +28,8 @@ public class User {
     private String username;
     private Gender gender;
 
+    private boolean initialized;
+
 //    private Avatar avatar;
 //    private ArrayList<Item> items;
 
@@ -49,6 +51,8 @@ public class User {
                         gender = Gender.valueOfLabel((String) map.get("gender"));
 //                        avatar = (Avatar) map.get("avatar");
 //                        items = (ArrayList<Item>) map.get("items");
+
+                        initialized = true;
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -75,6 +79,10 @@ public class User {
 
     public DocumentReference getmReference() {
         return mReference;
+    }
+
+    public boolean isInitialized() {
+        return initialized;
     }
 
     public void updateUser(FirebaseUser mUser, FirebaseFirestore db, String username, Gender gender) {
