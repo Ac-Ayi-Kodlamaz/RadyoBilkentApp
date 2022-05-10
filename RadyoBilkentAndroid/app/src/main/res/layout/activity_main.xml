@@ -6,15 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/logged_in_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I recognise you!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:id="@+id/top_bar_frame"
+        android:name="com.example.radyobilkentandroid.TopBarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/program_flow_frame"
+        android:name="com.example.radyobilkentandroid.ProgramFlowFragment"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/top_bar_frame">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/voting_session_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+
+        android:text="@string/voting_active"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/nowPlayingFragment"
+        tools:layout_editor_absoluteX="20dp" />
+
 
     <FrameLayout
         android:id="@+id/nowPlayingFragment"
@@ -22,18 +48,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
     </FrameLayout>
 
-    <Button
-        android:id="@+id/goToVoting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Go To Voting"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logged_in_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>
