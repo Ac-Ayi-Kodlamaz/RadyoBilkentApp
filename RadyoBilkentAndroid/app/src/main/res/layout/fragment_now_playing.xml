@@ -10,36 +10,27 @@
         android:id="@+id/startButton"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginEnd="-6dp"
+        android:layout_marginEnd="5dp"
         android:alpha="1"
         android:background="@drawable/start_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/stopButton"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:alpha="0.5"
-        android:background="@drawable/pause_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
     <TextView
         android:id="@+id/songName"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:layout_marginStart="20dp"
+        android:textSize="20sp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/songImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/songImage"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_marginStart="20dp"

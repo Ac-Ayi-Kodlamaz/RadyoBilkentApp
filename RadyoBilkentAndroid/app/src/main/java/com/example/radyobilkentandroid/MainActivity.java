@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button votingButton;
 
+    private Button voting;
     private String songURL;
     private String imageURL;
     private String songName;
@@ -45,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mDB = FirebaseFirestore.getInstance();
+        voting = findViewById(R.id.goToVoting);
+
+        voting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToVoting();
+            }
+        });
+
 
         user = new User(mDB, mUser);
 
@@ -84,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName);
+                    NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
                     ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
                     ft.commit();
                 }
@@ -104,6 +114,10 @@ public class MainActivity extends AppCompatActivity {
 //        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(url, songName);
 //        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
 //        ft.commit();
+    }
+    private void goToVoting(){
+        Intent intent = new Intent(this, VotingActivity.class);
+        startActivity(intent);
     }
 
 }
