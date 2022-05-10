@@ -134,7 +134,7 @@ public class NowPlayingFragment extends Fragment {
             @Override
             public void onTick(long millisUntilFinished) {
 
-
+                if(isPlaying[0]){
                 mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -174,13 +174,15 @@ public class NowPlayingFragment extends Fragment {
                         // TODO make this more sensible
                         Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
                     }
-                });
+                });}
             }
+
 
             @Override
             public void onFinish() {
 
             }
+
         };
         timer.start();
 

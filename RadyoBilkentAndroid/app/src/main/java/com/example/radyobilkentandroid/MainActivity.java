@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser mUser;
     private DocumentReference mReference;
 
+    private Button voting;
     private String songURL;
     private String imageURL;
     private String songName;
@@ -41,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mDB = FirebaseFirestore.getInstance();
+        voting = findViewById(R.id.goToVoting);
+
+        voting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToVoting();
+            }
+        });
+
 
         //TODO make it dynamic
         String songPath = "Test";
@@ -80,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
 //        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(url, songName);
 //        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
 //        ft.commit();
+    }
+    private void goToVoting(){
+        Intent intent = new Intent(this, VotingActivity.class);
+        startActivity(intent);
     }
 
 }
