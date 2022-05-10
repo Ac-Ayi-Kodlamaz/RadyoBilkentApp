@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,9 +43,12 @@ public class VotingActivity extends AppCompatActivity {
     private FirebaseFirestore mDB;
     private DocumentReference mReference;
     private DocumentReference uReference;
+    private TextView text;
 
     private ArrayList<String> songNames;
     private ArrayList<Long> songPoints;
+
+    private Map<String,Object> votingMap;
 
     private long userPoints;
     //TODO
@@ -62,13 +66,13 @@ public class VotingActivity extends AppCompatActivity {
         mDB = FirebaseFirestore.getInstance();
 
         points = findViewById(R.id.points_field);
-
+        text = findViewById(R.id.textOfVoting);
         song1 = findViewById(R.id.song1);
         song2 = findViewById(R.id.song2);
         song3 = findViewById(R.id.song3);
         song4 = findViewById(R.id.song4);
 
-        mReference = mDB.collection("votingSession").document("test");
+        mReference = mDB.collection("votingSession").document("Voting Session: 1");
         uReference = mDB.collection("users").document(mUser.getUid());
 
 
@@ -77,14 +81,14 @@ public class VotingActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
-                    Map<String, Object> map = documentSnapshot.getData();
-                    songNames = (ArrayList<String>) map.get("SongNames");
-                    songPoints = (ArrayList<Long>) map.get("songPoints");
+                    votingMap = documentSnapshot.getData();
+                    songNames = (ArrayList<String>) votingMap.get("songList");
+                    songPoints = (ArrayList<Long>) votingMap.get("votes");
                     song1.setText(songNames.get(0));
                     song2.setText(songNames.get(1));
                     song3.setText(songNames.get(2));
                     song4.setText(songNames.get(3));
-
+                    text.setText((String) votingMap.get("title"));
 
                 }
             }
@@ -309,13 +313,11 @@ public class VotingActivity extends AppCompatActivity {
     }
     public void updateVotingSession(){
 
-        HashMap<String, Object> new_map = new HashMap<>();
-
-        new_map.put("SongNames",songNames);
-        new_map.put("songPoints", songPoints);
+        votingMap.put("votes", songPoints);
 
 
-        mReference.set(new_map).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+        mReference.set(votingMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {

@@ -88,15 +88,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         timer.start();
-        //TODO make it dynamic
-        // url boş ise database eski = yeni
-        // url eski = yeni ise nothing
-        // url yeni != eski
-        //      yeni fragment yeni_url
-        //      eski = yeni
+
         mCurrentSong = mDB.collection("currentSong").document("trial");
-
-
 
 
     }
@@ -134,13 +127,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeFrangment(){
         mSongReference = mDB.collection("songs").document(songPath);
-        mSongReference = mDB.collection("songs").document("Another Brick on the Wall");
 
         mSongReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
-                    Log.d("ggggggggg", "gggggggg");
+
                     Map<String, Object> map = documentSnapshot.getData();
 
                     songURL = (String) map.get("link");
@@ -149,21 +141,22 @@ public class MainActivity extends AppCompatActivity {
                     reloadFragment();
                 }
                 else{
-                    Log.d("hataa", "olmadı");
+                    Log.d("hataa", "dosya olmadı");
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                // TODO make this more sensible
+
                 Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
             }
         });
     }
     private void reloadFragment(){
         //TODO değişim
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
+        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songPath + "\n"+songName, imageURL);
         ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
         ft.commit();
     }

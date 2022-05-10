@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class StartActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +24,13 @@ public class StartActivity extends AppCompatActivity {
         finish();
         */
 
-//        if (firebaseAuth.getCurrentUser() == null) {
+        if (firebaseAuth.getCurrentUser() == null) {
             startActivity(new Intent(this, RegisterActivity.class));
-            finish();
-//        }
-//        else {
-//            startActivity(new Intent(this, MainActivity.class));
-//            finish();
-//        }
+        }
+        else {
+            startActivity(new Intent(this, MainActivity.class));
+        }
+        finish();
 
 
     }

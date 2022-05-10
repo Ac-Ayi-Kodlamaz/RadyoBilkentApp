@@ -51,6 +51,8 @@ public class NowPlayingFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+    private boolean isPlaying = false;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
@@ -121,7 +123,7 @@ public class NowPlayingFragment extends Fragment {
         String imageURL = mParam3;
         ImageView image = (ImageView) getView().findViewById(R.id.songImage);
         new DownloadImageTask(image).execute(imageURL);
-        boolean[] isPlaying = {false};
+        //boolean[] isPlaying = {false};
         timer = new CountDownTimer(300000,1000){
 
             // for incrementing score
@@ -135,11 +137,11 @@ public class NowPlayingFragment extends Fragment {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                if(isPlaying[0]){
+                if(isPlaying){
                 mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if (documentSnapshot.exists() && isPlaying[0]) {
+                        if (documentSnapshot.exists() && isPlaying) {
 
                             Map<String, Object> map = documentSnapshot.getData();
                             Long points = (Long) map.get("points");
@@ -198,6 +200,14 @@ public class NowPlayingFragment extends Fragment {
             e.printStackTrace();
         }
 
+        customMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                customMediaPlayer.start();
+                play();
+            }
+        });
+
         start = (Button) getView().findViewById(R.id.startButton);
 
 
@@ -205,15 +215,11 @@ public class NowPlayingFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(!isPlaying[0]) {
-                    isPlaying[0] = true;
-                    customMediaPlayer.start();
-                    start.setBackgroundResource(R.drawable.pause_icon);
+                if(!isPlaying) {
+                    play();
                 }
                 else{
-                    isPlaying[0] = false;
-                    customMediaPlayer.pause();
-                    start.setBackgroundResource(R.drawable.start_icon);
+                    pause();
                 }
             }
         });
@@ -255,5 +261,27 @@ public class NowPlayingFragment extends Fragment {
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        customMediaPlayer.stop();
+        timer.cancel();
+    }
+
+    private void play(){
+        isPlaying = true;
+        customMediaPlayer.start();
+        customMediaPlayer.setVolume(1f,1f);
+        start.setBackgroundResource(R.drawable.pause_icon);
+    }
+
+    private void pause() {
+        isPlaying = false;
+        customMediaPlayer.setVolume(0f,0f);
+        //customMediaPlayer.pause();
+        start.setBackgroundResource(R.drawable.start_icon);
     }
 }

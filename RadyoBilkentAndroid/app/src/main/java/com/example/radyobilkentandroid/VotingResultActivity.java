@@ -39,7 +39,7 @@ public class VotingResultActivity extends AppCompatActivity {
         song4 = (TextView) findViewById(R.id.songStat4);
 
         mDB = FirebaseFirestore.getInstance();
-        mReference = mDB.collection("votingSession").document("test");
+        mReference = mDB.collection("votingSession").document("Voting Session: 1");
         updateTextViews();
 
         timer = new CountDownTimer(1000000, 5000){
@@ -62,13 +62,14 @@ public class VotingResultActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Map<String, Object> map = documentSnapshot.getData();
-                songPoints = (ArrayList<Long>) map.get("songPoints");
-                songNames = (ArrayList<String>) map.get("SongNames");
+                songPoints = (ArrayList<Long>) map.get("votes");
+                songNames = (ArrayList<String>) map.get("songList");
                 Long total_votes = 0l;
                 for (Long l: songPoints) {
                     total_votes += l;
 
                 }
+                //TODO division by 0
                 song1.setText(songNames.get(0) + " " + songPoints.get(0) + " / " + total_votes);
                 song2.setText(songNames.get(1) + " " + songPoints.get(1) + " / " + total_votes);
                 song3.setText(songNames.get(2) + " " + songPoints.get(2) + " / " + total_votes);

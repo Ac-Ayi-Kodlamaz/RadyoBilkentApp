@@ -22,9 +22,9 @@
         android:id="@+id/songName"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"
+        android:layout_marginStart="5dp"
         android:text="TextView"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/songImage"
         app:layout_constraintTop_toTopOf="parent" />
