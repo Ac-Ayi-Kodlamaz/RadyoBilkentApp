@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -37,6 +38,8 @@ public class TopBarFragment extends Fragment {
     private String strUsername;
     private Long lngPoints;
     private boolean navDrawerOpen;
+
+    private CountDownTimer timer;
 
     public TopBarFragment() {
         // Required empty public constructor
@@ -73,6 +76,7 @@ public class TopBarFragment extends Fragment {
         username = view.findViewById(R.id.top_bar_username);
         pointText = view.findViewById(R.id.top_bar_points);
         hamburgerMenuButton = view.findViewById(R.id.hamburger_button);
+        profilePic.setImageResource(R.drawable.nice_avatar);
 
         // TODO use one of them to see the Avatar in the top right corner
 //        profilePic.setImageURI();
@@ -80,32 +84,20 @@ public class TopBarFragment extends Fragment {
 //        profilePic.setImageIcon();
 //        profilePic.setImageResource();
 //        profilePic.setImageBitmap();
+        timer = new CountDownTimer(100000000, 5000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                changeTexts();
+            }
 
-        if (username == null || lngPoints == null) {
-            MainActivity.user.getmReference().get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if (documentSnapshot.exists()) {
-                        Map<String, Object> map = documentSnapshot.getData();
-                        lngPoints = (Long) map.get("points");
-                        strUsername = (String) map.get("username");
+            @Override
+            public void onFinish() {
 
-                        username.setText(strUsername);
-                        pointText.setText(lngPoints.toString());
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    // TODO make this more sensible
-                    Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
-                }
-            });
-        }
-        else {
-            username.setText(strUsername);
-            pointText.setText(lngPoints.toString() + " points");
-        }
+            }
+        };
+        timer.start();
+
+
 
         hamburgerMenuButton.setOnClickListener(new HamburgerListener());
     }
@@ -130,5 +122,27 @@ public class TopBarFragment extends Fragment {
                 Log.d("HAMBURGER MENU CLICK: ", "mainActivity is null");
             }
         }
+    }
+
+    private void changeTexts(){
+        MainActivity.user.getmReference().get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    Map<String, Object> map = documentSnapshot.getData();
+                    lngPoints = (Long) map.get("points");
+                    strUsername = (String) map.get("username");
+
+                    username.setText(strUsername);
+                    pointText.setText(lngPoints.toString());
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // TODO make this more sensible
+                Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
+            }
+        });
     }
 }
