@@ -40,14 +40,13 @@
 
     <ImageView
         android:id="@+id/circle_bounding"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="6dp"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/circle_bounding" />
+        tools:src="@tools:sample/avatars[3]" />
 
     <ImageButton
         android:id="@+id/hamburger_button"
