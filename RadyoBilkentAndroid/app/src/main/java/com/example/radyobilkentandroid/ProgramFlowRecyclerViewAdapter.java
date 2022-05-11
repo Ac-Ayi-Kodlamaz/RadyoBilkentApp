@@ -93,7 +93,6 @@ public class ProgramFlowRecyclerViewAdapter extends RecyclerView.Adapter<Program
             programTime = view.findViewById(R.id.program_time_text);
             programExplanation = view.findViewById(R.id.program_explanation_text);
             programImage = view.findViewById(R.id.program_image);
-            programImage.setImageResource(R.color.teal_700);
         }
 
         public TextView getProgramName() {

@@ -93,25 +93,31 @@ public class ProgramFlowFragment extends Fragment {
         // MyRecyclerViewAdapter is an standard RecyclerView.Adapter :)
         pager.setAdapter(new ProgramFlowRecyclerViewAdapter(programData));
         // You need to retain one page on each side so that the next and previous items are visible
-        pager.setOffscreenPageLimit(1);
+//        pager.setOffscreenPageLimit(1);
 
         // Add a PageTransformer that translates the next and previous items horizontally
         // towards the center of the screen, which makes them visible
-        float nextItemVisibleDp = getResources().getDimension(R.dimen.program_flow_next_item_visible);
-        float currentItemHorizontalMarginDp = getResources().getDimension(R.dimen.program_flow_current_item_horizontal_margin);
+
+//        float nextItemVisibleDp = getResources().getDimension(R.dimen.program_flow_next_item_visible);
+//        float currentItemHorizontalMarginDp = getResources().getDimension(R.dimen.program_flow_current_item_horizontal_margin);
+
 //        val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
 //        val currentItemHorizontalMarginPx = resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin)
-        float pageTranslationX = nextItemVisibleDp + currentItemHorizontalMarginDp;
+
+//        float pageTranslationX = nextItemVisibleDp + currentItemHorizontalMarginDp;
+
 //        val pageTranslationX = nextItemVisiblePx + currentItemHorizontalMarginPx
-        ViewPager2.PageTransformer pageTransformer = new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                page.setTranslationX(-pageTranslationX * position);
-                page.setScaleY(1 - (0.25f * Math.abs(position)));
-                // page.setAlpha(0.25f + (1 - Math.abs(position)));
-            }
-        };
-        pager.setPageTransformer(pageTransformer);
+
+//        ViewPager2.PageTransformer pageTransformer = new ViewPager2.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                page.setTranslationX(-pageTranslationX * position);
+//                page.setScaleY(1 - (0.25f * Math.abs(position)));
+//                // page.setAlpha(0.25f + (1 - Math.abs(position)));
+//            }
+//        };
+//        pager.setPageTransformer(pageTransformer);
+
 //        val pageTransformer = pager.PageTransformer { page: View, position: Float ->
 //                page.translationX = -pageTranslationX * position
         // Next line scales the item's height. You can remove it if you don't want this effect
@@ -121,9 +127,13 @@ public class ProgramFlowFragment extends Fragment {
 //        }
 //        pager.setPageTransformer(pageTransformer)
 
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL);
-        itemDecoration.setDrawable(getContext().getDrawable(R.drawable.pager_divider));
-        pager.addItemDecoration(itemDecoration);
+
+
+//        DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL);
+//        itemDecoration.setDrawable(getContext().getDrawable(R.drawable.pager_divider));
+//        pager.addItemDecoration(itemDecoration);
+
+
         // The ItemDecoration gives the current (centered) item horizontal margin so that
         // it doesn't occupy the whole screen width. Without it the items overlap
 //        val itemDecoration = HorizontalMarginItemDecoration(

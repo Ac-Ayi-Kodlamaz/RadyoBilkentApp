@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +19,9 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.Map;
-
-import model.Gender;
-import model.User;
 
 public class TopBarFragment extends Fragment {
 

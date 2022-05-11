@@ -2,14 +2,14 @@
     android:width="69.17dp"
     android:height="51.02dp"
     android:viewportWidth="69.17"
-    android:viewportHeight="51.02">
+    android:viewportHeight="51.02" >
   <path
       android:pathData="M4.4,42.22L64.77,42.22A4.4,4.4 0,0 1,69.17 46.62L69.17,46.63A4.4,4.4 0,0 1,64.77 51.03L4.4,51.03A4.4,4.4 0,0 1,0 46.63L0,46.62A4.4,4.4 0,0 1,4.4 42.22z"
-      android:fillColor="@color/teal_200"/>
+      android:fillColor="@color/bilkent_gray"/>
   <path
       android:pathData="M4.4,21.11L64.77,21.11A4.4,4.4 0,0 1,69.17 25.51L69.17,25.52A4.4,4.4 0,0 1,64.77 29.92L4.4,29.92A4.4,4.4 0,0 1,0 25.52L0,25.51A4.4,4.4 0,0 1,4.4 21.11z"
-      android:fillColor="@color/teal_200"/>
+      android:fillColor="@color/bilkent_gray"/>
   <path
       android:pathData="M4.4,0L64.77,0A4.4,4.4 0,0 1,69.17 4.4L69.17,4.41A4.4,4.4 0,0 1,64.77 8.81L4.4,8.81A4.4,4.4 0,0 1,0 4.41L0,4.4A4.4,4.4 0,0 1,4.4 0z"
-      android:fillColor="@color/teal_200"/>
+      android:fillColor="@color/bilkent_gray"/>
 </vector>

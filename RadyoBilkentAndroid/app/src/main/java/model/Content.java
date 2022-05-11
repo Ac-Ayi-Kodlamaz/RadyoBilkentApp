@@ -17,7 +17,6 @@ public abstract class Content
     protected String title;
     protected String coverImageURL;
     protected String url;
-    protected Bitmap cover;
     protected Date date;
     protected Long duration;
     protected String creator;
@@ -93,11 +92,15 @@ public abstract class Content
         return false;
     }
 
-    public void downloadImage() {
-        new DownloadImageTask();
+    public static Bitmap downloadImage(String url) {
+        DownloadImageTask dit = new DownloadImageTask();
+        dit.execute(url);
+        return dit.getBmImage();
     }
 
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    private static class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+
+        Bitmap bmImage;
 
         protected Bitmap doInBackground(String... urls) {
             String urldisplay = urls[0];
@@ -113,7 +116,11 @@ public abstract class Content
         }
 
         protected void onPostExecute(Bitmap result) {
-            cover = result;
+            bmImage = result;
+        }
+
+        public Bitmap getBmImage() {
+            return bmImage;
         }
     }
 

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TopBarFragment"
-    tools:visibility="visible">
+    tools:visibility="visible"
+    android:background="@color/button_red">
 
     <TextView
         android:id="@+id/top_bar_username"
@@ -15,6 +16,7 @@
         android:paddingTop="4dp"
         android:text="username"
         android:textSize="16sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/top_bar_avatar"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +27,7 @@
         android:paddingHorizontal="5dp"
         android:text="0 points"
         android:textSize="10sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/top_bar_username"
         app:layout_constraintTop_toBottomOf="@id/top_bar_username" />
 
