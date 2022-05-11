@@ -19,4 +19,7 @@
 <!--    voting session    -->
     <string name="voting_active">VOTING SESSION IS ACTIVE\nCLICK TO VOTE</string>
     <string name="voting_inactive">VOTING SESSION FINISHED\nCLICK TO GO TO AUCTION</string>
+    <string name="blogs_menu_title">Blogs</string>
+    <string name="podcasts_menu_title">Podcasts</string>
+    <string name="feedback_menu_title">Feedback</string>
 </resources>

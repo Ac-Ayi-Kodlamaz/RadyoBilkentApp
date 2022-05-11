@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/nav_blogs"
+        android:title="@string/blogs_menu_title" />
+    <item
+        android:id="@+id/nav_podcasts"
+        android:title="@string/podcasts_menu_title" />
+    <item
+        android:id="@+id/nav_feedback"
+        android:title="@string/feedback_menu_title" />
+
+</menu>

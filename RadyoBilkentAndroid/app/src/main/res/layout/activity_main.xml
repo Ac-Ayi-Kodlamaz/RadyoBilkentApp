@@ -1,56 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/top_bar_frame"
-        android:name="com.example.radyobilkentandroid.TopBarFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_height="match_parent">
 
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/top_bar_frame"
+            android:name="com.example.radyobilkentandroid.TopBarFragment"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <FrameLayout
-        android:id="@+id/program_flow_frame"
-        android:name="com.example.radyobilkentandroid.ProgramFlowFragment"
-        android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_bar_frame">
+        </FrameLayout>
 
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/program_flow_frame"
+            android:name="com.example.radyobilkentandroid.ProgramFlowFragment"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_bar_frame">
 
-    <Button
-        android:id="@+id/voting_session_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        </FrameLayout>
 
-        android:text="@string/voting_active"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/nowPlayingFragment"
-        tools:layout_editor_absoluteX="20dp" />
+        <Button
+            android:id="@+id/voting_session_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+
+            android:text="@string/voting_active"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/nowPlayingFragment"
+            tools:layout_editor_absoluteX="20dp" />
 
 
-    <FrameLayout
-        android:id="@+id/nowPlayingFragment"
-        android:name="com.example.radyobilkentandroid.NowPlayingFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <FrameLayout
+            android:id="@+id/nowPlayingFragment"
+            android:name="com.example.radyobilkentandroid.NowPlayingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    </FrameLayout>
+        </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginTop="56dp"
+        app:menu="@menu/navigation_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

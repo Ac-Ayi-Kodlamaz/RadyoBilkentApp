@@ -1,12 +1,15 @@
 package com.example.radyobilkentandroid;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,13 +32,15 @@ public class TopBarFragment extends Fragment {
     private ImageView profilePic;
     private TextView username;
     private TextView pointText;
-    private ImageButton hamburgerMenuButton;
+    public ImageButton hamburgerMenuButton;
 
     private String strUsername;
     private Long lngPoints;
+    private boolean navDrawerOpen;
 
     public TopBarFragment() {
         // Required empty public constructor
+        navDrawerOpen = false;
     }
 
     public static TopBarFragment newInstance() {
@@ -102,11 +107,24 @@ public class TopBarFragment extends Fragment {
             pointText.setText(lngPoints.toString() + " points");
         }
 
-        hamburgerMenuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO hamburger menu slides in
+        hamburgerMenuButton.setOnClickListener(new HamburgerListener());
+    }
+
+    class HamburgerListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            Activity activity = TopBarFragment.this.getActivity();
+            MainActivity mainActivity = (MainActivity) activity;
+            if (mainActivity != null) {
+                if (mainActivity.navDrawer.isOpen()) {
+                    mainActivity.navDrawer.closeDrawer(GravityCompat.START, true);
+                } else {
+                    mainActivity.navDrawer.openDrawer(GravityCompat.START, true);
+                }
             }
-        });
+            else {
+                Log.d("HAMBURGER MENU CLICK: ", "mainActivity is null");
+            }
+        }
     }
 }

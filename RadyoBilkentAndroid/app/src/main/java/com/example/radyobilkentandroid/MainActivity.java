@@ -2,6 +2,8 @@ package com.example.radyobilkentandroid;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -31,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
     public static FirebaseAuth mAuth;
     public static FirebaseFirestore mDB;
     public static FirebaseUser mUser;
+
+    public DrawerLayout navDrawer;
+    private ConstraintLayout mainLayout;
+
+    private TopBarFragment topBarFragment;
+
     private DocumentReference mSongReference;
     private DocumentReference mCurrentSong;
 
@@ -49,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mainLayout = findViewById(R.id.main_layout);
+        navDrawer = findViewById(R.id.nav_drawer);
+
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mDB = FirebaseFirestore.getInstance();
@@ -56,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         user = new User(mDB, mUser);
 
         startTopBarFragment();
+
+
 
         FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
         ProgramFlowFragment programFlowFragment = ProgramFlowFragment.newInstance();
@@ -167,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startTopBarFragment() {
         FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
-        TopBarFragment topBarFragment = TopBarFragment.newInstance();
+        topBarFragment = TopBarFragment.newInstance();
         ft1.replace(R.id.top_bar_frame, topBarFragment);
         ft1.commit();
     }
