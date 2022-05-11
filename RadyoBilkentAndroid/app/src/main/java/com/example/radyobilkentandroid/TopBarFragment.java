@@ -129,8 +129,6 @@ public class TopBarFragment extends Fragment {
             else {
                 Log.d("HAMBURGER MENU CLICK: ", "mainActivity is null");
             }
-
-
         }
     }
 }

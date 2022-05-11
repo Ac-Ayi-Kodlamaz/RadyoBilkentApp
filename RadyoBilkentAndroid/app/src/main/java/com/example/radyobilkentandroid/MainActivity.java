@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,7 +28,7 @@ import java.util.Map;
 
 import model.User;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     public static User user;
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     public DrawerLayout navDrawer;
     private ConstraintLayout mainLayout;
+    private NavigationView navView;
 
     private TopBarFragment topBarFragment;
 
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CountDownTimer timer;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
         mainLayout = findViewById(R.id.main_layout);
         navDrawer = findViewById(R.id.nav_drawerLayout);
+        navView = findViewById(R.id.nav_drawer);
+
+        navView.setNavigationItemSelectedListener(new MenuItemListener());
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -185,5 +191,25 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+    private class MenuItemListener implements NavigationView.OnNavigationItemSelectedListener{
+        public boolean onNavigationItemSelected(MenuItem item){
+            int id = item.getItemId();
+
+            if(id == R.id.nav_blogs){
+                Intent intent = new Intent(MainActivity.this,BlogActivity.class);
+                startActivity(intent);
+            }
+            else if(id == R.id.nav_podcasts){
+                Intent intent = new Intent(MainActivity.this,PodcastActivity.class);
+                startActivity(intent);
+            }
+            else if(id == R.id.nav_feedback){
+                Intent intent = new Intent(MainActivity.this,FeedbackActivity.class);
+                startActivity(intent);
+            }
+            return true;
+        }
+    }
 
 }

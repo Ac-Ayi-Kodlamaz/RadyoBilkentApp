@@ -16,7 +16,7 @@
     <string name="confirm_text">CONFIRM</string>
     <string name="or">or</string>
 
-<!--    voting session    -->
+    <!--    voting session    -->
     <string name="voting_active">VOTING SESSION IS ACTIVE\nCLICK TO VOTE</string>
     <string name="voting_inactive">VOTING SESSION FINISHED\nCLICK TO GO TO AUCTION</string>
     <string name="blogs_menu_title">Blogs</string>

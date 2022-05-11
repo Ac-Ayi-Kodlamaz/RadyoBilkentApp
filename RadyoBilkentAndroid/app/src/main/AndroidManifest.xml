@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RadyoBilkentAndroid">
         <activity
+            android:name=".FeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PodcastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BlogActivity"
+            android:exported="false" />
+        <activity
             android:name=".VotingResultActivity"
             android:exported="false" />
         <activity
