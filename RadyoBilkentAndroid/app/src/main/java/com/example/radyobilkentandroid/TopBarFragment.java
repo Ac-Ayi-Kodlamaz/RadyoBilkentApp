@@ -115,6 +115,10 @@ public class TopBarFragment extends Fragment {
         public void onClick(View view) {
             Activity activity = TopBarFragment.this.getActivity();
             MainActivity mainActivity = (MainActivity) activity;
+
+            //TODO
+            // nawDrawer is now navigationView
+
             if (mainActivity != null) {
                 if (mainActivity.navDrawer.isOpen()) {
                     mainActivity.navDrawer.closeDrawer(GravityCompat.START, true);
@@ -125,6 +129,8 @@ public class TopBarFragment extends Fragment {
             else {
                 Log.d("HAMBURGER MENU CLICK: ", "mainActivity is null");
             }
+
+
         }
     }
 }

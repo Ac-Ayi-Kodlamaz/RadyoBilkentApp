@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainLayout = findViewById(R.id.main_layout);
-        navDrawer = findViewById(R.id.nav_drawer);
+        navDrawer = findViewById(R.id.nav_drawerLayout);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -174,9 +175,6 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    private void readDatabase(){
-
-    }
 
     private void startTopBarFragment() {
         FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
