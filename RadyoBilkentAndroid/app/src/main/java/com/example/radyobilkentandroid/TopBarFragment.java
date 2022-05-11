@@ -76,6 +76,7 @@ public class TopBarFragment extends Fragment {
         username = view.findViewById(R.id.top_bar_username);
         pointText = view.findViewById(R.id.top_bar_points);
         hamburgerMenuButton = view.findViewById(R.id.hamburger_button);
+        profilePic.setImageResource(R.drawable.nice_avatar);
 
         // TODO use one of them to see the Avatar in the top right corner
 //        profilePic.setImageURI();
@@ -95,6 +96,7 @@ public class TopBarFragment extends Fragment {
             }
         };
         timer.start();
+
 
 
         hamburgerMenuButton.setOnClickListener(new HamburgerListener());
