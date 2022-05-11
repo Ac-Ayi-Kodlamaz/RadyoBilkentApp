@@ -35,9 +35,11 @@ public class UpdateUserInfoFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mDB;
+
     private EditText username;
     private Spinner genderSpinner;
     private Button confirm;
+
 
     public UpdateUserInfoFragment() {
         // Required empty public constructor

@@ -207,6 +207,7 @@ public class MainActivity extends AppCompatActivity{
             else if(id == R.id.nav_feedback){
                 Intent intent = new Intent(MainActivity.this,FeedbackActivity.class);
                 startActivity(intent);
+
             }
             return true;
         }

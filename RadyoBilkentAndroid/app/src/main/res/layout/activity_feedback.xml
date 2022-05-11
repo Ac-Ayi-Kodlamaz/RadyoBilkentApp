@@ -6,4 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".FeedbackActivity">
 
+    <EditText
+        android:id="@+id/feedbackTitle"
+        android:layout_width="177dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:hint="Enter title"
+        app:layout_constraintBottom_toTopOf="@+id/feedback_editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_text" />
+
+    <EditText
+        android:id="@+id/feedback_editText"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="200dp"
+        android:hint="Enter message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_text">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/feedback_text"
+        android:layout_width="231dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="ENTER YOUR FEEDBACK"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/feedback_button"
+        android:layout_width="204dp"
+        android:layout_height="131dp"
+        android:layout_marginBottom="60dp"
+        android:text="SEND FEEDBACK"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_editText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
