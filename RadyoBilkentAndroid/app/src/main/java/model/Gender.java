@@ -1,7 +1,5 @@
 package model;
 
-import com.example.radyobilkentandroid.R;
-
 /*
     This is enum is written to handle genders more comfortably
     DNWTD stands for "Do Not Wish To Disclose"
