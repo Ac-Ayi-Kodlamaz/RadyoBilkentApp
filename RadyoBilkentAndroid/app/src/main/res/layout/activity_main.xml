@@ -51,6 +51,15 @@
                 app:layout_constraintBottom_toTopOf="@+id/nowPlayingFragment"
                 tools:layout_editor_absoluteX="20dp" />
 
+            <ListView
+                android:id="@+id/songList"
+                android:layout_width="330dp"
+                android:layout_height="164dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/voting_session_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <FrameLayout
                 android:id="@+id/nowPlayingFragment"
@@ -62,6 +71,17 @@
                 app:layout_constraintStart_toStartOf="parent">
 
             </FrameLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Weekly Statistics"
+                app:layout_constraintBottom_toTopOf="@+id/songList"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/program_flow_frame" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

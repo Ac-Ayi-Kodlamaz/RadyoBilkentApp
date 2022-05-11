@@ -12,18 +12,26 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import model.User;
@@ -44,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
 
     private DocumentReference mSongReference;
     private DocumentReference mCurrentSong;
+    private CollectionReference mSongsCollection;
 
     private Button votingButton;
     private String songURL;
@@ -52,9 +61,13 @@ public class MainActivity extends AppCompatActivity{
     private String songName;
     private String songPath;
     private String oldPath;
+    private ListView songList;
 
     private CountDownTimer timer;
 
+    //TODO
+    private ArrayList<String> list;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +77,7 @@ public class MainActivity extends AppCompatActivity{
         mainLayout = findViewById(R.id.main_layout);
         navDrawer = findViewById(R.id.nav_drawerLayout);
         navView = findViewById(R.id.nav_drawer);
+        songList = findViewById(R.id.songList);
 
         navView.setNavigationItemSelectedListener(new MenuItemListener());
 
@@ -75,7 +89,16 @@ public class MainActivity extends AppCompatActivity{
 
         startTopBarFragment();
 
+        list = new ArrayList<String>();
+        adapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,list);
+        songList.setAdapter(adapter);
 
+        list.add("#1 Yad Eller - maNga");
+        list.add("#2 Never Gonna Give You Up - Rick Astley");
+        list.add("#3 Oyunbozan - mor ve ötesi");
+        adapter.notifyDataSetChanged();
+        //TODO
+        //updateSongs();
 
         FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
         ProgramFlowFragment programFlowFragment = ProgramFlowFragment.newInstance();
@@ -110,7 +133,7 @@ public class MainActivity extends AppCompatActivity{
         timer.start();
 
         mCurrentSong = mDB.collection("currentSong").document("trial");
-
+        mSongsCollection = mDB.collection("songs");
 
     }
     private void goToVoting(){
@@ -211,6 +234,23 @@ public class MainActivity extends AppCompatActivity{
             }
             return true;
         }
+    }
+
+    private void updateSongs(){
+        mSongsCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    ArrayList<String> list = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("123",(String) document.get("title"));
+                    }
+
+                } else {
+                    Log.d("FIREBASE", "Error getting documents: ", task.getException());
+                }
+            }
+        });
     }
 
 }
