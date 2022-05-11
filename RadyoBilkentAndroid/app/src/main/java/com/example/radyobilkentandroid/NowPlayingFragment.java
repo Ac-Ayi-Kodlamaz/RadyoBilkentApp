@@ -281,7 +281,7 @@ public class NowPlayingFragment extends Fragment {
     private void pause() {
         isPlaying = false;
         customMediaPlayer.setVolume(0f,0f);
-        //customMediaPlayer.pause();
+        customMediaPlayer.pause();
         start.setBackgroundResource(R.drawable.start_icon);
     }
 }
