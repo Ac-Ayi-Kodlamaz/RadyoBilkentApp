@@ -4,10 +4,16 @@ import java.util.ArrayList;
 
 public class Song extends Content {
 
+    private final static String SONG_KEY = "songs";
+
     public int MAX_SIZE = 10^6;
     public String album;
     public String genre;
     public ArrayList<Integer> points;
+
+    public Song() {
+        key = SONG_KEY;
+    }
 
     /**
      * Leading the user to the related Spotify link of the current song.

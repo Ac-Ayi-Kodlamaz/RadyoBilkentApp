@@ -79,6 +79,7 @@
                 android:layout_marginTop="1dp"
                 android:text="Weekly Statistics"
                 app:layout_constraintBottom_toTopOf="@+id/songList"
+                android:background="#6dffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/program_flow_frame" />

@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity{
         startTopBarFragment();
 
         list = new ArrayList<String>();
-        adapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,list);
+        adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.statistic_song_item,list);
         songList.setAdapter(adapter);
 
         list.add("#1 Yad Eller - maNga");

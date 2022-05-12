@@ -1,7 +1,16 @@
 package model;
 
-public class Blog extends Content
-{
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+
+public class Blog extends Content {
+
+    private final static String BLOG_KEY = "blogs";
+
+    public Blog() {
+        key = BLOG_KEY;
+    }
 
     protected String content;
 
@@ -14,3 +23,4 @@ public class Blog extends Content
     }
 
 }
+

@@ -65,7 +65,7 @@ public class BlogFragment extends Fragment {
         args.putString(IMAGE_KEY, imageURL);
         args.putString(TITLE_KEY, title);
         args.putString(CREATOR_KEY, creator);
-        DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MMMM/yyyy");
         args.putString(DATE_KEY, dateFormat.format(date));
         args.putLong(DURATION_KEY, duration);
         args.putLong(CONSUMPTION_KEY, lngTimesConsumed);
@@ -102,7 +102,7 @@ public class BlogFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        coverImage = view.findViewById(R.id.blog_cover);
+
         blogTitle = view.findViewById(R.id.blog_title_text);
         blogCreator = view.findViewById(R.id.blog_creator_text);
         blogDate = view.findViewById(R.id.blog_date_text);
@@ -112,10 +112,10 @@ public class BlogFragment extends Fragment {
 
         DownloadImageTask dit = new DownloadImageTask();
         dit.execute(urlImage);
+        setupView();
     }
 
     private void setupView() {
-        coverImage.setImageBitmap(bmCover);
         blogTitle.setText(strTitle);
         blogCreator.setText(strCreator);
         blogDate.setText(strDate);
@@ -141,7 +141,8 @@ public class BlogFragment extends Fragment {
 
         protected void onPostExecute(Bitmap result) {
             bmCover = result;
-            setupView();
+            coverImage = getView().findViewById(R.id.blog_cover);
+            coverImage.setImageBitmap(bmCover);
         }
 
     }

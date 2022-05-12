@@ -7,13 +7,22 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
+import java.util.HashMap;
 
 public abstract class Content
 {
 
+    protected FirebaseFirestore db;
+    protected DocumentReference mReference;
+    protected boolean referenceReady;
+
+    protected String key;
     protected String title;
     protected String coverImageURL;
     protected String url;
@@ -21,6 +30,18 @@ public abstract class Content
     protected Long duration;
     protected String creator;
     protected Long timesConsumed;
+
+    public Content (){
+        db = FirebaseFirestore.getInstance();
+    }
+
+    public void updateDatabase() {
+        if (!referenceReady) {
+            mReference = db.collection(key).document(title);
+            referenceReady = true;
+        }
+        mReference.update("timesConsumed", timesConsumed);
+    }
 
     public String getTitle() {
         return title;
@@ -80,6 +101,7 @@ public abstract class Content
 
     public void consume() {
         timesConsumed++;
+        updateDatabase();
     }
 
     /**
