@@ -232,6 +232,10 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(intent);
 
             }
+            else if(id == R.id.nav_aboutUs){
+                Intent intent = new Intent(MainActivity.this,AboutUsActivity.class);
+                startActivity(intent);
+            }
             return true;
         }
     }
