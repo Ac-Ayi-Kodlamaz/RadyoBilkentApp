@@ -16,16 +16,6 @@ public class Song extends Content {
     }
 
     /**
-     * Leading the user to the related Spotify link of the current song.
-     * @return a boolean type for successful openings
-     */
-    public boolean openInSpotify()
-    {
-        //TODO (Android Studio)
-        return false;
-    }
-
-    /**
      * Adding the recent points to the song for statistical and voting purposes
      * @param point : User's points to be added
      */

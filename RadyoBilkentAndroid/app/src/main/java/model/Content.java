@@ -104,16 +104,6 @@ public abstract class Content
         updateDatabase();
     }
 
-    /**
-     * Sharing the original link of the consumed content to the social media applications such as WhatsApp and Twitter.
-     * @return a boolean type for success feedback
-     */
-    public boolean share()
-    {
-        //TODO
-        return false;
-    }
-
     public static Bitmap downloadImage(String url) {
         DownloadImageTask dit = new DownloadImageTask();
         dit.execute(url);
