@@ -1,0 +1,258 @@
+[33mcommit 0b718380f6a0caa8b486f29b1ac482dbaa7fb1e7[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat May 7 10:42:49 2022 +0300
+
+    voting session class
+
+[33mcommit f84f134d1d11fb62d4a6fe0a95c5a35dd80aaee5[m
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Fri May 6 20:35:12 2022 +0300
+
+    Added openInBrowser and openInSpotify methods
+
+[33mcommit fd6b2f4de78bfdfbd93e6df3d5f94d9348b26dda[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 3 22:54:19 2022 +0300
+
+    Tuna Modified
+
+[33mcommit 063a02db31099dd44057b89d5f7088ee2685bda4[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 3 10:38:29 2022 +0300
+
+    Tuna Saygın modified packages added searchSong method and created programme class
+
+[33mcommit ccbae6ee1cc4d6a3d708b781998c32ce447697f6[m
+Merge: e0e7e23 c4d080d
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Mon May 2 13:15:17 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+[33mcommit c4d080d40f41cd91a707852e52d53bf178800c46[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 2 09:56:50 2022 +0300
+
+    ListViews and Add Song is added
+    
+    Remainings: Programme Class, Voting Session Class, FeedBack Class, Related Classes to Handle the connection of Controller to DataBase, FXML connection of add podcast and blog buttons
+
+[33mcommit e0e7e2327928715f0d7cd5d344d9e4f1659d3aac[m
+Merge: 7cc1a9b 436d8cd
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 18:42:00 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+[33mcommit 7cc1a9b85d5ce5db9d80b225b8288a5c5e20e8cd[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 18:41:44 2022 +0300
+
+    Tuna
+
+[33mcommit 436d8cdc6fbc2da17f762f87c5c1bf5f08e5a625[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 18:23:00 2022 +0300
+
+    packageNames
+
+[33mcommit c2497b9908827bd4ea8a79c4ed7bd614be806720[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 17:54:58 2022 +0300
+
+     Change in content classes
+
+[33mcommit a1e1b65d4911003cf2dd49b91c513f0acaff8873[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 17:24:18 2022 +0300
+
+    VotingController&Main Controller arranged
+
+[33mcommit 57d4ef9428eb3c3d01d31a9faaead000d681dcb1[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 16:25:33 2022 +0300
+
+    ProgrammeFlowController
+
+[33mcommit e8ec13d00d2680372681e3436554088b2ff1a62f[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 15:23:08 2022 +0300
+
+    BlogFxml&BlogController
+
+[33mcommit ae47a6f326d9cde87d6b94f7bce05908aa3abcac[m
+Merge: d2352af 5756296
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 15:02:11 2022 +0300
+
+    Merge remote-tracking branch 'origin/main' into main
+
+[33mcommit 575629605afc58b8e8314360c20fa28f0d53c289[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 14:59:27 2022 +0300
+
+    podcast class modified by Tuna Saygın
+
+[33mcommit d2352af009fb0d963b0d4ec5506ba739451269ae[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 14:24:38 2022 +0300
+
+    PodcastEditor&Controller3
+
+[33mcommit 4473570229669ee04a8f161f47bbf66d0255afd4[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 12:45:41 2022 +0300
+
+    PodcastEditor&PodcastController2
+
+[33mcommit 479004c58a4fd43fd303875dd78131bb3a337442[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 12:45:08 2022 +0300
+
+    PodcastEditor&PodcastController
+
+[33mcommit 6c65d66eea3de03c63225d4fac2f301931154455[m
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 11:37:14 2022 +0300
+
+    Changes on fxml
+
+[33mcommit c4fca397a0e10db32066e266ae7a19412f69f62d[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 22:52:17 2022 +0300
+
+    song class implemented methods related to database Hayırlı uğurlu olsun
+
+[33mcommit dfb56b03c535def6b285b7bb86daf6c2e2fc5297[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 11:37:28 2022 +0300
+
+    New changes for Database part new dependencies are added, connected to firestore database
+
+[33mcommit 6fab99d7c0c8cc42918ef9f28d2d303f4863e6de[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 10:48:50 2022 +0300
+
+    Firebase for admin panel is added and working properly.
+
+[33mcommit 351fa8ccc55d374e2bbeaca6b40d2d0a6a4caf41[m
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Thu Apr 28 17:29:29 2022 +0300
+
+    Uploading the res folder for use in Android Studio
+
+[33mcommit b990c639049e220d9e17682fbe0ec8c7e6603332[m
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Thu Apr 28 17:28:23 2022 +0300
+
+    Creating this folder cluster to add the GUI elements of the mobile app.
+
+[33mcommit c489b9451adcacbde8c8b41e2dbda27b43b6fe14[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:36:38 2022 +0300
+
+    Other changes related to admin sdk key6
+
+[33mcommit 73fc193cdd3a8e6a2078f134b80cab9c05fb9227[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:36:08 2022 +0300
+
+    Added the firebase adminsdk key
+
+[33mcommit c2a2b3b451db2934f358f6c17c3a2d2812fc5070[m
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:29:41 2022 +0300
+
+    ben tuna test edıom
+
+[33mcommit 393ca2637c4a54ec96b4d3b78ac07ed131324c9a[m
+Merge: 43215fb 22f06e0
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:18:47 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+[33mcommit 43215fbb2b0ab5efb9a68cc10879159ee38c5345[m
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:18:11 2022 +0300
+
+    Added OpenInBrowserListener.java
+
+[33mcommit 22f06e0fbaf19838f8c176fb394df0817605b99b[m
+Author: TunaSaygin <91385993+TunaSaygin@users.noreply.github.com>
+Date:   Thu Apr 28 11:04:26 2022 +0300
+
+    Added firebase dependency to POM.xml
+
+[33mcommit 9c617f819eb5e5492aa7f3b978073a7b10dc8afb[m
+Merge: 936a2f2 1c90878
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:02:05 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+[33mcommit 936a2f24a5666cee48f516486164f1d30b9eda72[m
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:00:58 2022 +0300
+
+    Added extends keyword to files
+
+[33mcommit 1c90878fec7ab9a1368cdcdb703d8df89f6e51c0[m
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Thu Apr 28 10:59:17 2022 +0300
+
+    Add files via upload
+    
+    JAVAFX for Admin Panel
+
+[33mcommit 885dc9072fd6f366a3b56d34b1a66095ee79a958[m
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Thu Apr 28 10:48:14 2022 +0300
+
+    Created Folder
+
+[33mcommit a3f1f090b76c688178dd10fad2f40dfcfceaf341[m
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Thu Apr 28 10:37:19 2022 +0300
+
+    Add files via upload
+    
+    Content Class Template
+
+[33mcommit f12a61054691966c98abc186486a06948d9da1af[m
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:17:40 2022 +0300
+
+    Changed the title
+
+[33mcommit 632be6b58a328e4bd581b57f32422193d58d3e9b[m
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:08:58 2022 +0300
+
+    Changed the url of the logo
+
+[33mcommit 72c387640324fa69cfd5140fd02f779ebbddc5cb[m
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:04:30 2022 +0300
+
+    Added logo of RadyoBilkent
+
+[33mcommit 0796f70a26a6a1e7dc3ce0efb0ef8dca564ddde9[m
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:18:24 2022 +0300
+
+    Delete RadioBilkent.drawio
+
+[33mcommit b3be43695b2ffe1713843db30c359de2ac2a5993[m
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:17:36 2022 +0300
+
+    Added RadioBilkentUMLDiagram.png
+
+[33mcommit 7bb0cfe7b02fabbfcf867695f79cb12e40bc2d76[m
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:04:47 2022 +0300
+
+    Add files via upload
+    
+    UML Dia

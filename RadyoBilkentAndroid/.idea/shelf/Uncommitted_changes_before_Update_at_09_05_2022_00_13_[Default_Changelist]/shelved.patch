@@ -1,0 +1,122 @@
+Index: app/src/main/java/com/example/radyobilkentandroid/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.radyobilkentandroid;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport com.google.firebase.auth.FirebaseAuth;\r\n\r\nimport model.User;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    private User user;\r\n\r\n    private FirebaseAuth mAuth;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        mAuth = FirebaseAuth.getInstance();\r\n        user = new User(mAuth.getCurrentUser());\r\n        System.out.println(user.getUsername());\r\n        System.out.println(user.getPoints());\r\n        System.out.println(user.getGender());\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java b/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java
+--- a/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java	(revision 93b152a369f3ff83c12a4fe25d02a335eb43563b)
++++ b/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java	(date 1652017459614)
+@@ -20,7 +20,7 @@
+         setContentView(R.layout.activity_main);
+ 
+         mAuth = FirebaseAuth.getInstance();
+-        user = new User(mAuth.getCurrentUser());
++        //user = new User(mAuth.getCurrentUser());
+         System.out.println(user.getUsername());
+         System.out.println(user.getPoints());
+         System.out.println(user.getGender());
+Index: app/src/main/res/layout/fragment_now_playing.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".NowPlayingFragment\">\r\n\r\n    <Button\r\n        android:id=\"@+id/startButton\"\r\n        android:layout_width=\"144px\"\r\n        android:layout_height=\"144px\"\r\n        android:alpha=\"1\"\r\n        android:background=\"@drawable/start_icon\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toStartOf=\"@+id/stopButton\"\r\n        app:layout_constraintHorizontal_bias=\"1.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/stopButton\"\r\n        android:layout_width=\"144px\"\r\n        android:layout_height=\"144px\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        android:alpha=\"0.5\"\r\n        android:background=\"@drawable/pause_icon\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/songName\"\r\n        android:layout_width=\"179dp\"\r\n        android:layout_height=\"43dp\"\r\n        android:layout_marginEnd=\"6dp\"\r\n        android:text=\"TextView\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toStartOf=\"@+id/startButton\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_now_playing.xml b/app/src/main/res/layout/fragment_now_playing.xml
+--- a/app/src/main/res/layout/fragment_now_playing.xml	(revision 93b152a369f3ff83c12a4fe25d02a335eb43563b)
++++ b/app/src/main/res/layout/fragment_now_playing.xml	(date 1652017459625)
+@@ -36,7 +36,9 @@
+         android:layout_marginEnd="6dp"
+         android:text="TextView"
+         app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintEnd_toStartOf="@+id/startButton"
++        app:layout_constraintHorizontal_bias="0.5"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+ 
+Index: app/src/main/res/layout/activity_voting.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_voting.xml b/app/src/main/res/layout/activity_voting.xml
+new file mode 100644
+--- /dev/null	(date 1652017723150)
++++ b/app/src/main/res/layout/activity_voting.xml	(date 1652017723150)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".VotingActivity">
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/radyobilkentandroid/VotingActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/VotingActivity.java b/app/src/main/java/com/example/radyobilkentandroid/VotingActivity.java
+new file mode 100644
+--- /dev/null	(date 1652017723224)
++++ b/app/src/main/java/com/example/radyobilkentandroid/VotingActivity.java	(date 1652017723224)
+@@ -0,0 +1,14 @@
++package com.example.radyobilkentandroid;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class VotingActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_voting);
++    }
++}
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_log_in_screen.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_update_user_info.xml\" value=\"0.19010416666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_delete.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_login.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_sign_in.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_update_user_info.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml\" value=\"0.1785\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/ic_launcher_background.xml\" value=\"0.1785\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_now_playing.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_update_user_info.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_login.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_now_playing.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_sign_in.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_update_user_info.xml\" value=\"0.14130434782608695\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 93b152a369f3ff83c12a4fe25d02a335eb43563b)
++++ b/.idea/misc.xml	(date 1652018279941)
+@@ -20,6 +20,7 @@
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml" value="0.14130434782608695" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml" value="0.14130434782608695" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_update_user_info.xml" value="0.14130434782608695" />
++        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_voting.xml" value="0.14130434782608695" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_login.xml" value="0.14130434782608695" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_now_playing.xml" value="0.22" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_sign_in.xml" value="0.14130434782608695" />
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.radyobilkentandroid\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.RadyoBilkentAndroid\">\r\n        <activity\r\n            android:name=\".NowPlayingActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".UpdateUserInfoActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".RegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".StartActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".RegisterWithEmailActivity\"\r\n            android:exported=\"false\" />\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 93b152a369f3ff83c12a4fe25d02a335eb43563b)
++++ b/app/src/main/AndroidManifest.xml	(date 1652017723134)
+@@ -12,6 +12,9 @@
+         android:supportsRtl="true"
+         android:theme="@style/Theme.RadyoBilkentAndroid">
+         <activity
++            android:name=".VotingActivity"
++            android:exported="false" />
++        <activity
+             android:name=".NowPlayingActivity"
+             android:exported="false" />
+         <activity

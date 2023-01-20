@@ -1,0 +1,298 @@
+Index: app/src/main/java/com/example/radyobilkentandroid/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.radyobilkentandroid;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.constraintlayout.widget.ConstraintLayout;\r\nimport androidx.drawerlayout.widget.DrawerLayout;\r\nimport androidx.fragment.app.FragmentTransaction;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.os.CountDownTimer;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.android.material.navigation.NavigationView;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.DocumentSnapshot;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\n\r\nimport java.util.Map;\r\n\r\nimport model.User;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    public static User user;\r\n\r\n    public static FirebaseAuth mAuth;\r\n    public static FirebaseFirestore mDB;\r\n    public static FirebaseUser mUser;\r\n\r\n    public DrawerLayout navDrawer;\r\n    private ConstraintLayout mainLayout;\r\n\r\n    private TopBarFragment topBarFragment;\r\n\r\n    private DocumentReference mSongReference;\r\n    private DocumentReference mCurrentSong;\r\n\r\n    private Button votingButton;\r\n    private String songURL;\r\n\r\n    private String imageURL;\r\n    private String songName;\r\n    private String songPath;\r\n    private String oldPath;\r\n\r\n    private CountDownTimer timer;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        mainLayout = findViewById(R.id.main_layout);\r\n        navDrawer = findViewById(R.id.nav_drawerLayout);\r\n\r\n        mAuth = FirebaseAuth.getInstance();\r\n        mUser = mAuth.getCurrentUser();\r\n        mDB = FirebaseFirestore.getInstance();\r\n\r\n        user = new User(mDB, mUser);\r\n\r\n        startTopBarFragment();\r\n\r\n\r\n\r\n        FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();\r\n        ProgramFlowFragment programFlowFragment = ProgramFlowFragment.newInstance();\r\n        ft2.replace(R.id.program_flow_frame, programFlowFragment);\r\n        ft2.commit();\r\n\r\n        votingButton = findViewById(R.id.voting_session_button);\r\n        votingButton.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                goToVoting();\r\n            }\r\n        });\r\n\r\n        timer = new CountDownTimer(100000000, 5000) {\r\n            @Override\r\n            public void onTick(long millisUntilFinished) {\r\n\r\n                if (songPath == null){\r\n                    readCurrentSong(true);\r\n                }\r\n                else{\r\n                    readCurrentSong(false);\r\n                }\r\n            }\r\n\r\n            @Override\r\n            public void onFinish() {\r\n\r\n            }\r\n        };\r\n        timer.start();\r\n\r\n        mCurrentSong = mDB.collection(\"currentSong\").document(\"trial\");\r\n\r\n\r\n    }\r\n    private void goToVoting(){\r\n        Intent intent = new Intent(this, VotingActivity.class);\r\n        startActivity(intent);\r\n    }\r\n\r\n\r\n    private void readCurrentSong(boolean isFirst){\r\n        mCurrentSong.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {\r\n            @Override\r\n            public void onSuccess(DocumentSnapshot documentSnapshot) {\r\n                if (documentSnapshot.exists()) {\r\n\r\n                    Map<String, Object> map = documentSnapshot.getData();\r\n                    songPath = (String) map.get(\"name\");\r\n\r\n                    if (isFirst){\r\n                        changeFrangment();\r\n                        oldPath = songPath;\r\n                    }\r\n                    else{\r\n                        if (!oldPath.equals(songPath)){\r\n                            Toast.makeText(MainActivity.this, \"music changed\", Toast.LENGTH_SHORT).show();\r\n                            changeFrangment();\r\n                            oldPath = songPath;\r\n                        }\r\n                    }\r\n\r\n                }\r\n            }\r\n        });\r\n    }\r\n\r\n    private void changeFrangment(){\r\n        mSongReference = mDB.collection(\"songs\").document(songPath);\r\n\r\n        mSongReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {\r\n            @Override\r\n            public void onSuccess(DocumentSnapshot documentSnapshot) {\r\n                if (documentSnapshot.exists()) {\r\n\r\n                    Map<String, Object> map = documentSnapshot.getData();\r\n\r\n                    songURL = (String) map.get(\"link\");\r\n                    imageURL = (String) map.get(\"cover\");\r\n                    songName = (String) map.get(\"creator\");\r\n                    reloadFragment();\r\n                }\r\n                else{\r\n                    Log.d(\"hataa\", \"dosya olmadı\");\r\n                }\r\n            }\r\n        }).addOnFailureListener(new OnFailureListener() {\r\n            @Override\r\n            public void onFailure(@NonNull Exception e) {\r\n\r\n                Log.d(\"GET_FIRESTORE_REFERENCE\", \"onFailure: could not get firestore reference\");\r\n            }\r\n        });\r\n    }\r\n    private void reloadFragment(){\r\n        //TODO değişim\r\n\r\n        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();\r\n        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songPath + \"\\n\"+songName, imageURL);\r\n        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);\r\n        ft.commit();\r\n    }\r\n\r\n\r\n    private void startTopBarFragment() {\r\n        FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();\r\n        topBarFragment = TopBarFragment.newInstance();\r\n        ft1.replace(R.id.top_bar_frame, topBarFragment);\r\n        ft1.commit();\r\n    }\r\n\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java b/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java
+--- a/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java	(revision 98cf0eeeebdb8bd6a3cb459a7e1bb4f2e6cc6e47)
++++ b/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java	(date 1652283845051)
+@@ -10,6 +10,7 @@
+ import android.os.Bundle;
+ import android.os.CountDownTimer;
+ import android.util.Log;
++import android.view.MenuItem;
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.Toast;
+@@ -27,7 +28,7 @@
+ 
+ import model.User;
+ 
+-public class MainActivity extends AppCompatActivity {
++public class MainActivity extends AppCompatActivity{
+ 
+     public static User user;
+ 
+@@ -37,6 +38,7 @@
+ 
+     public DrawerLayout navDrawer;
+     private ConstraintLayout mainLayout;
++    private NavigationView navView;
+ 
+     private TopBarFragment topBarFragment;
+ 
+@@ -53,6 +55,7 @@
+ 
+     private CountDownTimer timer;
+ 
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+@@ -60,6 +63,9 @@
+ 
+         mainLayout = findViewById(R.id.main_layout);
+         navDrawer = findViewById(R.id.nav_drawerLayout);
++        navView = findViewById(R.id.nav_drawer);
++
++        navView.setNavigationItemSelectedListener(new MenuItemListener());
+ 
+         mAuth = FirebaseAuth.getInstance();
+         mUser = mAuth.getCurrentUser();
+@@ -186,4 +192,24 @@
+ 
+ 
+ 
++    private class MenuItemListener implements NavigationView.OnNavigationItemSelectedListener{
++        public boolean onNavigationItemSelected(MenuItem item){
++            int id = item.getItemId();
++
++            if(id == R.id.nav_blogs){
++                Intent intent = new Intent(MainActivity.this,BlogActivity.class);
++                startActivity(intent);
++            }
++            else if(id == R.id.nav_podcasts){
++                Intent intent = new Intent(MainActivity.this,PodcastActivity.class);
++                startActivity(intent);
++            }
++            else if(id == R.id.nav_feedback){
++                Intent intent = new Intent(MainActivity.this,FeedbackActivity.class);
++                startActivity(intent);
++            }
++            return true;
++        }
++    }
++
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/radyobilkentandroid/TopBarFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.radyobilkentandroid;\r\n\r\nimport android.app.Activity;\r\nimport android.os.Bundle;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.core.view.GravityCompat;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport android.util.Log;\r\nimport android.view.Gravity;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.ImageButton;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\n\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.DocumentSnapshot;\r\n\r\nimport java.util.Map;\r\n\r\nimport model.Gender;\r\nimport model.User;\r\n\r\npublic class TopBarFragment extends Fragment {\r\n\r\n    private ImageView profilePic;\r\n    private TextView username;\r\n    private TextView pointText;\r\n    public ImageButton hamburgerMenuButton;\r\n\r\n    private String strUsername;\r\n    private Long lngPoints;\r\n    private boolean navDrawerOpen;\r\n\r\n    public TopBarFragment() {\r\n        // Required empty public constructor\r\n        navDrawerOpen = false;\r\n    }\r\n\r\n    public static TopBarFragment newInstance() {\r\n        TopBarFragment fragment = new TopBarFragment();\r\n        Bundle args = new Bundle();\r\n        fragment.setArguments(args);\r\n        return fragment;\r\n    }\r\n\r\n    @Override\r\n    public void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        if (getArguments() != null) {\r\n        }\r\n\r\n    }\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        return inflater.inflate(R.layout.fragment_top_bar, container, false);\r\n    }\r\n\r\n    @Override\r\n    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {\r\n        super.onViewCreated(view, savedInstanceState);\r\n\r\n        profilePic = view.findViewById(R.id.top_bar_avatar);\r\n        username = view.findViewById(R.id.top_bar_username);\r\n        pointText = view.findViewById(R.id.top_bar_points);\r\n        hamburgerMenuButton = view.findViewById(R.id.hamburger_button);\r\n\r\n        // TODO use one of them to see the Avatar in the top right corner\r\n//        profilePic.setImageURI();\r\n//        profilePic.setImageDrawable();\r\n//        profilePic.setImageIcon();\r\n//        profilePic.setImageResource();\r\n//        profilePic.setImageBitmap();\r\n\r\n        if (username == null || lngPoints == null) {\r\n            MainActivity.user.getmReference().get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {\r\n                @Override\r\n                public void onSuccess(DocumentSnapshot documentSnapshot) {\r\n                    if (documentSnapshot.exists()) {\r\n                        Map<String, Object> map = documentSnapshot.getData();\r\n                        lngPoints = (Long) map.get(\"points\");\r\n                        strUsername = (String) map.get(\"username\");\r\n\r\n                        username.setText(strUsername);\r\n                        pointText.setText(lngPoints.toString());\r\n                    }\r\n                }\r\n            }).addOnFailureListener(new OnFailureListener() {\r\n                @Override\r\n                public void onFailure(@NonNull Exception e) {\r\n                    // TODO make this more sensible\r\n                    Log.d(\"GET_FIRESTORE_REFERENCE\", \"onFailure: could not get firestore reference\");\r\n                }\r\n            });\r\n        }\r\n        else {\r\n            username.setText(strUsername);\r\n            pointText.setText(lngPoints.toString() + \" points\");\r\n        }\r\n\r\n        hamburgerMenuButton.setOnClickListener(new HamburgerListener());\r\n    }\r\n\r\n    class HamburgerListener implements View.OnClickListener {\r\n        @Override\r\n        public void onClick(View view) {\r\n            Activity activity = TopBarFragment.this.getActivity();\r\n            MainActivity mainActivity = (MainActivity) activity;\r\n\r\n            //TODO\r\n            // nawDrawer is now navigationView\r\n\r\n            if (mainActivity != null) {\r\n                if (mainActivity.navDrawer.isOpen()) {\r\n                    mainActivity.navDrawer.closeDrawer(GravityCompat.START, true);\r\n                } else {\r\n                    mainActivity.navDrawer.openDrawer(GravityCompat.START, true);\r\n                }\r\n            }\r\n            else {\r\n                Log.d(\"HAMBURGER MENU CLICK: \", \"mainActivity is null\");\r\n            }\r\n\r\n\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/TopBarFragment.java b/app/src/main/java/com/example/radyobilkentandroid/TopBarFragment.java
+--- a/app/src/main/java/com/example/radyobilkentandroid/TopBarFragment.java	(revision 98cf0eeeebdb8bd6a3cb459a7e1bb4f2e6cc6e47)
++++ b/app/src/main/java/com/example/radyobilkentandroid/TopBarFragment.java	(date 1652281355511)
+@@ -129,8 +129,6 @@
+             else {
+                 Log.d("HAMBURGER MENU CLICK: ", "mainActivity is null");
+             }
+-
+-
+         }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Radyo Bilkent</string>\r\n    <string name=\"prompt_email\">Enter email</string>\r\n    <string name=\"prompt_username\">Enter username</string>\r\n    <string name=\"prompt_password\">Enter password</string>\r\n    <string name=\"prompt_password_confirm\">Enter password again</string>\r\n    <string name=\"login_text\">LOG IN</string>\r\n    <string name=\"register_text\">SIGN IN</string>\r\n    <string name=\"gender_label\">Gender</string>\r\n    <string-array name=\"genders\">\r\n        <item>Male</item>\r\n        <item>Female</item>\r\n        <item>Non-binary</item>\r\n        <item>Do not wish to disclose</item>\r\n    </string-array>\r\n    <string name=\"confirm_text\">CONFIRM</string>\r\n    <string name=\"or\">or</string>\r\n\r\n<!--    voting session    -->\r\n    <string name=\"voting_active\">VOTING SESSION IS ACTIVE\\nCLICK TO VOTE</string>\r\n    <string name=\"voting_inactive\">VOTING SESSION FINISHED\\nCLICK TO GO TO AUCTION</string>\r\n    <string name=\"blogs_menu_title\">Blogs</string>\r\n    <string name=\"podcasts_menu_title\">Podcasts</string>\r\n    <string name=\"feedback_menu_title\">Feedback</string>\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 98cf0eeeebdb8bd6a3cb459a7e1bb4f2e6cc6e47)
++++ b/app/src/main/res/values/strings.xml	(date 1652283161688)
+@@ -16,7 +16,7 @@
+     <string name="confirm_text">CONFIRM</string>
+     <string name="or">or</string>
+ 
+-<!--    voting session    -->
++    <!--    voting session    -->
+     <string name="voting_active">VOTING SESSION IS ACTIVE\nCLICK TO VOTE</string>
+     <string name="voting_inactive">VOTING SESSION FINISHED\nCLICK TO GO TO AUCTION</string>
+     <string name="blogs_menu_title">Blogs</string>
+Index: app/src/main/res/layout/activity_blog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_blog.xml b/app/src/main/res/layout/activity_blog.xml
+new file mode 100644
+--- /dev/null	(date 1652283056121)
++++ b/app/src/main/res/layout/activity_blog.xml	(date 1652283056121)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".BlogActivity">
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/radyobilkentandroid/BlogActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/BlogActivity.java b/app/src/main/java/com/example/radyobilkentandroid/BlogActivity.java
+new file mode 100644
+--- /dev/null	(date 1652283056249)
++++ b/app/src/main/java/com/example/radyobilkentandroid/BlogActivity.java	(date 1652283056249)
+@@ -0,0 +1,14 @@
++package com.example.radyobilkentandroid;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class BlogActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_blog);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_feedback.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_feedback.xml b/app/src/main/res/layout/activity_feedback.xml
+new file mode 100644
+--- /dev/null	(date 1652283161792)
++++ b/app/src/main/res/layout/activity_feedback.xml	(date 1652283161792)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".FeedbackActivity">
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/radyobilkentandroid/FeedbackActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/FeedbackActivity.java b/app/src/main/java/com/example/radyobilkentandroid/FeedbackActivity.java
+new file mode 100644
+--- /dev/null	(date 1652283161862)
++++ b/app/src/main/java/com/example/radyobilkentandroid/FeedbackActivity.java	(date 1652283161862)
+@@ -0,0 +1,14 @@
++package com.example.radyobilkentandroid;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class FeedbackActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_feedback);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_podcast.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_podcast.xml b/app/src/main/res/layout/activity_podcast.xml
+new file mode 100644
+--- /dev/null	(date 1652283132914)
++++ b/app/src/main/res/layout/activity_podcast.xml	(date 1652283132914)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".PodcastActivity">
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/circle_bounding.xml\" value=\"0.2115\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/ic_hamburger_menu_button.xml\" value=\"0.2115\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/pager_divider.xml\" value=\"0.2115\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_log_in_screen.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_update_user_info.xml\" value=\"0.19010416666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_voting.xml\" value=\"0.1675213675213675\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_delete.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_login.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_now_playing.xml\" value=\"0.1675213675213675\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_program_flow.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_sign_in.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_top_bar.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_update_user_info.xml\" value=\"0.20416666666666666\" />\r\n        <entry key=\"..\\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/program_item.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml\" value=\"0.1785\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/ic_launcher_background.xml\" value=\"0.1785\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_now_playing.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_update_user_info.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_voting.xml\" value=\"0.3333333333333333\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_voting_result.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_login.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_now_playing.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_sign_in.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_top_bar.xml\" value=\"0.1796875\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_update_user_info.xml\" value=\"0.14130434782608695\" />\r\n        <entry key=\"..\\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/menu/navigation_menu.xml\" value=\"0.1796875\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 98cf0eeeebdb8bd6a3cb459a7e1bb4f2e6cc6e47)
++++ b/.idea/misc.xml	(date 1652283405281)
+@@ -23,7 +23,7 @@
+         <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/program_item.xml" value="0.22" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1785" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
+-        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml" value="0.22" />
++        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml" value="0.1" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_now_playing.xml" value="0.22" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml" value="0.14130434782608695" />
+         <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml" value="0.14130434782608695" />
+Index: app/src/main/java/com/example/radyobilkentandroid/PodcastActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/PodcastActivity.java b/app/src/main/java/com/example/radyobilkentandroid/PodcastActivity.java
+new file mode 100644
+--- /dev/null	(date 1652283132995)
++++ b/app/src/main/java/com/example/radyobilkentandroid/PodcastActivity.java	(date 1652283132995)
+@@ -0,0 +1,14 @@
++package com.example.radyobilkentandroid;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class PodcastActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_podcast);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.radyobilkentandroid\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.RadyoBilkentAndroid\">\r\n        <activity\r\n            android:name=\".VotingResultActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".UpdateUserInfoActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".VotingActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".NowPlayingActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".RegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".StartActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".RegisterWithEmailActivity\"\r\n            android:exported=\"false\" />\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 98cf0eeeebdb8bd6a3cb459a7e1bb4f2e6cc6e47)
++++ b/app/src/main/AndroidManifest.xml	(date 1652283161776)
+@@ -12,6 +12,15 @@
+         android:supportsRtl="true"
+         android:theme="@style/Theme.RadyoBilkentAndroid">
+         <activity
++            android:name=".FeedbackActivity"
++            android:exported="false" />
++        <activity
++            android:name=".PodcastActivity"
++            android:exported="false" />
++        <activity
++            android:name=".BlogActivity"
++            android:exported="false" />
++        <activity
+             android:name=".VotingResultActivity"
+             android:exported="false" />
+         <activity

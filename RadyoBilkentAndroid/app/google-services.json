@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "337946794164",
+    "project_id": "radyo-bilkent-app",
+    "storage_bucket": "radyo-bilkent-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337946794164:android:2c7baddbe7bab7e30d9fe1",
+        "android_client_info": {
+          "package_name": "com.example.radyobilkentandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337946794164-678sufciq81crr9h3desjv2r5p6ptves.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqwxWVLbEItjXLN_RMLFDx6alADl8mfcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "337946794164-678sufciq81crr9h3desjv2r5p6ptves.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

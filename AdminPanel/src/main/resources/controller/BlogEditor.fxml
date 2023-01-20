@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="565.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BlogController">
+    <children>
+        <Label layoutX="83.0" layoutY="184.0" prefHeight="40.0" prefWidth="87.0" text="Link:" textFill="#2998e7">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <Label layoutX="85.0" layoutY="62.0" prefHeight="18.0" prefWidth="169.0" text="Title: " textFill="#2998e7">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="86.0" layoutY="95.0" prefHeight="52.0" prefWidth="126.0" text="Duration:" textFill="#2998e7">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="86.0" layoutY="134.0" prefHeight="52.0" prefWidth="119.0" text="Image: " textFill="#2998e7">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <Label layoutX="79.0" layoutY="269.0" prefHeight="18.0" prefWidth="94.0" text="Date:" textFill="#2998e7">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <TextField fx:id="title" layoutX="205.0" layoutY="69.0" prefHeight="26.0" prefWidth="354.0" />
+        <TextField fx:id="duration" layoutX="205.0" layoutY="108.0" prefHeight="26.0" prefWidth="354.0" />
+        <TextField fx:id="image" layoutX="205.0" layoutY="147.0" prefHeight="26.0" prefWidth="354.0" />
+        <TextField fx:id="link" layoutX="205.0" layoutY="193.0" prefHeight="26.0" prefWidth="354.0" />
+        <DatePicker fx:id="date" layoutX="205.0" layoutY="278.0" prefHeight="26.0" prefWidth="354.0" />
+        <Label layoutX="236.0" layoutY="14.0" prefHeight="18.0" prefWidth="170.0" text="Add Blog" textFill="#2998e7">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+        <Label layoutX="83.0" layoutY="226.0" text="Creator:" textFill="#2998e7">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <TextField fx:id="creator" layoutX="205.0" layoutY="235.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextArea fx:id="Content" layoutX="205.0" layoutY="319.0" prefHeight="218.0" prefWidth="354.0" />
+      <Label layoutX="79.0" layoutY="319.0" prefHeight="43.0" prefWidth="119.0" text="Content:" textFill="#2998e7">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

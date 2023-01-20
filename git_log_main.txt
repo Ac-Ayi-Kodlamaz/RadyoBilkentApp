@@ -1,0 +1,749 @@
+commit dceb4c3af22962057871f8cae49e3ff0d33b9a6a (HEAD -> main, origin/main, orig
+in/HEAD)
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Fri May 13 23:39:48 2022 +0300
+
+    Readme Updated
+
+commit 15458d0d34ba8214634da22af6b79ac93310963a
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Fri May 13 23:33:23 2022 +0300
+
+    Added git_log.txt
+
+commit 9014b79ceb8c359985988c1379d0e610d5d6c0c7
+Author: Ali Cevat ERÇAL <41448673+cevatercal@users.noreply.github.com>
+Date:   Fri May 13 23:28:55 2022 +0300
+
+    Update README.md
+
+    update
+
+commit 76699ca27d0cc438b18fcf712f988a23e13b5caf
+Merge: 9b9b131 578ec04
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Fri May 13 23:14:58 2022 +0300
+
+    Merge remote-tracking branch 'origin/main'
+
+    # Conflicts:
+    #       README.md
+
+commit 9b9b13112371256b512ae89e7017e4d8a5efd6fc
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Fri May 13 23:13:39 2022 +0300
+
+    Readme Updated
+
+commit 578ec04e8053ad7578435a322df91974dfc9ad7e
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Fri May 13 23:01:51 2022 +0300
+
+    updated README
+
+commit f1347cf2765526f1153acdcfd97a05b2f1669359
+Author: TunaSaygin <91385993+TunaSaygin@users.noreply.github.com>
+Date:   Fri May 13 22:48:21 2022 +0300
+
+    Update README.md
+
+commit 5fb73870d57a0d3876bc50ebbeeb985dee75d78e
+Merge: 3ca541f c10aaea
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Fri May 13 19:35:06 2022 +0300
+
+    Merge remote-tracking branch 'origin/main' into main
+
+commit 3ca541fade2b85bbb7af63ee51127ef9ba249d4d
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Fri May 13 19:34:37 2022 +0300
+
+    Last of last of last
+
+commit c10aaeaeca08eb004894a406673a75dee80d20bc
+Author: Ali Cevat ERÇAL <41448673+cevatercal@users.noreply.github.com>
+Date:   Fri May 13 18:02:16 2022 +0300
+
+    Update README.md
+
+    Added android studio text
+
+commit 93da5828cfef3a717eb63043ee9245fe7f69408c
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Thu May 12 08:49:25 2022 +0300
+
+    Last of last
+
+commit df6de328f1ce6105042949580294989bf93fb703
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Thu May 12 01:13:05 2022 +0300
+
+    Latest Changes
+
+commit 715c94a4dabbdf43d5c85fb5dd56ce18fe9e091c
+Merge: a11f0ca a75b9c9
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu May 12 00:58:13 2022 +0300
+
+    Merge remote-tracking branch 'origin/main'
+
+    # Conflicts:
+    #       AdminPanel/src/main/java/modal/VotingSession.java
+
+commit a11f0cab30e74e67dea996554b3a67fa7f729e23
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu May 12 00:57:25 2022 +0300
+
+    null date problem is solved
+
+commit a75b9c942ab67df43827b7f21d454371a37f4865
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Thu May 12 00:13:39 2022 +0300
+
+    Voting Session Points
+
+commit 4a325a856d3a2f9bd5daaf3d00bf254c8784088f
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Thu May 12 00:06:42 2022 +0300
+
+    Feedback Display & Voting Session Delete
+
+commit 50ae5273efdc101f0c4e7da15416a772633fd89a
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Wed May 11 22:31:42 2022 +0300
+
+    deletedoc() for programme class
+
+commit 9234033c0e79ae3923cc2644924cdfd4a7a5c547
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Wed May 11 22:26:45 2022 +0300
+
+    FeedBack class
+
+commit fb88d81a551a22e3bd432b45fb9253c7d646f29f
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Wed May 11 22:26:14 2022 +0300
+
+    feedback2
+
+commit fae02443f23c16b598befd9513049a3216b1e084
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Wed May 11 22:12:18 2022 +0300
+
+    Feedback
+
+commit 8467f505d8c6d715febc60798a9b2d143a08d4f8
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Wed May 11 20:32:17 2022 +0300
+
+    Sizable & TextArea Scrolls
+
+commit 0243a2d715b83d6f66f729980577a520f33a1bb8
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Wed May 11 19:53:39 2022 +0300
+
+    Refresh & Podcast-Blog Buttons
+
+commit 5e5234f8610dd967fcced60a8eabd7075914b241
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Wed May 11 19:12:35 2022 +0300
+
+    deleteDoc() method implemented for feedback
+
+commit 2dca90b7ff24dd9f3dc9a49b6fa3632c58fafa4b
+Merge: 76a9de6 f77d296
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 23:58:24 2022 +0300
+
+    Merge remote-tracking branch 'origin/main'
+
+commit f77d2965b8390f3d66324c21763d0c7288752f6d
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 19:25:25 2022 +0300
+
+    Package Names & Feedback Class
+
+commit e828cbcc102f731538a3099bea7fe8a370664d1f
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 18:12:38 2022 +0300
+
+    Revert "voting Session"
+
+    This reverts commit e7c64312b5fbbe5c32aa3e5165451120dbb20044.
+
+commit 76a9de6c81c4845eb674b388d98345ef81b04bae
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 18:27:15 2022 +0300
+
+    Ui db integration
+
+commit e7c64312b5fbbe5c32aa3e5165451120dbb20044
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 18:12:38 2022 +0300
+
+    voting Session
+
+commit 75358b582b1649e3d6ea3a6aef5d55b2cc9ba80c
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 18:01:30 2022 +0300
+
+    Ui db integration
+
+commit f4505a5e84811929a37ee01b53102b9bbe4a2de4
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 17:54:54 2022 +0300
+
+    Ui db integration
+
+commit caa3f99ff0ae4ad489b5269a5084998c1f3b88b1
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 17:41:52 2022 +0300
+
+    Ui db integration
+
+commit 61472e54eeb431dfd3ae2d03b9c688b2a4631567
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 17:36:17 2022 +0300
+
+    WinnerSong
+
+commit b7e86b685d5d8ea8c6e04a8044c0db6e4a9d5cd5
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 16:57:23 2022 +0300
+
+    Ui db integration
+
+commit 630b6234a1662caccfde5818077d84624f630208
+Merge: f085eba c97a3c2
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 16:36:45 2022 +0300
+
+    Merge remote-tracking branch 'origin/main'
+
+commit f085eba92d3ae772499aa5abb0d6060cdbd83952
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 16:35:22 2022 +0300
+
+    Tuna
+
+commit c97a3c2f7aae804a3399f0ebb00301a6efa5c3d2
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 16:33:13 2022 +0300
+
+    Programme addData
+
+commit 184b78a7b97d6b1596e8bb950a3f7edb9ddab035
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 15:30:50 2022 +0300
+
+    Uİ database entegration
+
+commit f856e040c8ca0f3e0140480494ce12b3cd790f81
+Merge: 4bc37f6 a8b8c53
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 15:21:01 2022 +0300
+
+    Merge remote-tracking branch 'origin/main' into main
+
+commit 4bc37f686e41a21c0f3bf9434f3a280e87e0cdc4
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 15:20:48 2022 +0300
+
+    Auto stash before merge of "main" and "origin/main"
+
+commit a8b8c533ec45547b5837c918a2ccba7daebb0333
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 15:19:57 2022 +0300
+
+    Uİ database entegration
+
+commit e536456b8975a1f198f5e1054f5b7a762a876bfe
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 15:15:07 2022 +0300
+
+    Uİ database entegration
+
+commit 9eb6cc629eeafc46c3ed07efa7ffe033bb1ba4f4
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:49:10 2022 +0300
+
+    programme variables changed
+
+commit 17634bab604f9f92889fd15f67b9f166ff59379a
+Merge: 32199d2 4bec10d
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 14:37:18 2022 +0300
+
+    Merge remote-tracking branch 'origin/main' into main
+
+commit 32199d2bfbcb5b556cc47a3bc827e84ced42c34b
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 14:35:52 2022 +0300
+
+    BlogAddDoc
+
+commit 4bec10de5be180c29c0b40d0070d5cd3a50b32ba
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:35:07 2022 +0300
+
+    addDoc() implemented for programme class
+
+commit fa81f96a7c86e020d2d7eb355615c4146a290eea
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:22:41 2022 +0300
+
+    AddDoc modified
+
+commit cd97d8bebcd8b31ff6e8c31eab3f4488863e6caf
+Merge: e4937b4 7655939
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:14:43 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+    # Conflicts:
+    #       AdminPanel/src/main/java/radyo/BlogController.java
+    #       AdminPanel/src/main/java/radyo/MainApplication.java
+    #       AdminPanel/src/main/java/radyo/MainController.java
+
+commit e4937b4c69cf6697d31cc01c860d56c438ea5c65
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:11:32 2022 +0300
+
+    Tuna
+
+commit 765593962639f1edaf6f6737eb5f351c0b4e8c2d
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 14:07:24 2022 +0300
+
+    Minor Changes
+
+commit 149b73328fea584f8f6dcc2c007bf207a9a56675
+Merge: 713a77d 7edbe2f
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Mon May 9 18:53:29 2022 +0300
+
+    Tuna
+
+commit 713a77d59188cfa4d297786106205ea2030a9b86
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Mon May 9 18:50:44 2022 +0300
+
+     Tuna did some changes
+
+commit 7edbe2f1a5e7c23934e7c66041870e194493a190
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 9 15:46:48 2022 +0300
+
+    Minor Changes to Check
+
+commit 2a80c3b2e15b39a68bc0fc8a6ea5da86afde8056
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 15:20:48 2022 +0300
+
+    Auto stash before merge of "main" and "origin/main"
+
+commit a8b8c533ec45547b5837c918a2ccba7daebb0333
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 15:19:57 2022 +0300
+
+    Uİ database entegration
+
+commit e536456b8975a1f198f5e1054f5b7a762a876bfe
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 15:15:07 2022 +0300
+
+    Uİ database entegration
+
+commit 9eb6cc629eeafc46c3ed07efa7ffe033bb1ba4f4
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:49:10 2022 +0300
+
+    programme variables changed
+
+commit 17634bab604f9f92889fd15f67b9f166ff59379a
+Merge: 32199d2 4bec10d
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 14:37:18 2022 +0300
+
+    Merge remote-tracking branch 'origin/main' into main
+
+commit 32199d2bfbcb5b556cc47a3bc827e84ced42c34b
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 14:35:52 2022 +0300
+
+    BlogAddDoc
+
+commit 4bec10de5be180c29c0b40d0070d5cd3a50b32ba
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:35:07 2022 +0300
+
+    addDoc() implemented for programme class
+
+commit fa81f96a7c86e020d2d7eb355615c4146a290eea
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:22:41 2022 +0300
+
+    AddDoc modified
+
+commit cd97d8bebcd8b31ff6e8c31eab3f4488863e6caf
+Merge: e4937b4 7655939
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:14:43 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+    # Conflicts:
+    #       AdminPanel/src/main/java/radyo/BlogController.java
+    #       AdminPanel/src/main/java/radyo/MainApplication.java
+    #       AdminPanel/src/main/java/radyo/MainController.java
+
+commit e4937b4c69cf6697d31cc01c860d56c438ea5c65
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 10 14:11:32 2022 +0300
+
+    Tuna
+
+commit 765593962639f1edaf6f6737eb5f351c0b4e8c2d
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Tue May 10 14:07:24 2022 +0300
+
+    Minor Changes
+
+commit 149b73328fea584f8f6dcc2c007bf207a9a56675
+Merge: 713a77d 7edbe2f
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Mon May 9 18:53:29 2022 +0300
+
+    Tuna
+
+commit 713a77d59188cfa4d297786106205ea2030a9b86
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Mon May 9 18:50:44 2022 +0300
+
+     Tuna did some changes
+
+commit 7edbe2f1a5e7c23934e7c66041870e194493a190
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 9 15:46:48 2022 +0300
+
+    Minor Changes to Check
+
+commit 2a80c3b2e15b39a68bc0fc8a6ea5da86afde8056
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 9 14:17:03 2022 +0300
+
+    listViews are handled && some errors are fixed
+
+commit 5b958ee309b7787358dc5c8811a5a123fce1d352
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 9 12:21:43 2022 +0300
+
+    podcast & blog buttons
+
+commit c9c5f96162403e5e7c64e288db9d622e30d7c2b5
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 9 12:20:36 2022 +0300
+
+    podcast/blog buttons & minor changes
+
+commit a0b3760ac89b3f94c04fe0715b83e0d18d244fb4
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 8 21:36:35 2022 +0300
+
+    hataya alttan bakmak lazım
+
+commit ccdee87e8c89ac29613d503ac5ebb1b32696a3ee
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 8 18:49:35 2022 +0300
+
+    Some javafx changes but still error exists
+
+commit de13c24e4a820608bdf8ad656e80e8e900b441c0
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 8 02:01:46 2022 +0300
+
+    Some New Classes && Arrangements on Controller
+
+commit 65d2098e8266b7f3c6f19860159e2850b4d6473d
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat May 7 11:19:24 2022 +0300
+
+    Minor bug to major bug
+
+commit 0b718380f6a0caa8b486f29b1ac482dbaa7fb1e7
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat May 7 10:42:49 2022 +0300
+
+    voting session class
+
+commit f84f134d1d11fb62d4a6fe0a95c5a35dd80aaee5
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Fri May 6 20:35:12 2022 +0300
+
+    Added openInBrowser and openInSpotify methods
+
+commit fd6b2f4de78bfdfbd93e6df3d5f94d9348b26dda
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 3 22:54:19 2022 +0300
+
+    Tuna Modified
+
+commit 063a02db31099dd44057b89d5f7088ee2685bda4
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 3 10:38:29 2022 +0300
+
+    Tuna Saygın modified packages added searchSong method and created programme
+class
+
+commit ccbae6ee1cc4d6a3d708b781998c32ce447697f6
+Merge: e0e7e23 c4d080d
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Mon May 2 13:15:17 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit c4d080d40f41cd91a707852e52d53bf178800c46
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 2 09:56:50 2022 +0300
+
+    ListViews and Add Song is added
+
+    Remainings: Programme Class, Voting Session Class, FeedBack Class, Related C
+lasses to Handle the connection of Controller to DataBase, FXML connection of ad
+d podcast and blog buttons
+
+commit e0e7e2327928715f0d7cd5d344d9e4f1659d3aac
+Merge: 7cc1a9b 436d8cd
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 18:42:00 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit 7cc1a9b85d5ce5db9d80b225b8288a5c5e20e8cd
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 18:41:44 2022 +0300
+
+    Tuna
+
+commit 436d8cdc6fbc2da17f762f87c5c1bf5f08e5a625
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 18:23:00 2022 +0300
+
+    packageNames
+
+commit c2497b9908827bd4ea8a79c4ed7bd614be806720
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 17:54:58 2022 +0300
+
+     Change in content classes
+
+commit a1e1b65d4911003cf2dd49b91c513f0acaff8873
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 17:24:18 2022 +0300
+
+    VotingController&Main Controller arranged
+
+commit 57d4ef9428eb3c3d01d31a9faaead000d681dcb1
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 16:25:33 2022 +0300
+
+    ProgrammeFlowController
+
+commit e8ec13d00d2680372681e3436554088b2ff1a62f
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 15:23:08 2022 +0300
+
+    BlogFxml&BlogController
+
+commit ae47a6f326d9cde87d6b94f7bce05908aa3abcac
+Merge: d2352af 5756296
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 15:02:11 2022 +0300
+
+    Merge remote-tracking branch 'origin/main' into main
+
+commit 575629605afc58b8e8314360c20fa28f0d53c289
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 14:59:27 2022 +0300
+
+    podcast class modified by Tuna Saygın
+
+commit d2352af009fb0d963b0d4ec5506ba739451269ae
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 14:24:38 2022 +0300
+
+    PodcastEditor&Controller3
+
+commit 4473570229669ee04a8f161f47bbf66d0255afd4
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 12:45:41 2022 +0300
+
+    PodcastEditor&PodcastController2
+
+commit 479004c58a4fd43fd303875dd78131bb3a337442
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 12:45:08 2022 +0300
+
+    PodcastEditor&PodcastController
+
+commit 6c65d66eea3de03c63225d4fac2f301931154455
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 11:37:14 2022 +0300
+
+    Changes on fxml
+
+commit c4fca397a0e10db32066e266ae7a19412f69f62d
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 22:52:17 2022 +0300
+
+    song class implemented methods related to database Hayırlı uğurlu olsun
+
+commit dfb56b03c535def6b285b7bb86daf6c2e2fc5297
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 11:37:28 2022 +0300
+
+    New changes for Database part new dependencies are added, connected to fires
+tore database
+
+commit 6fab99d7c0c8cc42918ef9f28d2d303f4863e6de
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 10:48:50 2022 +0300
+
+    Firebase for admin panel is added and working properly.
+
+commit 351fa8ccc55d374e2bbeaca6b40d2d0a6a4caf41
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Thu Apr 28 17:29:29 2022 +0300
+
+    Uploading the res folder for use in Android Studio
+
+commit b990c639049e220d9e17682fbe0ec8c7e6603332
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Thu Apr 28 17:28:23 2022 +0300
+
+    Creating this folder cluster to add the GUI elements of the mobile app.
+
+commit c489b9451adcacbde8c8b41e2dbda27b43b6fe14
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:36:38 2022 +0300
+
+    Other changes related to admin sdk key6
+
+commit 73fc193cdd3a8e6a2078f134b80cab9c05fb9227
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:36:08 2022 +0300
+
+    Added the firebase adminsdk key
+
+commit c2a2b3b451db2934f358f6c17c3a2d2812fc5070
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:29:41 2022 +0300
+
+    ben tuna test edıom
+
+commit 393ca2637c4a54ec96b4d3b78ac07ed131324c9a
+Merge: 43215fb 22f06e0
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:18:47 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit 43215fbb2b0ab5efb9a68cc10879159ee38c5345
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:18:11 2022 +0300
+
+    Added OpenInBrowserListener.java
+
+commit 22f06e0fbaf19838f8c176fb394df0817605b99b
+Author: TunaSaygin <91385993+TunaSaygin@users.noreply.github.com>
+Date:   Thu Apr 28 11:04:26 2022 +0300
+
+    Added firebase dependency to POM.xml
+
+commit 9c617f819eb5e5492aa7f3b978073a7b10dc8afb
+Merge: 936a2f2 1c90878
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:02:05 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit 936a2f24a5666cee48f516486164f1d30b9eda72
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:00:58 2022 +0300
+
+    Added extends keyword to files
+
+commit 1c90878fec7ab9a1368cdcdb703d8df89f6e51c0
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Thu Apr 28 10:59:17 2022 +0300
+
+    Add files via upload
+
+    JAVAFX for Admin Panel
+
+commit 885dc9072fd6f366a3b56d34b1a66095ee79a958
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Thu Apr 28 10:48:14 2022 +0300
+
+    Created Folder
+
+commit a3f1f090b76c688178dd10fad2f40dfcfceaf341
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Thu Apr 28 10:37:19 2022 +0300
+
+    Add files via upload
+
+    Content Class Template
+
+commit f12a61054691966c98abc186486a06948d9da1af
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:17:40 2022 +0300
+
+    Changed the title
+
+commit 632be6b58a328e4bd581b57f32422193d58d3e9b
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:08:58 2022 +0300
+
+    Changed the url of the logo
+
+commit 72c387640324fa69cfd5140fd02f779ebbddc5cb
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:04:30 2022 +0300
+
+    Added logo of RadyoBilkent
+
+commit 0796f70a26a6a1e7dc3ce0efb0ef8dca564ddde9
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:18:24 2022 +0300
+
+    Delete RadioBilkent.drawio
+
+commit b3be43695b2ffe1713843db30c359de2ac2a5993
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:17:36 2022 +0300
+
+    Added RadioBilkentUMLDiagram.png
+
+commit 7bb0cfe7b02fabbfcf867695f79cb12e40bc2d76
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:04:47 2022 +0300
+
+    Add files via upload
+
+    UML Diagram
+
+commit cec87f2731f43c1c868ff0aac0a33adb01f9aaf5
+Author: Yiğit İlk <80704436+YeetTheFirst21@users.noreply.github.com>
+Date:   Wed Apr 6 19:37:10 2022 +0300
+
+    Update README.md
+
+commit 1744d08a5a0a5c49ba7539d9d7067ae7b155197b
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Tue Apr 5 16:27:19 2022 +0300
+
+    Initial commit
+(END)

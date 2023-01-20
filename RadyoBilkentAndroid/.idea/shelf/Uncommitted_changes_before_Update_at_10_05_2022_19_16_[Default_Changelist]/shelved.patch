@@ -1,0 +1,231 @@
+Index: app/src/main/java/com/example/radyobilkentandroid/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.radyobilkentandroid;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.fragment.app.FragmentTransaction;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\n\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.DocumentSnapshot;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\n\r\nimport java.util.Map;\r\n\r\nimport model.User;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    public static User user;\r\n\r\n    public static FirebaseAuth mAuth;\r\n    public static FirebaseFirestore mDB;\r\n    public static FirebaseUser mUser;\r\n    private DocumentReference mSongReference;\r\n\r\n    private Button votingButton;\r\n    private String songURL;\r\n    private String imageURL;\r\n    private String songName;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        mAuth = FirebaseAuth.getInstance();\r\n        mUser = mAuth.getCurrentUser();\r\n        mDB = FirebaseFirestore.getInstance();\r\n\r\n        user = new User(mDB, mUser);\r\n\r\n        FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();\r\n        TopBarFragment topBarFragment = TopBarFragment.newInstance();\r\n        ft1.replace(R.id.top_bar_frame, topBarFragment);\r\n        ft1.commit();\r\n\r\n        FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();\r\n        ProgramFlowFragment programFlowFragment = ProgramFlowFragment.newInstance();\r\n        ft2.replace(R.id.program_flow_frame, programFlowFragment);\r\n        ft2.commit();\r\n\r\n        votingButton = findViewById(R.id.voting_session_button);\r\n        votingButton.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                goToVoting();\r\n            }\r\n        });\r\n\r\n        //TODO make it dynamic\r\n        String songPath = \"Test\";\r\n        //\r\n        mSongReference = mDB.collection(\"songs\").document(songPath);\r\n\r\n        mSongReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {\r\n            @Override\r\n            public void onSuccess(DocumentSnapshot documentSnapshot) {\r\n                if (documentSnapshot.exists()) {\r\n\r\n                    Map<String, Object> map = documentSnapshot.getData();\r\n\r\n                    songURL = (String) map.get(\"song_url\");\r\n                    imageURL = (String) map.get(\"image_url\");\r\n                    songName = (String) map.get(\"name\");\r\n\r\n\r\n                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();\r\n                    NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);\r\n                    ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);\r\n                    ft.commit();\r\n                }\r\n            }\r\n        }).addOnFailureListener(new OnFailureListener() {\r\n            @Override\r\n            public void onFailure(@NonNull Exception e) {\r\n                // TODO make this more sensible\r\n                Log.d(\"GET_FIRESTORE_REFERENCE\", \"onFailure: could not get firestore reference\");\r\n            }\r\n        });\r\n\r\n\r\n\r\n//        String url = \"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3\";\r\n//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();\r\n//        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(url, songName);\r\n//        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);\r\n//        ft.commit();\r\n    }\r\n    private void goToVoting(){\r\n        Intent intent = new Intent(this, VotingActivity.class);\r\n        startActivity(intent);\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java b/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java
+--- a/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java	(revision d9fd142f9d08f9c807e4c4c0740d1b46a0da45b5)
++++ b/app/src/main/java/com/example/radyobilkentandroid/MainActivity.java	(date 1652199381791)
+@@ -6,9 +6,11 @@
+ 
+ import android.content.Intent;
+ import android.os.Bundle;
++import android.os.CountDownTimer;
+ import android.util.Log;
+ import android.view.View;
+ import android.widget.Button;
++import android.widget.Toast;
+ 
+ import com.google.android.gms.tasks.OnFailureListener;
+ import com.google.android.gms.tasks.OnSuccessListener;
+@@ -30,11 +32,17 @@
+     public static FirebaseFirestore mDB;
+     public static FirebaseUser mUser;
+     private DocumentReference mSongReference;
++    private DocumentReference mCurrentSong;
+ 
+     private Button votingButton;
+     private String songURL;
++
+     private String imageURL;
+     private String songName;
++    private String songPath;
++    private String oldPath;
++
++    private CountDownTimer timer;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -65,27 +73,87 @@
+             }
+         });
+ 
++        timer = new CountDownTimer(100000000, 5000) {
++            @Override
++            public void onTick(long millisUntilFinished) {
++
++                if (songPath == null){
++                    readCurrentSong(true);
++                }
++                else{
++                    readCurrentSong(false);
++                }
++            }
++
++            @Override
++            public void onFinish() {
++
++            }
++        };
++        timer.start();
+         //TODO make it dynamic
+-        String songPath = "Test";
+-        //
++        // url boş ise database eski = yeni
++        // url eski = yeni ise nothing
++        // url yeni != eski
++        //      yeni fragment yeni_url
++        //      eski = yeni
++        mCurrentSong = mDB.collection("currentSong").document("trial");
++
++
++
++
++    }
++    private void goToVoting(){
++        Intent intent = new Intent(this, VotingActivity.class);
++        startActivity(intent);
++    }
++
++
++    private void readCurrentSong(boolean isFirst){
++        mCurrentSong.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
++            @Override
++            public void onSuccess(DocumentSnapshot documentSnapshot) {
++                if (documentSnapshot.exists()) {
++
++                    Map<String, Object> map = documentSnapshot.getData();
++                    songPath = (String) map.get("name");
++
++                    if (isFirst){
++                        changeFrangment();
++                        oldPath = songPath;
++                    }
++                    else{
++                        if (!oldPath.equals(songPath)){
++                            Toast.makeText(MainActivity.this, "music changed", Toast.LENGTH_SHORT).show();
++                            changeFrangment();
++                            oldPath = songPath;
++                        }
++                    }
++
++                }
++            }
++        });
++    }
++
++    private void changeFrangment(){
+         mSongReference = mDB.collection("songs").document(songPath);
++        mSongReference = mDB.collection("songs").document("Another Brick on the Wall");
+ 
+         mSongReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+             @Override
+             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                 if (documentSnapshot.exists()) {
+-
++                    Log.d("ggggggggg", "gggggggg");
+                     Map<String, Object> map = documentSnapshot.getData();
+ 
+-                    songURL = (String) map.get("song_url");
+-                    imageURL = (String) map.get("image_url");
+-                    songName = (String) map.get("name");
++                    songURL = (String) map.get("link");
++                    imageURL = (String) map.get("cover");
++                    songName = (String) map.get("creator");
+ 
+-
+-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+-                    NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
+-                    ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
+-                    ft.commit();
++                    reloadFragment();
++                }
++                else{
++                    Log.d("hataa", "olmadı");
+                 }
+             }
+         }).addOnFailureListener(new OnFailureListener() {
+@@ -95,18 +163,19 @@
+                 Log.d("GET_FIRESTORE_REFERENCE", "onFailure: could not get firestore reference");
+             }
+         });
+-
++    }
++    private void reloadFragment(){
++        //TODO değişim
++        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
++        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(songURL, songName, imageURL);
++        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
++        ft.commit();
++    }
+ 
++    private void readDatabase(){
+ 
+-//        String url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+-//        NowPlayingFragment nowPlayingFragment = NowPlayingFragment.newInstance(url, songName);
+-//        ft.replace(R.id.nowPlayingFragment, nowPlayingFragment);
+-//        ft.commit();
+     }
+-    private void goToVoting(){
+-        Intent intent = new Intent(this, VotingActivity.class);
+-        startActivity(intent);
+-    }
++
++
+ 
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/radyobilkentandroid/NowPlayingFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.radyobilkentandroid;\r\n\r\nimport android.graphics.Bitmap;\r\nimport android.graphics.BitmapFactory;\r\nimport android.media.AudioManager;\r\nimport android.media.Image;\r\nimport android.os.AsyncTask;\r\nimport android.os.Bundle;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.fragment.app.FragmentTransaction;\r\n\r\nimport android.media.MediaPlayer;\r\n\r\nimport android.os.CountDownTimer;\r\nimport android.util.Log;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.Button;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.DocumentSnapshot;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\n\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.Timer;\r\n\r\nimport model.Gender;\r\n\r\n/**\r\n * A simple {@link Fragment} subclass.\r\n * Use the {@link NowPlayingFragment#newInstance} factory method to\r\n * create an instance of this fragment.\r\n */\r\npublic class NowPlayingFragment extends Fragment {\r\n\r\n    // TODO: Rename parameter arguments, choose names that match\r\n    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER\r\n    private static final String ARG_PARAM1 = \"param1\";\r\n    private static final String ARG_PARAM2 = \"param2\";\r\n    private static final String ARG_PARAM3 = \"param3\";\r\n    // TODO: Rename and change types of parameters\r\n    private String mParam1;\r\n    private String mParam2;\r\n    private String mParam3;\r\n\r\n    private String url;\r\n\r\n    private Button start;\r\n\r\n    private CustomMediaPlayer customMediaPlayer;\r\n    private CountDownTimer timer;\r\n\r\n    public NowPlayingFragment() {\r\n        // Required empty public constructor\r\n    }\r\n\r\n\r\n    /**\r\n     * Use this factory method to create a new instance of\r\n     * this fragment using the provided parameters.\r\n     *\r\n     * @param param1 Parameter 1.\r\n     * @param param2 Parameter 2.\r\n     * @return A new instance of fragment NowPlayingFragment.\r\n     */\r\n    // TODO: Rename and change types and number of parameters\r\n    public static NowPlayingFragment newInstance(String param1, String param2, String param3) {\r\n        NowPlayingFragment fragment = new NowPlayingFragment();\r\n        Bundle args = new Bundle();\r\n        args.putString(ARG_PARAM1, param1);\r\n        args.putString(ARG_PARAM2, param2);\r\n        args.putString(ARG_PARAM3, param3);\r\n        fragment.setArguments(args);\r\n        return fragment;\r\n    }\r\n\r\n    @Override\r\n    public void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n\r\n        if (getArguments() != null) {\r\n            mParam1 = getArguments().getString(ARG_PARAM1);\r\n            mParam2 = getArguments().getString(ARG_PARAM2);\r\n            mParam3 = getArguments().getString(ARG_PARAM3);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        return inflater.inflate(R.layout.fragment_now_playing, container, false);\r\n    }\r\n\r\n\r\n    @Override\r\n    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {\r\n        super.onViewCreated(view, savedInstanceState);\r\n        //text\r\n        TextView tv = (TextView) getView().findViewById(R.id.songName);\r\n        tv.setText(mParam2);\r\n\r\n        //image\r\n        String imageURL = mParam3;\r\n        ImageView image = (ImageView) getView().findViewById(R.id.songImage);\r\n        new DownloadImageTask(image).execute(imageURL);\r\n        boolean[] isPlaying = {false};\r\n        timer = new CountDownTimer(300000,1000){\r\n\r\n            // for incrementing score\r\n            FirebaseAuth mAuth = FirebaseAuth.getInstance();\r\n            FirebaseUser mUser = mAuth.getCurrentUser();\r\n            FirebaseFirestore mDB = FirebaseFirestore.getInstance();\r\n\r\n            DocumentReference mReference = mDB.collection(\"users\").document(mUser.getUid());\r\n\r\n\r\n            @Override\r\n            public void onTick(long millisUntilFinished) {\r\n\r\n                if(isPlaying[0]){\r\n                mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {\r\n                    @Override\r\n                    public void onSuccess(DocumentSnapshot documentSnapshot) {\r\n                        if (documentSnapshot.exists() && isPlaying[0]) {\r\n\r\n                            Map<String, Object> map = documentSnapshot.getData();\r\n                            Long points = (Long) map.get(\"points\");\r\n                            String username = (String) map.get(\"username\");\r\n                            //TODO Gender burada string olunca DNWTD oluyor bu da enumda değer bulamayınca\r\n                            //TODO null gönderiyor user düzelticek\r\n                            Gender gender = Gender.valueOfLabel(\"Do not wish to disclose\");\r\n                            //Gender gender = Gender.valueOfLabel((String) map.get(\"gender\"));\r\n\r\n                            HashMap<String, Object> new_map = new HashMap<>();\r\n\r\n                            new_map.put(\"username\",username);\r\n                            new_map.put(\"gender\", gender);\r\n                            //TODO increment count\r\n                            points += 10;\r\n                            new_map.put(\"points\",points);\r\n                            mReference.set(new_map).addOnCompleteListener(new OnCompleteListener<Void>() {\r\n                                @Override\r\n                                public void onComplete(@NonNull Task<Void> task) {\r\n                                    if (task.isSuccessful()) {\r\n                                        Log.d(\"USER_UPDATE:\", \"User updated successfully\");\r\n                                    }\r\n                                    else {\r\n                                        Log.d(\"USER_UPDATE:\", \"Could not update user\");\r\n                                    }\r\n                                }\r\n                            });\r\n                        }\r\n                    }\r\n                }).addOnFailureListener(new OnFailureListener() {\r\n                    @Override\r\n                    public void onFailure(@NonNull Exception e) {\r\n                        // TODO make this more sensible\r\n                        Log.d(\"GET_FIRESTORE_REFERENCE\", \"onFailure: could not get firestore reference\");\r\n                    }\r\n                });}\r\n            }\r\n\r\n\r\n            @Override\r\n            public void onFinish() {\r\n\r\n            }\r\n\r\n        };\r\n        timer.start();\r\n\r\n        url = mParam1; // your URL here\r\n        customMediaPlayer = new CustomMediaPlayer ();\r\n        customMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);\r\n        try {\r\n            customMediaPlayer.setDataSource(url);\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n        try {\r\n            customMediaPlayer.prepare();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n        start = (Button) getView().findViewById(R.id.startButton);\r\n\r\n\r\n        start.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n\r\n                if(!isPlaying[0]) {\r\n                    isPlaying[0] = true;\r\n                    customMediaPlayer.start();\r\n                    start.setBackgroundResource(R.drawable.pause_icon);\r\n                }\r\n                else{\r\n                    isPlaying[0] = false;\r\n                    customMediaPlayer.pause();\r\n                    start.setBackgroundResource(R.drawable.start_icon);\r\n                }\r\n            }\r\n        });\r\n\r\n    }\r\n\r\n\r\n    private class CustomMediaPlayer extends MediaPlayer{\r\n\r\n        String dataSource;\r\n\r\n        @Override\r\n        public void setDataSource(String path) throws IOException,IllegalArgumentException, SecurityException, IllegalStateException{\r\n            super.setDataSource(path);\r\n            dataSource = path;\r\n        }\r\n\r\n        public String getDataSource(){return dataSource;}\r\n    }\r\n\r\n    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {\r\n        ImageView bmImage;\r\n        public DownloadImageTask(ImageView bmImage) {\r\n            this.bmImage = bmImage;\r\n        }\r\n\r\n        protected Bitmap doInBackground(String... urls) {\r\n            String urldisplay = urls[0];\r\n            Bitmap bmp = null;\r\n            try {\r\n                InputStream in = new java.net.URL(urldisplay).openStream();\r\n                bmp = BitmapFactory.decodeStream(in);\r\n            } catch (Exception e) {\r\n                Log.e(\"Error\", e.getMessage());\r\n                e.printStackTrace();\r\n            }\r\n            return bmp;\r\n        }\r\n        protected void onPostExecute(Bitmap result) {\r\n            bmImage.setImageBitmap(result);\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/radyobilkentandroid/NowPlayingFragment.java b/app/src/main/java/com/example/radyobilkentandroid/NowPlayingFragment.java
+--- a/app/src/main/java/com/example/radyobilkentandroid/NowPlayingFragment.java	(revision d9fd142f9d08f9c807e4c4c0740d1b46a0da45b5)
++++ b/app/src/main/java/com/example/radyobilkentandroid/NowPlayingFragment.java	(date 1652197783287)
+@@ -107,7 +107,8 @@
+         // Inflate the layout for this fragment
+         return inflater.inflate(R.layout.fragment_now_playing, container, false);
+     }
+-
++    //TODO
++    // change fragment when url is changed
+ 
+     @Override
+     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+@@ -145,17 +146,14 @@
+                             String username = (String) map.get("username");
+                             //TODO Gender burada string olunca DNWTD oluyor bu da enumda değer bulamayınca
+                             //TODO null gönderiyor user düzelticek
+-                            Gender gender = Gender.valueOfLabel("Do not wish to disclose");
+-                            //Gender gender = Gender.valueOfLabel((String) map.get("gender"));
++                            //Gender gender = Gender.valueOfLabel("Do not wish to disclose");
++                            Gender gender = Gender.valueOfLabel((String) map.get("gender"));
+ 
+-                            HashMap<String, Object> new_map = new HashMap<>();
+ 
+-                            new_map.put("username",username);
+-                            new_map.put("gender", gender);
+                             //TODO increment count
+                             points += 10;
+-                            new_map.put("points",points);
+-                            mReference.set(new_map).addOnCompleteListener(new OnCompleteListener<Void>() {
++                            map.put("points",points);
++                            mReference.set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                 @Override
+                                 public void onComplete(@NonNull Task<Void> task) {
+                                     if (task.isSuccessful()) {
+Index: app/src/main/java/model/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport android.util.Log;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\n\r\nimport com.example.radyobilkentandroid.RegisterWithEmailActivity;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.DocumentSnapshot;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\npublic class User {\r\n\r\n    private DocumentReference mReference;\r\n    private Long points;\r\n    private String username;\r\n    private Gender gender;\r\n\r\n//    private Avatar avatar;\r\n//    private ArrayList<Item> items;\r\n\r\n    public User() {\r\n    }\r\n\r\n    public User(FirebaseFirestore db, FirebaseUser firebaseUser) {\r\n        this();\r\n        if (firebaseUser != null) {\r\n            prepareDatabase(firebaseUser, db);\r\n            // we get info from the database\r\n            mReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {\r\n                @Override\r\n                public void onSuccess(DocumentSnapshot documentSnapshot) {\r\n                    if (documentSnapshot.exists()) {\r\n                        Map<String, Object> map = documentSnapshot.getData();\r\n                        points = (Long) map.get(\"points\");\r\n                        username = (String) map.get(\"username\");\r\n                        gender = Gender.valueOfLabel((String) map.get(\"gender\"));\r\n//                        avatar = (Avatar) map.get(\"avatar\");\r\n//                        items = (ArrayList<Item>) map.get(\"items\");\r\n                    }\r\n                }\r\n            }).addOnFailureListener(new OnFailureListener() {\r\n                @Override\r\n                public void onFailure(@NonNull Exception e) {\r\n                    // TODO make this more sensible\r\n                    Log.d(\"GET_FIRESTORE_REFERENCE\", \"onFailure: could not get firestore reference\");\r\n                }\r\n            });\r\n        }\r\n    }\r\n\r\n    public Long getPoints() {\r\n        return points;\r\n    }\r\n\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n\r\n    public Gender getGender() {\r\n        return gender;\r\n    }\r\n\r\n    public DocumentReference getmReference() {\r\n        return mReference;\r\n    }\r\n\r\n    public void updateUser(FirebaseUser mUser, FirebaseFirestore db, String username, Gender gender) {\r\n        prepareDatabase(mUser, db);\r\n        // we set info to the database\r\n        HashMap<String, Object> map = new HashMap<>();\r\n        map.put(\"username\", username); // key, value\r\n        points = points == null ? 0: points;\r\n        map.put(\"points\", points);\r\n        map.put(\"gender\", gender);\r\n//        map.put(\"avatar\", new Avatar());\r\n//        map.put(\"items\", new ArrayList<Item>());\r\n        mReference.set(map).addOnCompleteListener(new OnCompleteListener<Void>() {\r\n            @Override\r\n            public void onComplete(@NonNull Task<Void> task) {\r\n                if (task.isSuccessful()) {\r\n                    Log.d(\"USER_UPDATE:\", \"User updated successfully\");\r\n                }\r\n                else {\r\n                    Log.d(\"USER_UPDATE:\", \"Could not update user\");\r\n                }\r\n            }\r\n        });\r\n    }\r\n\r\n    private void prepareDatabase(FirebaseUser mUser, FirebaseFirestore db) {\r\n        mReference = db.collection(\"users\").document(mUser.getUid());\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/model/User.java b/app/src/main/java/model/User.java
+--- a/app/src/main/java/model/User.java	(revision d9fd142f9d08f9c807e4c4c0740d1b46a0da45b5)
++++ b/app/src/main/java/model/User.java	(date 1652194207780)
+@@ -84,7 +84,7 @@
+         map.put("username", username); // key, value
+         points = points == null ? 0: points;
+         map.put("points", points);
+-        map.put("gender", gender);
++        map.put("gender", gender.toString());
+ //        map.put("avatar", new Avatar());
+ //        map.put("items", new ArrayList<Item>());
+         mReference.set(map).addOnCompleteListener(new OnCompleteListener<Void>() {

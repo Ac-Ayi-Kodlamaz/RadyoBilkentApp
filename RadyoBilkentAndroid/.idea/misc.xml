@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/circle_bounding.xml" value="0.2115" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/ic_hamburger_menu_button.xml" value="0.2115" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/pager_divider.xml" value="0.2115" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_blog.xml" value="0.1675213675213675" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_log_in_screen.xml" value="0.2" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_now_playing.xml" value="0.1675213675213675" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_podcast.xml" value="0.1675213675213675" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_update_user_info.xml" value="0.19010416666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_voting.xml" value="0.1675213675213675" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/blog_item.xml" value="0.5" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_blog.xml" value="0.33" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_delete.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_now_playing.xml" value="0.1675213675213675" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_podcast.xml" value="0.33" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_program_flow.xml" value="0.22" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_sign_in.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_top_bar.xml" value="0.33" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_update_user_info.xml" value="0.20416666666666666" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/program_item.xml" value="0.22" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/statistic_song_item.xml" value="0.1" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/menu/navigation_menu.xml" value="0.1675213675213675" />
+        <entry key="..\:/Ulas/UlasDesktop/AndroidProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1785" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_now_playing.xml" value="0.22" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_register_with_email.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_start.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_update_user_info.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_voting.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/activity_voting_result.xml" value="0.22" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_login.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_now_playing.xml" value="0.22" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_sign_in.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_top_bar.xml" value="0.1796875" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/layout/fragment_update_user_info.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/aceva/StudioProjects/RadyoBilkentApp/RadyoBilkentAndroid/app/src/main/res/menu/navigation_menu.xml" value="0.1796875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

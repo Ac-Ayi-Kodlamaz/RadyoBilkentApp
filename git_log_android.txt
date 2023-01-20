@@ -1,0 +1,565 @@
+commit 51701ff27fe449da6ff6dc650a5650c339506814 (HEAD -> android, origin/android)
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Fri May 13 22:50:41 2022 +0300
+
+    Delete a.txt
+
+commit 74d3140b3523d344e016b86f6e33db39e079fa8b
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Fri May 13 22:50:15 2022 +0300
+
+    uploaded .apk build
+
+commit 6bc2619301c487d280fc8a346f01060ec9e7516d
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Fri May 13 22:49:52 2022 +0300
+
+    Added APK folder
+
+commit 414139a52fdae3ab4cef8cae11d649b1ff7fa09c
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Fri May 13 17:10:06 2022 +0300
+
+    last push
+
+commit d8f492fc4eb123c1fa698f40c1c02e71d3b942e9
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Thu May 12 22:19:53 2022 +0300
+
+    Final Final Final Final Update?
+
+    Improved podcast support and minor visual updates
+
+commit 24f76cde2c1dd0c420a7510aad206bf394c3a234
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu May 12 14:03:30 2022 +0300
+
+    added AboutUsActivity
+
+commit ba0a302eaa5000febfb236178e6c83454b01b948
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Thu May 12 00:08:55 2022 +0300
+
+    Final Final State of Android App
+
+commit 9b9bf21b3e3ae86e56a58fafc2afb7ac443bce58
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Thu May 12 00:03:06 2022 +0300
+
+    Final State of Android App
+
+commit 6b1d0072da5a33d89ff6851ba1be69fbe1714d2a
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Wed May 11 23:23:16 2022 +0300
+
+    fixed minor bug
+
+commit 72978ea4dce5d375644d013d4863e9e2c6dae6ed
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Wed May 11 23:00:59 2022 +0300
+
+    added weekly stats
+
+commit d930d12879a8fd06e8f4cf9338ed6b67a8d89894
+Merge: 08d641f 57d88b6
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Wed May 11 22:14:42 2022 +0300
+
+    Merge remote-tracking branch 'origin/android' into android
+
+commit 08d641f2374eddbc465d3e95c56ea5cf61f19ce5
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Wed May 11 22:14:12 2022 +0300
+
+    added model package
+
+commit 57d88b6105ad6322d74187454b59de90a3717c72
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Wed May 11 21:03:13 2022 +0300
+
+    added placeholder avatar
+
+commit 3530a6979bbc9dce92b6e9bf93dab4c2f303a067
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Wed May 11 20:37:40 2022 +0300
+
+    updating user points with timer
+
+commit b71daa202db23f15d1aaeb44bf48d56c127d7b10
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Wed May 11 20:33:10 2022 +0300
+
+    Dark mode fix
+
+    It was bugging me and I wanted to fix the fact that texts were unreadable in dark mode so I fixed it, also took a rar backup of the whole project since Im not sure if Im using GitKraken properly. Also the streaming kinda isnt working properly right now :(
+
+commit 4404dc5003732ff773cd4915143e40a3bff29473
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Wed May 11 20:02:26 2022 +0300
+
+    added FeedbackActivity
+
+commit 053884df5d53289542abccccdabf7d6cd0c5f3b6
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Wed May 11 18:45:51 2022 +0300
+
+    added listener for nav_drawer
+
+commit 4e6f56d7d21f0f1a41e5fe53f74432b6d1170733
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Wed May 11 18:40:54 2022 +0300
+
+    Navigation Drawer made perfect
+
+commit 98cf0eeeebdb8bd6a3cb459a7e1bb4f2e6cc6e47
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Wed May 11 16:00:25 2022 +0300
+
+    fixed navigation drawer
+
+commit 80e66417ab668b77977e503319b02e19d5f9c14b
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Wed May 11 15:25:12 2022 +0300
+
+    Added Navigation Drawer But removed everything
+
+    Gotta go to German class. I know you will handle the issue. Peace and love <3
+
+commit 0f9d507271a0a65be5d2e08fdb94b1ff3e34590b
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Tue May 10 22:10:41 2022 +0300
+
+    improved lot of things its exhausting
+
+commit 286338abd63ab5577e90547e70c2717fa6a8a55b
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Tue May 10 19:16:58 2022 +0300
+
+    improved NowPlayingFragment
+
+commit b95c6c921d2d552995524a95d1a5e4167e6be01d
+Merge: ec1b173 d9fd142
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Tue May 10 18:54:54 2022 +0300
+
+    Merge remote-tracking branch 'origin/android' into android
+
+commit ec1b173febaf51d8df3576c29a13885af2d5720b
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Tue May 10 18:54:38 2022 +0300
+
+    TopBar problems solved
+
+commit d9fd142f9d08f9c807e4c4c0740d1b46a0da45b5
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Tue May 10 17:19:55 2022 +0300
+
+    improved VotingResultActivity
+
+commit d66e2d8f075da2aaccfe34e3c706fbe52f98a968
+Merge: d844890 4917b7a
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Tue May 10 16:50:26 2022 +0300
+
+    Merge remote-tracking branch 'origin/android' into android
+
+commit d8448900ef4529c610fd15de5058fdd9ee20cdad
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Tue May 10 16:50:04 2022 +0300
+
+    Again, theme changes
+
+commit 4917b7aefd9b1cf719cbb43cec67139c091d924e
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Tue May 10 16:47:35 2022 +0300
+
+    Cevat istedi
+
+    ali cevat, that is
+
+commit 314ecf262d4ce1bc06f3142116dade8f233aa6f7
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Tue May 10 16:46:59 2022 +0300
+
+    Changed the main colors to use our own chosen colors from the themes
+
+    This push will change the color of default objects like buttons, notification bar and other things. //Use the secondary colors to use for not interactable GUI elements
+
+commit efd62e98529c87d5f5da24dd9a0110b0e13781e1
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Tue May 10 16:43:00 2022 +0300
+
+    Added our chosen colors to the color list for future uses
+
+    This push should not break anything but here we go...
+
+commit d0c6e8788ad943f11b525c56a7f6b967a3925173
+Merge: 1debbf5 c8a42b2
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Tue May 10 16:41:50 2022 +0300
+
+    Merge remote-tracking branch 'origin/android' into android
+
+commit 1debbf56654525ef6b5671f653f199205bf5cc8c
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Tue May 10 16:41:30 2022 +0300
+
+    improved MainActivity
+
+    added top bar, program flow and voting session button
+
+commit c8a42b26b28fb2d65f25e134cc48556e0818f6cb
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Tue May 10 16:10:29 2022 +0300
+
+    improved VotingActivity
+
+commit 29066aff671f33ad223c548dad0f5445a78e507d
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Tue May 10 00:00:49 2022 +0300
+
+    finalized NowPlayingFragment
+
+commit 9467cdc9e002aa0b5231f4f655dbc3ce68645f19
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Mon May 9 22:05:33 2022 +0300
+
+    Improved nowPlayingFragment
+
+commit 9b5f00fad2d8909639ba4aaa05fdc6c72fcb4234
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Mon May 9 17:22:45 2022 +0300
+
+    UpdateUserInfo problems solved
+
+commit 4a326dbb0419cc7e0f1c58d2dd34fc4971f92a2a
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Mon May 9 14:32:58 2022 +0300
+
+    fixed UpdateUserInfoActivity and UpdateUserInfoFragment string error remains
+
+commit 8ef345b9a3130db4036c31b3ca0d65757a2615a0
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Mon May 9 12:06:53 2022 +0300
+
+    updated MainActivity
+
+commit 43e96898119b1964e2989632ec221a953c3c6455
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Mon May 9 00:54:03 2022 +0300
+
+    added VotingActivity and updated UpdateUserInfoActivity
+
+commit 46fd468cee6349c2db4a10793a608d32e5fca133
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Sun May 8 22:41:06 2022 +0300
+
+    More Problems Added
+
+commit 93b152a369f3ff83c12a4fe25d02a335eb43563b
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Sun May 8 15:38:29 2022 +0300
+
+    added nowPlayingFragment
+
+commit abfa9de35a3999d423ad88c2d833c9a2e5bf288b
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Fri May 6 23:16:45 2022 +0300
+
+    added google sign-in support
+
+    configured Data and User classes. Google Sign-in implementation is currently incomplete
+
+commit bf2c64ae61780cff0e4d4b30ff60496000c4f4bb
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Thu May 5 02:59:55 2022 +0300
+
+    User class and Gender enum added
+
+    User class has basic interaction capabilities with the database. StartActivity can now recognise a user who is already logged in.
+
+commit b40b65867ca0bb346fa82bc79c2801c85d379a2b
+Author: ulasdilek <ulas.dilek@ug.bilkent.edu.tr>
+Date:   Wed May 4 00:29:07 2022 +0300
+
+    Initial log in and sign in logic implemented
+
+    Made some experiments to learn how to use firebase for user authentication and implemented a basic RegisterActivity
+
+commit 063a02db31099dd44057b89d5f7088ee2685bda4 (main)
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Tue May 3 10:38:29 2022 +0300
+
+    Tuna Saygın modified packages added searchSong method and created programme class
+
+commit ccbae6ee1cc4d6a3d708b781998c32ce447697f6
+Merge: e0e7e23 c4d080d
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Mon May 2 13:15:17 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit c4d080d40f41cd91a707852e52d53bf178800c46
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Mon May 2 09:56:50 2022 +0300
+
+    ListViews and Add Song is added
+
+    Remainings: Programme Class, Voting Session Class, FeedBack Class, Related Classes to Handle the connection of Controller to DataBase, FXML connection of add podcast and blog buttons
+
+commit e0e7e2327928715f0d7cd5d344d9e4f1659d3aac
+Merge: 7cc1a9b 436d8cd
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 18:42:00 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit 7cc1a9b85d5ce5db9d80b225b8288a5c5e20e8cd
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 18:41:44 2022 +0300
+
+    Tuna
+
+commit 436d8cdc6fbc2da17f762f87c5c1bf5f08e5a625
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 18:23:00 2022 +0300
+
+    packageNames
+
+commit c2497b9908827bd4ea8a79c4ed7bd614be806720
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 17:54:58 2022 +0300
+
+     Change in content classes
+
+commit a1e1b65d4911003cf2dd49b91c513f0acaff8873
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 17:24:18 2022 +0300
+
+    VotingController&Main Controller arranged
+
+commit 57d4ef9428eb3c3d01d31a9faaead000d681dcb1
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 16:25:33 2022 +0300
+
+    ProgrammeFlowController
+
+commit e8ec13d00d2680372681e3436554088b2ff1a62f
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 15:23:08 2022 +0300
+
+    BlogFxml&BlogController
+
+commit ae47a6f326d9cde87d6b94f7bce05908aa3abcac
+Merge: d2352af 5756296
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 15:02:11 2022 +0300
+
+    Merge remote-tracking branch 'origin/main' into main
+
+commit 575629605afc58b8e8314360c20fa28f0d53c289
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sun May 1 14:59:27 2022 +0300
+
+    podcast class modified by Tuna Saygın
+
+commit d2352af009fb0d963b0d4ec5506ba739451269ae
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 14:24:38 2022 +0300
+
+    PodcastEditor&Controller3
+
+commit 4473570229669ee04a8f161f47bbf66d0255afd4
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 12:45:41 2022 +0300
+
+    PodcastEditor&PodcastController2
+
+commit 479004c58a4fd43fd303875dd78131bb3a337442
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 12:45:08 2022 +0300
+
+    PodcastEditor&PodcastController
+
+commit 6c65d66eea3de03c63225d4fac2f301931154455
+Author: Yusuf KESMEN <yusuffkesmen2@gmail.com>
+Date:   Sun May 1 11:37:14 2022 +0300
+
+    Changes on fxml
+
+commit c4fca397a0e10db32066e266ae7a19412f69f62d
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 22:52:17 2022 +0300
+
+    song class implemented methods related to database Hayırlı uğurlu olsun
+
+commit dfb56b03c535def6b285b7bb86daf6c2e2fc5297
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 11:37:28 2022 +0300
+
+    New changes for Database part new dependencies are added, connected to firestore database
+
+commit 6fab99d7c0c8cc42918ef9f28d2d303f4863e6de
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Sat Apr 30 10:48:50 2022 +0300
+
+    Firebase for admin panel is added and working properly.
+
+commit 351fa8ccc55d374e2bbeaca6b40d2d0a6a4caf41
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Thu Apr 28 17:29:29 2022 +0300
+
+    Uploading the res folder for use in Android Studio
+
+commit b990c639049e220d9e17682fbe0ec8c7e6603332
+Author: yigitilk <yigitilk21@gmail.com>
+Date:   Thu Apr 28 17:28:23 2022 +0300
+
+    Creating this folder cluster to add the GUI elements of the mobile app.
+
+commit c489b9451adcacbde8c8b41e2dbda27b43b6fe14
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:36:38 2022 +0300
+
+    Other changes related to admin sdk key6
+
+commit 73fc193cdd3a8e6a2078f134b80cab9c05fb9227
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:36:08 2022 +0300
+
+    Added the firebase adminsdk key
+
+commit c2a2b3b451db2934f358f6c17c3a2d2812fc5070
+Author: Tuna <tuna.saygin@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:29:41 2022 +0300
+
+    ben tuna test edıom
+
+commit 393ca2637c4a54ec96b4d3b78ac07ed131324c9a
+Merge: 43215fb 22f06e0
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:18:47 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit 43215fbb2b0ab5efb9a68cc10879159ee38c5345
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:18:11 2022 +0300
+
+    Added OpenInBrowserListener.java
+
+commit 22f06e0fbaf19838f8c176fb394df0817605b99b
+Author: TunaSaygin <91385993+TunaSaygin@users.noreply.github.com>
+Date:   Thu Apr 28 11:04:26 2022 +0300
+
+    Added firebase dependency to POM.xml
+
+commit 9c617f819eb5e5492aa7f3b978073a7b10dc8afb
+Merge: 936a2f2 1c90878
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:02:05 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ac-Ayi-Kodlamaz/RadyoBilkentApp
+
+commit 936a2f24a5666cee48f516486164f1d30b9eda72
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 11:00:58 2022 +0300
+
+    Added extends keyword to files
+
+commit 1c90878fec7ab9a1368cdcdb703d8df89f6e51c0
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Thu Apr 28 10:59:17 2022 +0300
+
+    Add files via upload
+
+    JAVAFX for Admin Panel
+
+commit 885dc9072fd6f366a3b56d34b1a66095ee79a958
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Thu Apr 28 10:48:14 2022 +0300
+
+    Created Folder
+
+commit a3f1f090b76c688178dd10fad2f40dfcfceaf341
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Thu Apr 28 10:37:19 2022 +0300
+
+    Add files via upload
+
+    Content Class Template
+
+commit f12a61054691966c98abc186486a06948d9da1af
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:17:40 2022 +0300
+
+    Changed the title
+
+commit 632be6b58a328e4bd581b57f32422193d58d3e9b
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:08:58 2022 +0300
+
+    Changed the url of the logo
+
+commit 72c387640324fa69cfd5140fd02f779ebbddc5cb
+Author: Ali Cevat Ercal <cevat.ercal@ug.bilkent.edu.tr>
+Date:   Thu Apr 28 10:04:30 2022 +0300
+
+    Added logo of RadyoBilkent
+
+commit 0796f70a26a6a1e7dc3ce0efb0ef8dca564ddde9
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:18:24 2022 +0300
+
+    Delete RadioBilkent.drawio
+
+commit b3be43695b2ffe1713843db30c359de2ac2a5993
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:17:36 2022 +0300
+
+    Added RadioBilkentUMLDiagram.png
+
+commit 7bb0cfe7b02fabbfcf867695f79cb12e40bc2d76
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:04:47 2022 +0300
+
+    Add files via upload
+
+    UML Diagram
+
+commit cec87f2731f43c1c868ff0aac0a33adb01f9aaf5
+Author: Yiğit İlk <80704436+YeetTheFirst21@users.noreply.github.com>
+Date:   Wed Apr 6 19:37:10 2022 +0300
+
+    Update README.md
+
+commit 1744d08a5a0a5c49ba7539d9d7067ae7b155197b
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Tue Apr 5 16:27:19 2022 +0300
+
+    Initial commit
+(END)
+Date:   Wed Apr 27 15:17:36 2022 +0300
+
+    Added RadioBilkentUMLDiagram.png
+
+commit 7bb0cfe7b02fabbfcf867695f79cb12e40bc2d76
+Author: Yusuf KESMEN <91363583+yunyus@users.noreply.github.com>
+Date:   Wed Apr 27 15:04:47 2022 +0300
+
+    Add files via upload
+
+    UML Diagram
+
+commit cec87f2731f43c1c868ff0aac0a33adb01f9aaf5
+Author: Yiğit İlk <80704436+YeetTheFirst21@users.noreply.github.com>
+Date:   Wed Apr 6 19:37:10 2022 +0300
+
+    Update README.md
+
+commit 1744d08a5a0a5c49ba7539d9d7067ae7b155197b
+Author: Ulaş Dilek <ulasdilekud@gmail.com>
+Date:   Tue Apr 5 16:27:19 2022 +0300
+
+    Initial commit
